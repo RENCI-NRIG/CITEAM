@@ -1,0 +1,7 @@
+---
+title: "Welcome"
+---
+
+# CITEAM
+
+Welcome to the CITEAM website — powered by [Quarto](https://quarto.org/).

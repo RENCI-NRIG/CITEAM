@@ -1,0 +1,57 @@
+name: Publish Quarto site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Allow the workflow to create/update the gh-pages branch and deploy Pages
+permissions:
+  contents: write
+  pages: write
+
+# Cancel an in-progress run if a new push arrives (prevents overlapping builds)
+concurrency:
+  group: "quarto-publish"
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # --- Python setup (for executing Python code blocks / notebooks) ---
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies (if any)
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          # If your site executes Python code blocks via Jupyter:
+          # pip install jupyter
+
+      # --- Quarto CLI ---
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        # with:
+        #   version: stable      # or 'pre-release' or a specific version like '1.6.39'
+        #   tinytex: true        # uncomment if you render PDFs and need LaTeX
+
+      # Optional diagnostics
+      - name: Quarto version
+        run: quarto --version
+
+      # --- Build & publish to GitHub Pages (gh-pages branch) ---
+      - name: Publish to GitHub Pages
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+          # path: .              # project root (default)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

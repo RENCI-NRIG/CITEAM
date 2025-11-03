@@ -1,0 +1,32 @@
+project:
+  type: website
+
+website:
+  title: "CITEAM"
+  site-url: "https://renci-nrig.github.io/CITEAM/"
+  repo-url: "https://github.com/RENCI-NRIG/CITEAM"
+  favicon: images/favicon.png
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+  page-footer:
+    left: "© 2025 CITEAM"
+    right: "[Quarto](https://quarto.org/) site built by CITEAM"
+  search: true
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: cyborg
+    css: css/styles.css
+    toc: true
+    toc-location: right
+    code-copy: true
+    smooth-scroll: true
+
+execute:
+  freeze: auto
