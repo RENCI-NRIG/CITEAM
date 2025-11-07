@@ -66,7 +66,7 @@ instance/
 .webassets-cache
 
 # Scrapy
-.scrapy
+.scrapy/
 
 # Sphinx documentation
 docs/_build/
@@ -110,7 +110,7 @@ venv.bak/
 .vscode/
 
 # MkDocs documentation
-/site
+/site/
 
 # mypy / pyre / pytype
 .mypy_cache/
@@ -134,20 +134,26 @@ Thumbs.db
 # Quarto-specific ignores
 # ---------------------------------------------------------------------------
 
-# Rendered site output
+# Rendered site output (Quarto build directory)
 _site/
 
 # Cache of code execution and intermediates
 .qmd-cache/
 
-# Quarto internal files (rare, safe to ignore)
+# Quarto internal files
 .quarto/
 
 # Jupyter notebook checkpoints (redundant but explicit)
 .ipynb_checkpoints/
 
+# Temporary preview files
+.Rproj.user/
+.Rhistory
+.RData
+
 # ---------------------------------------------------------------------------
-# End of file
+# GitHub Pages deployment branch (optional safety)
 # ---------------------------------------------------------------------------
 
-/.quarto/
+# Ignore the deployment branch if accidentally checked out locally
+gh-pages/
