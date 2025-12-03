@@ -2,18 +2,98 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://renci-nrig.github.io/CITEAM/about.html</loc>
-    <lastmod>2025-12-03T16:21:53.270Z</lastmod>
+    <lastmod>2025-12-03T16:34:37.581Z</lastmod>
   </url>
   <url>
-    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/index.html</loc>
-    <lastmod>2025-12-03T16:21:53.271Z</lastmod>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-04Repetition.out.html</loc>
+    <lastmod>2025-12-03T16:35:18.251Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-01Introduction.html</loc>
+    <lastmod>2025-12-03T16:34:37.582Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-10Dictionaries.html</loc>
+    <lastmod>2025-12-03T16:34:37.585Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-05Functions.out.html</loc>
+    <lastmod>2025-12-03T16:35:14.961Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-05Functions.html</loc>
+    <lastmod>2025-12-03T16:34:37.583Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-04Repetition.html</loc>
+    <lastmod>2025-12-03T16:34:37.583Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-08Lists.out.html</loc>
+    <lastmod>2025-12-03T16:35:11.560Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-10Dictionaries.out.html</loc>
+    <lastmod>2025-12-03T16:35:10.200Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-07Exceptions.out.html</loc>
+    <lastmod>2025-12-03T16:35:09.156Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-02TypesVarsAndOperators.html</loc>
+    <lastmod>2025-12-03T16:34:37.582Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-01Introduction.out.html</loc>
+    <lastmod>2025-12-03T16:34:55.813Z</lastmod>
   </url>
   <url>
     <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE101/index.html</loc>
-    <lastmod>2025-12-03T16:21:53.271Z</lastmod>
+    <lastmod>2025-12-03T16:34:37.585Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/index.html</loc>
+    <lastmod>2025-12-03T16:34:37.585Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-03DecisionStructures.html</loc>
+    <lastmod>2025-12-03T16:34:37.582Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-03DecisionStructures.out.html</loc>
+    <lastmod>2025-12-03T16:35:09.742Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-06Files.html</loc>
+    <lastmod>2025-12-03T16:34:37.584Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-09Strings.out.html</loc>
+    <lastmod>2025-12-03T16:35:11.947Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-02TypesVarsAndOperators.out.html</loc>
+    <lastmod>2025-12-03T16:35:13.217Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-07Exceptions.html</loc>
+    <lastmod>2025-12-03T16:34:37.584Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-06Files.out.html</loc>
+    <lastmod>2025-12-03T16:35:15.619Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-09Strings.html</loc>
+    <lastmod>2025-12-03T16:34:37.585Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/PE100-08Lists.html</loc>
+    <lastmod>2025-12-03T16:34:37.584Z</lastmod>
   </url>
   <url>
     <loc>https://renci-nrig.github.io/CITEAM/index.html</loc>
-    <lastmod>2025-12-03T16:21:53.271Z</lastmod>
+    <lastmod>2025-12-03T16:34:37.582Z</lastmod>
   </url>
 </urlset>
