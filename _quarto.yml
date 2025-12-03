@@ -6,6 +6,7 @@ website:
   site-url: "https://renci-nrig.github.io/CITEAM/"
   repo-url: "https://github.com/RENCI-NRIG/CITEAM"
   favicon: images/favicon.png
+  
   navbar:
     left:
       - href: index.qmd
@@ -13,8 +14,16 @@ website:
       - href: about.qmd
         text: About
   page-footer:
-    left: "© 2025 CITEAM"
-    right: "[Quarto](https://quarto.org/) site built by CITEAM"
+    border: true
+    center: |
+      <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.25rem 0;">
+        <img src="images/nsf.png" alt="NSF logo" style="height: 35px; width: auto;">
+        <span style="font-size: 0.85rem; color: #666;">
+          CITEAM is supported by the NSF under award number 
+          <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519465" target="_blank">2519465</a>.
+        </span>
+      </div>
+
   search: true
 
 format:
