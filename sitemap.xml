@@ -2,10 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://renci-nrig.github.io/CITEAM/about.html</loc>
-    <lastmod>2025-12-03T15:39:37.053Z</lastmod>
+    <lastmod>2025-12-03T16:21:53.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE100/index.html</loc>
+    <lastmod>2025-12-03T16:21:53.271Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE101/index.html</loc>
+    <lastmod>2025-12-03T16:21:53.271Z</lastmod>
   </url>
   <url>
     <loc>https://renci-nrig.github.io/CITEAM/index.html</loc>
-    <lastmod>2025-12-03T15:39:37.054Z</lastmod>
+    <lastmod>2025-12-03T16:21:53.271Z</lastmod>
   </url>
 </urlset>
