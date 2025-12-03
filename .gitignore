@@ -157,3 +157,4 @@ _site/
 
 # Ignore the deployment branch if accidentally checked out locally
 gh-pages/
+/.quarto/
