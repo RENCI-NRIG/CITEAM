@@ -45,6 +45,8 @@ and all our remaining modules will use it. The second module is an
 introduction to electron microscope image processing and is, of
 course, written in Python.
 
+The remaining modules have, sadly, not been written yet. Take this as
+an outline of what could be and as a "jumping off point" for further work.
 
 ## Introductory Modules
 
@@ -54,3 +56,22 @@ course, written in Python.
 
 [pre100]: ./preliminaries/PRE100/index.qmd
 [pre101]: ./preliminaries/PRE101/index.qmd
+
+
+## Software Practices
+
+- SFTW 100: [Cyberinfrastructure and Facilities Available][SFTW100]
+- SFTW 101: [Intro to Software Engineering Practices][SFTW101]
+- SFTW 201: [Source Code Control and Management][SFTW201]
+- SFTW 202: [Making Jupyter Sit Up and Do Tricks][SFTW202]
+
+## Computational Strategies for Microscopy
+
+- CMP 100: [The Electron Microscopy Processing Pipeline: An
+  Introduction][CMP100]
+- CMP 101: [I heard you like math...][CMP101]
+
+## Data Management
+
+- DAT 100: [Introduction to Data Management and FAIR
+  Standards][DAT100]
