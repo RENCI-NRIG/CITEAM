@@ -746,7 +746,7 @@
     "href": "index.html",
     "title": "About CITEAM",
     "section": "",
-    "text": "The Cyberinfrastructure Training for Electron Microscopy–Enabled Materials Science (CITEAM) project brings together PIs with expertise in CI as well as in imaging-enabled materials science to develop an innovative training program targeting the materials science community that relies on advanced microscopes (e.g., Transmission Electron Microscopes (TEM)) for research.\nThe training program covers several relevant thematic areas – TEM instrument software, image analysis, scientific computing, application of AI in TEM image and data analysis, diffraction and spectroscopy data analysis, distributed computing for EM data processing, data curation and FAIR principles.\nCITEAM includes an additional element of “training the trainers” by exposing the relevant CI contributors – the research facilitators and laboratory staff scientists – to advanced CI topics, empowering them to guide others and innovate in the use of CI for materials science.\nTraining is offered in multiple modalities: self-paced modules, video lectures, templates and catalogs, office hours, sessions at the annual CITEAM Users’ Workshop, and tutorials at domain science conferences.\nCITEAM also devotes a significant effort to community building through a three-pronged coordination network comprising imaging laboratories, domain science communities, and experts from national CI resource providers. This approach ensures scalability, sustainability, and broad dissemination of training materials and practices.\nThere are presently two sets of training modules available. The first one is a basic introduction to the Python programming language. Python has quickly become the dominant language for science and engineering, and all our remaining modules will use it. The second module is an introduction to electron microscope image processing and is, of course, written in Python."
+    "text": "The Cyberinfrastructure Training for Electron Microscopy–Enabled Materials Science (CITEAM) project brings together PIs with expertise in CI as well as in imaging-enabled materials science to develop an innovative training program targeting the materials science community that relies on advanced microscopes (e.g., Transmission Electron Microscopes (TEM)) for research.\nThe training program covers several relevant thematic areas – TEM instrument software, image analysis, scientific computing, application of AI in TEM image and data analysis, diffraction and spectroscopy data analysis, distributed computing for EM data processing, data curation and FAIR principles.\nCITEAM includes an additional element of “training the trainers” by exposing the relevant CI contributors – the research facilitators and laboratory staff scientists – to advanced CI topics, empowering them to guide others and innovate in the use of CI for materials science.\nTraining is offered in multiple modalities: self-paced modules, video lectures, templates and catalogs, office hours, sessions at the annual CITEAM Users’ Workshop, and tutorials at domain science conferences.\nCITEAM also devotes a significant effort to community building through a three-pronged coordination network comprising imaging laboratories, domain science communities, and experts from national CI resource providers. This approach ensures scalability, sustainability, and broad dissemination of training materials and practices.\nThere are presently two sets of training modules available. The first one is a basic introduction to the Python programming language. Python has quickly become the dominant language for science and engineering, and all our remaining modules will use it. The second module is an introduction to electron microscope image processing and is, of course, written in Python.\nThe remaining modules have, sadly, not been written yet. Take this as an outline of what could be and as a “jumping off point” for further work."
   },
   {
     "objectID": "index.html#introductory-modules",
@@ -754,5 +754,26 @@
     "title": "About CITEAM",
     "section": "Introductory Modules",
     "text": "Introductory Modules\n\nPRE 100: Python Programming and Jupyter notebooks\nPRE 101: Microscopy Image Processing Basics"
+  },
+  {
+    "objectID": "index.html#software-practices",
+    "href": "index.html#software-practices",
+    "title": "About CITEAM",
+    "section": "Software Practices",
+    "text": "Software Practices\n\nSFTW 100: [Cyberinfrastructure and Facilities Available][SFTW100]\nSFTW 101: [Intro to Software Engineering Practices][SFTW101]\nSFTW 201: [Source Code Control and Management][SFTW201]\nSFTW 202: [Making Jupyter Sit Up and Do Tricks][SFTW202]"
+  },
+  {
+    "objectID": "index.html#computational-strategies-for-microscopy",
+    "href": "index.html#computational-strategies-for-microscopy",
+    "title": "About CITEAM",
+    "section": "Computational Strategies for Microscopy",
+    "text": "Computational Strategies for Microscopy\n\nCMP 100: [The Electron Microscopy Processing Pipeline: An Introduction][CMP100]\nCMP 101: [I heard you like math…][CMP101]"
+  },
+  {
+    "objectID": "index.html#data-management",
+    "href": "index.html#data-management",
+    "title": "About CITEAM",
+    "section": "Data Management",
+    "text": "Data Management\n\nDAT 100: [Introduction to Data Management and FAIR Standards][DAT100]"
   }
 ]
