@@ -55,7 +55,7 @@ an outline of what could be and as a "jumping off point" for further work.
 
 
 [pre100]: ./preliminaries/PRE100/index.qmd
-[pre101]: ./preliminaries/PRE101/index.qmd
+[pre101]: ./preliminaries/PE101/index.qmd
 
 
 ## Software Practices
