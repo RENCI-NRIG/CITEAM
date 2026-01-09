@@ -50,11 +50,11 @@ an outline of what could be and as a "jumping off point" for further work.
 
 ## Introductory Modules
 
-- PRE 100: [Python Programming and Jupyter notebooks][pre100]
+- PRE 100: [Python Programming and Jupyter notebooks][pe100]
 - PRE 101: [Microscopy Image Processing Basics][pre101]
 
 
-[pre100]: ./preliminaries/PRE100/index.qmd
+[pe100]: ./preliminaries/PE100/index.qmd
 [pre101]: ./preliminaries/PRE101/index.qmd
 
 
