@@ -1,56 +1,7 @@
----
-title: "About CITEAM"
-subtitle: "Cyberinfrastructure Training for Electron Microscopy–Enabled Materials Science"
-page-layout: article
-format:
-  html:
-    toc: false
----
-
 The **Cyberinfrastructure Training for Electron Microscopy–Enabled
 Materials Science (CITEAM)** project brings together PIs with
 expertise in CI as well as in imaging-enabled materials science to
 develop an innovative training program targeting the materials science
 community that relies on advanced microscopes (e.g., Transmission
 Electron Microscopes (TEM)) for research.
-
-The training program covers several relevant thematic areas – TEM
-instrument software, image analysis, scientific computing, application
-of AI in TEM image and data analysis, diffraction and spectroscopy
-data analysis, distributed computing for EM data processing, data
-curation and FAIR principles.
-
-CITEAM includes an additional element of “training the trainers” by
-exposing the relevant CI contributors – the research facilitators and
-laboratory staff scientists – to advanced CI topics, empowering them
-to guide others and innovate in the use of CI for materials science.
-
-Training is offered in multiple modalities: self-paced modules, video
-lectures, templates and catalogs, office hours, sessions at the annual
-**CITEAM Users’ Workshop**, and tutorials at domain science
-conferences.
-
-CITEAM also devotes a significant effort to community building through
-a **three-pronged coordination network** comprising imaging
-laboratories, domain science communities, and experts from national CI
-resource providers. This approach ensures scalability, sustainability,
-and broad dissemination of training materials and practices.
-
-
-There are presently two sets of training modules available. The first
-one is a basic introduction to the Python programming language. Python
-has quickly become the dominant language for science and engineering,
-and all our remaining modules will use it. The second module is an
-introduction to electron microscope image processing and is, of
-course, written in Python.
-
-
-## Introductory Modules
-
-- PRE 100: [Python Programming and Jupyter notebooks][pre100]
-- PRE 101: [Microscopy Image Processing Basics][pre101]
-
-
-[pre100]: ./preliminaries/PRE100/index.qmd
-[pre101]: ./preliminaries/PRE101/index.qmd
 
