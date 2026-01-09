@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-    <title>Programming Essentials - Python Programming and Jupyter Notebooks (PE100) – CITEAM</title>
+    <title>PE100-09: Strings – CITEAM</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -18,6 +18,41 @@
         width: 0.8em;
         margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
         vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      html { -webkit-text-size-adjust: 100%; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
     </style>
 
@@ -330,9 +365,9 @@
     <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
       
       <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link"><i class="bi bi-caret-left"></i> Back to Article</a>
-      <h6><i class="bi bi-journal-code"></i> Programming Essentials - Python Programming and Jupyter Notebooks (PE100)</h6>
+      <h6><i class="bi bi-journal-code"></i> PE100-09: Strings</h6>
 
-            <a href="../../preliminaries/PRE100/PE100-01Introduction.ipynb" class="btn btn-primary quarto-download-embed" download="PE100-01Introduction.ipynb">Download Notebook</a>
+            <a href="../../preliminaries/PE100/PE100-09Strings.ipynb" class="btn btn-primary quarto-download-embed" download="PE100-09Strings.ipynb">Download Notebook</a>
           </div>
 
      <div id="quarto-search-results"></div>
@@ -379,7 +414,7 @@
 <!-- main -->
 <main class="content" id="quarto-document-content">        <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programming Essentials - Python Programming and Jupyter Notebooks (PE100)</h1>
+<h1 class="title">PE100-09: Strings</h1>
 </div>
 
 
@@ -393,24 +428,114 @@
   
 
 
-</header>   <div id="a908d067-92b5-4fc8-9512-544368a3a67f" class="cell markdown">
-<p>Welcome to the <strong>Programming Essentials - Python Programming and Jupyter Notebooks</strong> component of the X-CITE training materials. The intent behind this unit is to show new CHESS users how to write programs in Python for experimental data analysis.</p>
-<p>Prerequisites? None.</p>
-<p>The training materials before you are designed both for scientists who may not have any programming experience whatsoever and for those who have at least some basic programming capability but in a language other than Python.</p>
-<p>Python’s adoption has exploded in the last decade. Much of its success can be attributed to productivity. Many programming languages force the programmer to deal with very small details to do even the simplest things. Python’s attitude is to just take care of all the minutae so we don’t have to. On top of that, Python’s popularity has resulted in hundreds of thousands of packages of useful code for specific tasks. If there is something you need to write a program for, it’s almost definite that someone else has had the same problem. There’s a good chance at least one of those people neatly wrapped up some of their code and made it available in one of the repositories on the internet. There’s no reason for you to reinvent the proverbial wheel again - take advantage of their work (don’t forget to cite it!) and get back to doing actual science that much sooner.</p>
-<p>You’re currently looking at <a href="../../preliminaries/PRE100/PE100-01Introduction.html">PE100-01 Introduction</a>. If you are new to Python and especially if you’re new to programming, you should work through each of the modules in order. More experienced programmers might benefit from skipping directly to topics that interest them. Select one of the following:</p>
-<ul>
-<li><a href="../../preliminaries/PRE100/PE100-02TypesVarsAndOperators.html">PE100-02 Types, Variables, and Operators</a> - the heart of any programming language.</li>
-<li><a href="../../preliminaries/PRE100/PE100-03DecisionStructures.html">PE100-03 Decision Structures</a> - conditional statements (“if” statements”) change the program flow.</li>
-<li><a href="../../preliminaries/PRE100/PE100-04Repetition.html">PE100-04 Repetition</a> - “while” and “for” loops let us do things over and over.</li>
-<li><a href="../../preliminaries/PRE100/PE100-05Functions.html">PE100-05 Functions</a> - Python comes with a lot of functions, but we can write even more.</li>
-<li><a href="../../preliminaries/PRE100/PE100-06Files.html">PE100-06 Files</a> - Reading input from and storing your results to disk.</li>
-<li><a href="../../preliminaries/PRE100/PE100-07Exceptions.html">PE100-07 Exceptions</a> - Dealing with unexpected contingencies.</li>
-<li><a href="../../preliminaries/PRE100/PE100-08Lists.html">PE100-08 Lists</a> - Another kind of variable, and the key to structuring data storage.</li>
-<li><a href="../../preliminaries/PRE100/PE100-09Strings.html">PE100-09 Strings</a> - More details on working with text.</li>
-<li><a href="../../preliminaries/PRE100/PE100-10Dictionaries.html">PE100-10 Dictionaries</a> - Like a simple database, look up information quickly.</li>
-</ul>
+</header>   <div id="f499caf8-eabc-4ec2-a88f-a095f7397488" class="cell markdown">
+<p>We’ve been using strings in each of the previous modules, but we’ve accepted them as a found artifact without really getting into them and seeing how they. This module will correct that deficiency and make all of better <del>people</del>programmers.</p>
+<section id="review-time" class="level3">
+<h3 class="anchored" data-anchor-id="review-time">Review time</h3>
+<p>Let’s take a quick look at what we’ve done so far.</p>
+<pre><code>String literals:   "Doug McKenzie"
+String variables:  comedic_genius = "Mel Brooks"
+
+Comparison:        if my_name == your_name:
+                   if your_name != "Chuck Woolery":
+Concatenation:     full_name = first_name+last_name
+Repetition:        "ABC" * 20</code></pre>
+<p>There is a lot more we can do with strings. We can: * Index into them * Iterate over them * Slice them * Search them * Call methods that act on them…</p>
+<p>In fact, when you look at what you can do with a string and how you do it, you suddenly realize that a string is just (conceptually) a tuple of letters.</p>
+<p>We can index into a string:</p>
+</section>
 </div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="4bb82943-bca0-4f08-a1c0-ddae813a6692" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_name<span class="op">=</span><span class="st">"John Belushi"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_name[<span class="dv">0</span>])</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_name[<span class="bu">len</span>(my_name)<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_name[<span class="op">-</span><span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>J
+i
+i</code></pre>
+</div>
+</div></div>
+<div id="22cb510e-cc18-4dc6-bfd3-a4b6ce4a95d7" class="cell markdown">
+<p>Strings are iterables:</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="31c6e197-4fee-4c2b-833b-12b67db3ff4b" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> char <span class="kw">in</span> my_name:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(char)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>J
+o
+h
+n
+ 
+B
+e
+l
+u
+s
+h
+i</code></pre>
+</div>
+</div></div>
+<div id="dbcb6f5f-eab3-4a3a-94d2-4d245c323736" class="cell markdown">
+<p>Just like a tuple, the elements of a string are immutable. Once a string is created, the characters can’t be changed.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="5f7d5ca5-2326-4c00-aebe-22af4501572b" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>my_name<span class="op">=</span><span class="st">"Bob"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>my_name[<span class="dv">0</span>]<span class="op">=</span><span class="st">'R'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[4], line 2</span>
+<span class="ansi-green-fg ansi-bold">      1</span> my_name<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Bob</span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg">----&gt; 2</span> <span class="ansi-yellow-bg">my_name</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">0</span><span class="ansi-yellow-bg">]</span><span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">R</span><span style="color:rgb(175,0,0)">'</span>
+
+<span class="ansi-red-fg">TypeError</span>: 'str' object does not support item assignment</pre>
+</div>
+</div>
+</div></div>
+<div id="e6880d61-06be-4247-909a-414761ddf2a9" class="cell markdown">
+<p>We can slice strings:</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="3bbf18cc-4625-4db7-bffc-b98535a9e5c0" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_name<span class="op">=</span><span class="st">"Michael Jordan"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_name[<span class="dv">2</span>:<span class="dv">4</span>])</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_name[<span class="dv">4</span>:])</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_name[:<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ch
+ael Jordan
+Mi</code></pre>
+</div>
+</div></div>
+<div id="bd4ce0fb-9e0d-4d0e-9af4-4e60bc54d8b0" class="cell markdown">
+<p>We can search into a string with the <code>in</code> operator:</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="f0c4d3a1-c6fb-4a5b-9c93-963c2fcf0c56" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tweet_msg <span class="op">=</span> <span class="st">"I think synchrotrons are cool."</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"synchrotrons"</span> <span class="kw">in</span> tweet_msg:</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"found one!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>found one!</code></pre>
+</div>
+</div></div>
+<div id="1b567f5f-2eab-40e3-a563-ba07ad93564d" class="cell markdown">
+<p>There are a huge variety of string methods. We’ll look at just a few here. Some of them are handy for validating inputs…</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="c9067a39-2e54-4c7c-8d74-60cede1586ca" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>bolts <span class="op">=</span> <span class="bu">input</span>(<span class="st">"How many bolts did you install?"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> bolts.isdigit():</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"I was expecting something that looked like an integer"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    fasteners <span class="op">=</span> <span class="bu">int</span>(bolts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdin">
+<pre><code>How many bolts did you install? op</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>I was expecting something that looked like an integer</code></pre>
+</div>
+</div></div>
 
 
      </main> <!-- /main -->  <script id="quarto-html-after-body" type="application/javascript">

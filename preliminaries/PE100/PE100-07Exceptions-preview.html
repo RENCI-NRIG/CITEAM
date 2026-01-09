@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-    <title>PE100-09: Strings – CITEAM</title>
+    <title>PE100-06: Exceptions – CITEAM</title>
     <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -365,9 +365,9 @@
     <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
       
       <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link"><i class="bi bi-caret-left"></i> Back to Article</a>
-      <h6><i class="bi bi-journal-code"></i> PE100-09: Strings</h6>
+      <h6><i class="bi bi-journal-code"></i> PE100-06: Exceptions</h6>
 
-            <a href="../../preliminaries/PRE100/PE100-09Strings.ipynb" class="btn btn-primary quarto-download-embed" download="PE100-09Strings.ipynb">Download Notebook</a>
+            <a href="../../preliminaries/PE100/PE100-07Exceptions.ipynb" class="btn btn-primary quarto-download-embed" download="PE100-07Exceptions.ipynb">Download Notebook</a>
           </div>
 
      <div id="quarto-search-results"></div>
@@ -414,7 +414,7 @@
 <!-- main -->
 <main class="content" id="quarto-document-content">        <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">PE100-09: Strings</h1>
+<h1 class="title">PE100-06: Exceptions</h1>
 </div>
 
 
@@ -428,114 +428,187 @@
   
 
 
-</header>   <div id="f499caf8-eabc-4ec2-a88f-a095f7397488" class="cell markdown">
-<p>We’ve been using strings in each of the previous modules, but we’ve accepted them as a found artifact without really getting into them and seeing how they. This module will correct that deficiency and make all of better <del>people</del>programmers.</p>
-<section id="review-time" class="level3">
-<h3 class="anchored" data-anchor-id="review-time">Review time</h3>
-<p>Let’s take a quick look at what we’ve done so far.</p>
-<pre><code>String literals:   "Doug McKenzie"
-String variables:  comedic_genius = "Mel Brooks"
-
-Comparison:        if my_name == your_name:
-                   if your_name != "Chuck Woolery":
-Concatenation:     full_name = first_name+last_name
-Repetition:        "ABC" * 20</code></pre>
-<p>There is a lot more we can do with strings. We can: * Index into them * Iterate over them * Slice them * Search them * Call methods that act on them…</p>
-<p>In fact, when you look at what you can do with a string and how you do it, you suddenly realize that a string is just (conceptually) a tuple of letters.</p>
-<p>We can index into a string:</p>
-</section>
+</header>   <div id="31988a64-c577-4e53-91fe-cb125f180b53" class="cell markdown">
+<p>Most of the time, the code we write does exactly what we expect. Our numbers are added up, files are written and read, and users type their input in neat little boxes. Sometimes, though, something goes wrong. Maybe the disk storage space filled up, or we try to write to a file in a directory we don’t have access to (or maybe the directory doesn’t even exist). When things like this happen, the Python interpreter stops the normal flow of execution.</p>
+<p>Take a look at an exception:</p>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="4bb82943-bca0-4f08-a1c0-ddae813a6692" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_name<span class="op">=</span><span class="st">"John Belushi"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_name[<span class="dv">0</span>])</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_name[<span class="bu">len</span>(my_name)<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_name[<span class="op">-</span><span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>J
-i
-i</code></pre>
-</div>
-</div></div>
-<div id="22cb510e-cc18-4dc6-bfd3-a4b6ce4a95d7" class="cell markdown">
-<p>Strings are iterables:</p>
-</div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="31c6e197-4fee-4c2b-833b-12b67db3ff4b" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> char <span class="kw">in</span> my_name:</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(char)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>J
-o
-h
-n
- 
-B
-e
-l
-u
-s
-h
-i</code></pre>
-</div>
-</div></div>
-<div id="dbcb6f5f-eab3-4a3a-94d2-4d245c323736" class="cell markdown">
-<p>Just like a tuple, the elements of a string are immutable. Once a string is created, the characters can’t be changed.</p>
-</div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="5f7d5ca5-2326-4c00-aebe-22af4501572b" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>my_name<span class="op">=</span><span class="st">"Bob"</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>my_name[<span class="dv">0</span>]<span class="op">=</span><span class="st">'R'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="c915c73d-e750-45be-80ab-7910ff7644e9" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>funny_number <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[4], line 2</span>
-<span class="ansi-green-fg ansi-bold">      1</span> my_name<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Bob</span><span style="color:rgb(175,0,0)">"</span>
-<span class="ansi-green-fg">----&gt; 2</span> <span class="ansi-yellow-bg">my_name</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">0</span><span class="ansi-yellow-bg">]</span><span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">R</span><span style="color:rgb(175,0,0)">'</span>
+<span class="ansi-red-fg">ZeroDivisionError</span>                         Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[1], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> funny_number <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(98,98,98)" class="ansi-yellow-bg">1</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">/</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">0</span>
 
-<span class="ansi-red-fg">TypeError</span>: 'str' object does not support item assignment</pre>
+<span class="ansi-red-fg">ZeroDivisionError</span>: division by zero</pre>
 </div>
 </div>
 </div></div>
-<div id="e6880d61-06be-4247-909a-414761ddf2a9" class="cell markdown">
-<p>We can slice strings:</p>
+<div id="233764f6-fbaf-484c-8e4e-a35429cd7eaf" class="cell markdown">
+<p>When you run the above, Python will notice the error, stop the code from running, and point out that a “ZeroDivisionError” has occurred. Since this kind of thing wasn’t supposed to happen (division by zero is considered a Bad Thing(tm) by most people) we can say the situation we’re faced with is an <em>exception</em>. And indeed, Python’s error handling mechanisms are based on what are called “exceptions”.</p>
+<p>When Python saw the “division by zero” error, it stopped running the rest of the code. It created one of these Exceptions, and then it <em>threw</em> it. Nothing in our one-line example tried to do anything about that exception, so Python just let the program crash and it printed the helpful error messages for us.</p>
+<p>Most of the time, we want our code to be able to handle exceptions when they arrise. We want something that can <em>catch</em> these exceptions when they’re <em>thrown</em>. For that, we need to use Python’s <code>try</code> statement.</p>
+<section id="try-try-again" class="level3">
+<h3 class="anchored" data-anchor-id="try-try-again">Try, try again</h3>
+<hr>
+<p><code>try</code> is how we safely wrap up a bit of code so that if something in there fails and an exception is thrown, we have a way to catch it. For example:</p>
+</section>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="3bbf18cc-4625-4db7-bffc-b98535a9e5c0" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_name<span class="op">=</span><span class="st">"Michael Jordan"</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_name[<span class="dv">2</span>:<span class="dv">4</span>])</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_name[<span class="dv">4</span>:])</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_name[:<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>ch
-ael Jordan
-Mi</code></pre>
-</div>
-</div></div>
-<div id="bd4ce0fb-9e0d-4d0e-9af4-4e60bc54d8b0" class="cell markdown">
-<p>We can search into a string with the <code>in</code> operator:</p>
-</div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="f0c4d3a1-c6fb-4a5b-9c93-963c2fcf0c56" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tweet_msg <span class="op">=</span> <span class="st">"I think synchrotrons are cool."</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"synchrotrons"</span> <span class="kw">in</span> tweet_msg:</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"found one!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>found one!</code></pre>
-</div>
-</div></div>
-<div id="1b567f5f-2eab-40e3-a563-ba07ad93564d" class="cell markdown">
-<p>There are a huge variety of string methods. We’ll look at just a few here. Some of them are handy for validating inputs…</p>
-</div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="c9067a39-2e54-4c7c-8d74-60cede1586ca" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>bolts <span class="op">=</span> <span class="bu">input</span>(<span class="st">"How many bolts did you install?"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> bolts.isdigit():</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"I was expecting something that looked like an integer"</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    fasteners <span class="op">=</span> <span class="bu">int</span>(bolts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="4e5b0e46-0452-49da-9bb3-b8c7dd12fef1" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    denominator <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'Please enter the denominator'</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    funny_number <span class="op">=</span> <span class="dv">1000</span><span class="op">/</span>denominator</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'the result was'</span>, funny_number)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ZeroDivisionError</span>:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Looks like someone tried to divide by zero.'</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Either we were able to do the division or else we successfully handled an exception."</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdin">
-<pre><code>How many bolts did you install? op</code></pre>
+<pre><code>Please enter the denominator 0</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>I was expecting something that looked like an integer</code></pre>
+<pre><code>Looks like someone tried to divide by zero.
+Either we were able to do the division or else we successfully handled an exception.</code></pre>
 </div>
 </div></div>
+<div id="5c10c691-abf7-4322-a7ca-a4a88929ab12" class="cell markdown">
+<p>Try running the code above a few times. In the input area, try some different numbers each time. Maybe 4, 0, and -2. Notice that division by non-zero numbers works as expected. Notice also that division by zero now lets us print out an error message instead of crashing. Once we’re done handling the exception, the program resumes with the first line after the <code>try</code>/<code>except</code> structure.</p>
+<p>In fact, there might be several <code>except</code> clauses if there are several kinds of exceptions that might be thrown. For example, let’s figure out how to share a pizza.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="3a0d003a-65cb-4eca-b746-fad633e6600e" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    people <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'How many people:'</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    slices <span class="op">=</span> <span class="dv">8</span><span class="op">/</span>people</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Each gets'</span>, <span class="bu">format</span>(slices, <span class="st">'.2f'</span>), <span class="st">'pieces.'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The number of people must be a valid integer."</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ZeroDivisionError</span>:</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Seriously? There are zero people sharing a pizza?"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Whatever happened up there, this is the first line of code after"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"the try/except structure."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdin">
+<pre><code>How many people: 0</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Seriously? There are zero people sharing a pizza?
+Whatever happened up there, this is the first line of code after
+the try/except structure.</code></pre>
+</div>
+</div></div>
+<div id="bbb25c53-8ed2-4dfb-9b7c-ebf8baf49214" class="cell markdown">
+<p>As you try different numbers of people, you can see that division by zero is, of course, handled. You can also enter things that aren’t integers. In response to the prompt, you could enter “Fred”. That can’t be converted to an integer, so the <code>int()</code> function throws an error. The <code>except ValueError</code> clause catches that exception and prints out a message.</p>
+<p>Notice that after either exception handler executes its code, the flow of control goes down to the next line after the try/except structure. In this case, that line is one that prints out a message saying it’s the first line of code after the try and all of the excepts.</p>
+<p>Sometimes it’s hard to predict what exception might be thrown in a section of code. In that case, we can use just <code>except:</code> without any exception type. This serves as a “catch-all” handler.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="ee744c96-1042-4cdc-ba72-0adb5e132198" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">'/tmp/ThisFileIsUnlikelyToExist'</span>, <span class="st">'r'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    people <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'How many people:'</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    slices <span class="op">=</span> <span class="dv">8</span><span class="op">/</span>people</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Each gets'</span>, <span class="bu">format</span>(slices, <span class="st">'.2f'</span>), <span class="st">'pieces.'</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The number of people must be a valid integer."</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ZeroDivisionError</span>:</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Seriously? There are zero people sharing a pizza?"</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The catch-all handler has been awoken from its slumber."</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"I don't know what went wrong, except I can tell you it"</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"wasn't a ValueError or a ZeroDivisionError, because"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"those would have been caught by more specific handlers"</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"further up the list."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The catch-all handler has been awoken from its slumber.
+I don't know what went wrong, except I can tell you it
+wasn't a ValueError or a ZeroDivisionError, because
+those would have been caught by more specific handlers
+further up the list.</code></pre>
+</div>
+</div></div>
+<div id="4e507df2-edbd-49d0-9462-63193211fda1" class="cell markdown">
+<p>Indeed, if we’re lazy (or in a hurry) then we can get by with just a plain <code>except</code> clause and let the user figure it out later:</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [11]:</pre></div><div id="856a9b11-15d2-457f-9c20-23370a6fc950" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">'/tmp/ThisFileIsUnlikelyToExist'</span>, <span class="st">'r'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    people <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'How many people:'</span>))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    slices <span class="op">=</span> <span class="dv">8</span><span class="op">/</span>people</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Each gets'</span>, <span class="bu">format</span>(slices, <span class="st">'.2f'</span>), <span class="st">'pieces.'</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"There was some sort of problem. I have no idea what."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>There was some sort of problem. I have no idea what.</code></pre>
+</div>
+</div></div>
+<div id="f9037abb-4870-4841-bb21-14e6ba0bff12" class="cell markdown">
+<p>Using just a plain catch-all exception handler doesn’t give you much to work with, but it is slightly better than nothing. Your code won’t crash outright but you won’t much information about what went wrong. If only there was a way to examine that exception, to peer in and divine its secret nature…</p>
+<p>Yep. Here you go…</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [12]:</pre></div><div id="067878e5-a2f6-4255-ac88-d9efd9380645" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">'/tmp/ThisFileIsUnlikelyToExist'</span>, <span class="st">'r'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    people <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'How many people:'</span>))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    slices <span class="op">=</span> <span class="dv">8</span><span class="op">/</span>people</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Each gets'</span>, <span class="bu">format</span>(slices, <span class="st">'.2f'</span>), <span class="st">'pieces.'</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Error:"</span>, err)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Error: [Errno 2] No such file or directory: '/tmp/ThisFileIsUnlikelyToExist'</code></pre>
+</div>
+</div></div>
+<div id="f1d8b643-b9a3-4ece-9f51-fb5680f2da50" class="cell markdown">
+<p>What we’ve done is catch any kind of exception (<code>except Exception</code>) and assigned it to a variable named “err”. Then we can print out err. We could even convert err to a string and search for the interesting parts (like the filename of our missing file) and do some clever error handling based on what specifically went wrong.</p>
+<p>Python has a few more tricks when it comes to exception handling, and these can be handy for making your code more readable.</p>
+<section id="fancy-exception-handling" class="level3">
+<h3 class="anchored" data-anchor-id="fancy-exception-handling">Fancy exception handling</h3>
+<hr>
+<p>A try/except structure can have an <code>else</code> clause. This clause will <strong>only</strong> be executed if <strong>no exception was thrown</strong>.</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [16]:</pre></div><div id="32778185-6eb8-41c5-ab0b-0885d9558172" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    people <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'How many people:'</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    slices <span class="op">=</span> <span class="dv">8</span><span class="op">/</span>people</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Error:"</span>, err)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Each gets'</span>, <span class="bu">format</span>(slices, <span class="st">'.2f'</span>), <span class="st">'pieces.'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdin">
+<pre><code>How many people: 0</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Error: division by zero</code></pre>
+</div>
+</div></div>
+<div id="8663ab17-f971-4e30-bcba-4e076d9a4e50" class="cell markdown">
+<p>If the user enters something that can be converted to an integer and is non-zero, then the program continues, finishing up the <code>try</code> block and executing the <code>else</code> block. On the other hand, if an exception of any type is thrown then the “number of pieces” message will never be printed.</p>
+<p>There is also a <code>finally</code> clause. This one will run after everything else has happened, no matter what.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [17]:</pre></div><div id="44634636-1e28-4f78-8a42-49f379fcb2af" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    output_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">"/tmp/output"</span>, <span class="st">"w"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    people <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'How many people:'</span>))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    slices <span class="op">=</span> <span class="dv">8</span><span class="op">/</span>people</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Error:"</span>, err)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Each gets'</span>, <span class="bu">format</span>(slices, <span class="st">'.2f'</span>), <span class="st">'pieces.'</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="cf">finally</span>:</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    output_file.close()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdin">
+<pre><code>How many people: 0</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Error: division by zero</code></pre>
+</div>
+</div></div>
+<div id="c48ce421-59a2-4a68-b1a3-a82294e9a522" class="cell markdown">
+<p>In the <code>try</code> clause, a file opening was added. In the <code>finally</code> clause, the file <strong>will</strong> be closed whether an exception was thrown or not.</p>
+<p>How useful are <code>else</code> and <code>finally</code> clauses? It’s true they’re not absolutely necessary. Most programming languages don’t have anything like that. You can always juggle your code around and get by with just try and except. On the other hand, these two clauses can make your code easier to read and understand. Your precise <em>intention</em> can be discerned.</p>
+<p>We’ve seen how to write Python code that catches errors without crashing. This technique works in both regular Python programs and in Jupyter Notebooks. Next up, we’ll turn back to ways of storing information. This time we’ll look at <strong>lists</strong>.</p>
+</div>
 
 
      </main> <!-- /main -->  <script id="quarto-html-after-body" type="application/javascript">
