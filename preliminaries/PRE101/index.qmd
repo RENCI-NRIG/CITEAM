@@ -16,4 +16,5 @@ See [CLASSE Wiki][classe-wiki-jupyterhub] for details.
 
 :::
 
+{{< embed PRE101-Introduction.ipynb >}}
 {{< embed PRE101.ipynb >}}
