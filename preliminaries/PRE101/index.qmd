@@ -1,3 +1,19 @@
-## Placeholder
+---
+format:
+  html: default
+---
 
-This is where the intro worked example will be.
+::: {.callout-note}
+
+The content in this page is written in the form of [Jupyter
+notebooks][jupyter].  You can read the HTML version of the notebooks
+here.  However, you will likely want to open and run the notebooks in
+a JupyterHub instance, such as [CLASSE JupyterHub][classe-jupyterhub].
+See [CLASSE Wiki][classe-wiki-jupyterhub] for details.
+
+[jupyter]: https://en.wikipedia.org/wiki/Project_Jupyter
+
+
+:::
+
+{{< embed PRE101.ipynb >}}
