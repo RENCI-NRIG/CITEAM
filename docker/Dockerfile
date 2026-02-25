@@ -23,10 +23,9 @@ ADD ./docker/config/start.sh /start.sh
 ADD ./docker/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 
-# Python packages
-# argon2-cffi-bindings which jupyter requires has a requirements for setuptools_scm>=6.2
-RUN python3 -m pip install 'setuptools_scm>=6'
-RUN python3 -m pip install jupyter
+# install jupyterlab using conda
+# nodejs is required for jupyterlab
+RUN conda install -c conda-forge nodejs jupyterlab
 
 # Locale and timezone
 ENV LANG=en_US.UTF-8
