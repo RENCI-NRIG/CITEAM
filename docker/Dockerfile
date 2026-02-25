@@ -25,7 +25,7 @@ ADD ./docker/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # install jupyterlab using conda
 # nodejs is required for jupyterlab
-RUN conda install -c conda-forge nodejs jupyterlab
+RUN conda install -c conda-forge nodejs ipykernel jupyterlab
 
 # Locale and timezone
 ENV LANG=en_US.UTF-8
@@ -45,7 +45,17 @@ WORKDIR /home/citeams
 ADD ./docker/config/kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
 RUN echo -e "export PATH=/home/citeams/.pyenv/bin:\$PATH:/usr/lib64/mpich/bin" >> /home/citeams/.bashrc
 
+# create the conda environemnt to use for citeams training
+ADD ./docker/config/conda.yml /tmp/conda.yml
+RUN conda env create -f /tmp/conda.yml
+
+# register the environment mentioned in the conda.yml file
+RUN ipython kernel install --user --name=citeams
+
 USER root
+
+
+
 CMD ["/start.sh"]
 
 
