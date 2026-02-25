@@ -29,8 +29,8 @@ RUN dnf -y install --allowerasing --nobest \
      emacs \
      wget
 
-ADD ./config/start.sh /start.sh
-ADD ./config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD ./docker/config/start.sh /start.sh
+ADD ./docker/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 
 # Python packages
@@ -42,8 +42,9 @@ RUN python3 -m pip install jupyter
 ENV LANG=en_US.UTF-8
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 
-#ADD ./notebooks /home/citeams/notebooks
-#RUN chown -R citeams /home/citeams/
+# Add the CITEAMS notebooks
+ADD ./preliminaries /home/citeams/notebooks
+RUN chown -R citeams /home/citeams/
 
 # User setup
 RUN echo -e "citeams ALL=(ALL)       NOPASSWD:ALL\n" >> /etc/sudoers
@@ -52,7 +53,7 @@ USER citeams
 WORKDIR /home/citeams
 
 # Set Kernel for Jupyter (exposes PATH and PYTHONPATH for use when terminal from jupyter is used)
-ADD ./config/kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
+ADD ./docker/config/kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
 RUN echo -e "export PATH=/home/citeams/.pyenv/bin:\$PATH:/usr/lib64/mpich/bin" >> /home/citeams/.bashrc
 
 USER root
