@@ -1,32 +1,22 @@
-FROM rockylinux:9
+#FROM rockylinux:9
+FROM continuumio/miniconda3
 
 RUN groupadd --gid 808 citeams-group
 RUN useradd --gid 808 --uid 550 --create-home --password '$6$ouJkMasm5X8E4Aye$vahH2cHk4b8/TmzAcCxbkaraY84xyNFs.gqm/HWEykdngmOgELums1qOi3e6r8Z.asds7GEA9bObS/2pTN1WArGNf0' citeams
 
-RUN dnf -y update && \
-    dnf -y install 'dnf-command(config-manager)' && \
-    dnf -y config-manager --set-enabled devel && \
-    dnf -y config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo && \
-    dnf -y install epel-release
+RUN apt-get update
+RUN apt -y update
 
-RUN dnf -y install --allowerasing --nobest \
+
+RUN apt -y install  \
      curl \
      gcc \
-     docker-ce \
      emacs \
-     glibc-langpack-en \
-     graphviz \
-     java-11-openjdk-devel \
-     langpacks-en \
      nano \
-     python3-devel \
-     python3-GitPython \
-     python3-pip \
      sudo \
      supervisor \
      tar \
      vim \
-     emacs \
      wget
 
 ADD ./docker/config/start.sh /start.sh
