@@ -43,12 +43,8 @@ RUN echo "en_US.UTF-8 UTF-8" | tee -a /etc/locale.gen && \
     locale-gen en_US.UTF-8 && \
     update-locale LANG=en_US.UTF-8
 
-
-# Add the CITEAMS notebooks
-ADD ./preliminaries /home/$CITEAMS_USER/notebooks
-RUN chown -R $CITEAMS_USER /home/$CITEAMS_USER/
-
 # User setup
+RUN chown -R $CITEAMS_USER /home/$CITEAMS_USER/
 RUN echo -e "$CITEAMS_USER ALL=(ALL)       NOPASSWD:ALL\n" >> /etc/sudoers
 
 # Set Kernel for Jupyter (exposes PATH and PYTHONPATH for use when terminal from jupyter is used)
