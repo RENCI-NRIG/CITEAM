@@ -2,7 +2,7 @@
 FROM continuumio/miniconda3
 
 RUN groupadd --gid 808 citeams-group
-RUN useradd --gid 808 --uid 550 --create-home --password '$6$ouJkMasm5X8E4Aye$vahH2cHk4b8/TmzAcCxbkaraY84xyNFs.gqm/HWEykdngmOgELums1qOi3e6r8Z.asds7GEA9bObS/2pTN1WArGNf0' citeams
+RUN useradd -s /bin/bash --gid 808  --create-home --password '$6$ouJkMasm5X8E4Aye$vahH2cHk4b8/TmzAcCxbkaraY84xyNFs.gqm/HWEykdngmOgELums1qOi3e6r8Z.asds7GEA9bObS/2pTN1WArGNf0' citeams
 
 RUN apt-get update
 RUN apt -y update
@@ -25,7 +25,7 @@ ADD ./docker/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # install jupyterlab using conda
 # nodejs is required for jupyterlab
-RUN conda install -c conda-forge nodejs ipykernel jupyterlab
+RUN conda install -y -c conda-forge nodejs jupyterlab
 
 # Locale and timezone
 ENV LANG=en_US.UTF-8
@@ -37,24 +37,17 @@ RUN chown -R citeams /home/citeams/
 
 # User setup
 RUN echo -e "citeams ALL=(ALL)       NOPASSWD:ALL\n" >> /etc/sudoers
-USER citeams
-
-WORKDIR /home/citeams
 
 # Set Kernel for Jupyter (exposes PATH and PYTHONPATH for use when terminal from jupyter is used)
 ADD ./docker/config/kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
-RUN echo -e "export PATH=/home/citeams/.pyenv/bin:\$PATH:/usr/lib64/mpich/bin" >> /home/citeams/.bashrc
 
-# create the conda environemnt to use for citeams training
+# create the conda environment to use for citeams training
+ENV CONDA_ENV_NAME=citeams
 ADD ./docker/config/conda.yml /tmp/conda.yml
-RUN conda env create -f /tmp/conda.yml
+RUN conda env create -n $CONDA_ENV_NAME -f /tmp/conda.yml
 
-# register the environment mentioned in the conda.yml file
-RUN ipython kernel install --user --name=citeams
-
-USER root
-
-
+# create a jupyter kernel for environment mentioned in the conda.yml file
+RUN conda run -n $CONDA_ENV_NAME python -m ipykernel install --name=citeams --display-name="Python ($CONDA_ENV_NAME)"
 
 CMD ["/start.sh"]
 
