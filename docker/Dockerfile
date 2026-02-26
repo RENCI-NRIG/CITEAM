@@ -28,8 +28,8 @@ RUN apt -y install  \
      vim \
      wget
 
-ADD ./docker/config/start.sh /start.sh
-ADD ./docker/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD ./config/start.sh /start.sh
+ADD ./config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 
 # install jupyterlab using conda
@@ -48,10 +48,10 @@ RUN chown -R $CITEAMS_USER /home/$CITEAMS_USER/
 RUN echo -e "$CITEAMS_USER ALL=(ALL)       NOPASSWD:ALL\n" >> /etc/sudoers
 
 # Set Kernel for Jupyter (exposes PATH and PYTHONPATH for use when terminal from jupyter is used)
-ADD ./docker/config/kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
+ADD ./config/kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
 
 # create the conda environment to use for citeams training
-ADD ./docker/config/conda.yml /tmp/conda.yml
+ADD ./config/conda.yml /tmp/conda.yml
 RUN conda env create -n $CONDA_ENV_NAME -f /tmp/conda.yml
 
 # create a jupyter kernel for environment mentioned in the conda.yml file
