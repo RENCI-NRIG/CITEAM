@@ -36,6 +36,10 @@ RUN conda install -y -c conda-forge nodejs jupyterlab
 # Locale and timezone
 ENV LANG=en_US.UTF-8
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+RUN echo "en_US.UTF-8 UTF-8" | tee -a /etc/locale.gen && \
+    locale-gen en_US.UTF-8 && \
+    update-locale LANG=en_US.UTF-8
+
 
 # Add the CITEAMS notebooks
 ADD ./preliminaries /home/$CITEAMS_USER/notebooks
