@@ -1,14 +1,20 @@
-#FROM rockylinux:9
 FROM continuumio/miniconda3
 
+# variables to be used in docker build
+ARG CITEAMS_USER=citeams
+ARG CONDA_ENV_NAME=citeams
+
 RUN groupadd --gid 808 citeams-group
-RUN useradd -s /bin/bash --gid 808  --create-home --password '$6$ouJkMasm5X8E4Aye$vahH2cHk4b8/TmzAcCxbkaraY84xyNFs.gqm/HWEykdngmOgELums1qOi3e6r8Z.asds7GEA9bObS/2pTN1WArGNf0' citeams
+RUN useradd -s /bin/bash --gid 808  --create-home --password '$6$ouJkMasm5X8E4Aye$vahH2cHk4b8/TmzAcCxbkaraY84xyNFs.gqm/HWEykdngmOgELums1qOi3e6r8Z.asds7GEA9bObS/2pTN1WArGNf0' $CITEAMS_USER && \
+    usermod -s /bin/bash $CITEAMS_USER
+    
 
 RUN apt-get update
 RUN apt -y update
 
 
 RUN apt -y install  \
+     locales \
      curl \
      gcc \
      emacs \
@@ -32,22 +38,21 @@ ENV LANG=en_US.UTF-8
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 
 # Add the CITEAMS notebooks
-ADD ./preliminaries /home/citeams/notebooks
-RUN chown -R citeams /home/citeams/
+ADD ./preliminaries /home/$CITEAMS_USER/notebooks
+RUN chown -R $CITEAMS_USER /home/$CITEAMS_USER/
 
 # User setup
-RUN echo -e "citeams ALL=(ALL)       NOPASSWD:ALL\n" >> /etc/sudoers
+RUN echo  "$CITEAMS_USER ALL=(ALL)       NOPASSWD:ALL\n" >> /etc/sudoers
 
 # Set Kernel for Jupyter (exposes PATH and PYTHONPATH for use when terminal from jupyter is used)
 ADD ./docker/config/kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
 
 # create the conda environment to use for citeams training
-ENV CONDA_ENV_NAME=citeams
 ADD ./docker/config/conda.yml /tmp/conda.yml
 RUN conda env create -n $CONDA_ENV_NAME -f /tmp/conda.yml
 
 # create a jupyter kernel for environment mentioned in the conda.yml file
-RUN conda run -n $CONDA_ENV_NAME python -m ipykernel install --name=citeams --display-name="Python ($CONDA_ENV_NAME)"
+RUN conda run -n $CONDA_ENV_NAME python -m ipykernel install --name=$CONDA_ENV_NAME --display-name="Python ($CONDA_ENV_NAME)"
 
 CMD ["/start.sh"]
 
