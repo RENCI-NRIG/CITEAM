@@ -1,5 +1,8 @@
 FROM continuumio/miniconda3
 
+# base image is debian with default shell as sh
+SHELL ["/bin/bash", "-c"]
+
 # variables to be used in docker build
 ARG CITEAMS_USER=citeams
 ARG CONDA_ENV_NAME=citeams
@@ -7,7 +10,7 @@ ARG CONDA_ENV_NAME=citeams
 RUN groupadd --gid 808 citeams-group
 RUN useradd -s /bin/bash --gid 808  --create-home --password '$6$ouJkMasm5X8E4Aye$vahH2cHk4b8/TmzAcCxbkaraY84xyNFs.gqm/HWEykdngmOgELums1qOi3e6r8Z.asds7GEA9bObS/2pTN1WArGNf0' $CITEAMS_USER && \
     usermod -s /bin/bash $CITEAMS_USER
-    
+ENV SHELL=/bin/bash    
 
 RUN apt-get update
 RUN apt -y update
@@ -46,7 +49,7 @@ ADD ./preliminaries /home/$CITEAMS_USER/notebooks
 RUN chown -R $CITEAMS_USER /home/$CITEAMS_USER/
 
 # User setup
-RUN echo  "$CITEAMS_USER ALL=(ALL)       NOPASSWD:ALL\n" >> /etc/sudoers
+RUN echo -e "$CITEAMS_USER ALL=(ALL)       NOPASSWD:ALL\n" >> /etc/sudoers
 
 # Set Kernel for Jupyter (exposes PATH and PYTHONPATH for use when terminal from jupyter is used)
 ADD ./docker/config/kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
