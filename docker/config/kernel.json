@@ -1,0 +1,14 @@
+{
+ "argv": [
+  "python",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "Python 3",
+ "language": "python",
+ "env": {
+     "PATH":"/home/citeams/.pyenv/bin:$PATH:/usr/lib64/mpich/bin"
+ }
+}

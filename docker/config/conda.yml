@@ -1,0 +1,17 @@
+name: citeams
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.11,<3.14
+  - numpy==1.23.5
+  - pydantic==1.10.7
+  - scipy==1.10.1
+  - matplotlib==3.10.8
+  - tifffile==2026.2.24 
+  - h5py==3.15.1
+  - hyperspy==2.4.0
+  - ipykernel #need for installing conda as a jupyter kernel
+  - pip==23.0.1
+  - pip:
+    - certif-pyspec==1.5.3
