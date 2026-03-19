@@ -1,0 +1,11 @@
+numpy >= 1.9.1
+matplotlib>=1.4.2
+scipy>=0.15.1
+hyperspy>=0.8
+seaborn
+tqdm
+PyQt5
+h5py		 
+scikit-image
+docopt
+pandas

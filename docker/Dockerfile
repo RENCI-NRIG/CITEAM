@@ -51,8 +51,10 @@ RUN echo -e "$CITEAMS_USER ALL=(ALL)       NOPASSWD:ALL\n" >> /etc/sudoers
 ADD ./config/kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
 
 # create the conda environment to use for citeams training
-ADD ./config/conda.yml /tmp/conda.yml
-RUN conda env create -n $CONDA_ENV_NAME -f /tmp/conda.yml
+ADD ./config  /tmp/config
+#ADD ./config/hyperspy_tools /tmp/hyperspy_tools-0.1.2-py3-none-any.whl /tmp/hyperspy_tools-0.1.2-py3-none-any.whl
+#ADD ./config/hyperspy_tools_requirements.txt /tmp/hyperspy_tools_requirements.txt
+RUN conda env create -n $CONDA_ENV_NAME -f /tmp/config/conda.yml
 
 # create a jupyter kernel for environment mentioned in the conda.yml file
 RUN conda run -n $CONDA_ENV_NAME python -m ipykernel install --name=$CONDA_ENV_NAME --display-name="Python ($CONDA_ENV_NAME)"
