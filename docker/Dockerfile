@@ -55,6 +55,7 @@ ADD ./config  /tmp/config
 #ADD ./config/hyperspy_tools /tmp/hyperspy_tools-0.1.2-py3-none-any.whl /tmp/hyperspy_tools-0.1.2-py3-none-any.whl
 #ADD ./config/hyperspy_tools_requirements.txt /tmp/hyperspy_tools_requirements.txt
 RUN conda env create -n $CONDA_ENV_NAME -f /tmp/config/conda.yml
+RUN conda clean -y --all
 
 # create a jupyter kernel for environment mentioned in the conda.yml file
 RUN conda run -n $CONDA_ENV_NAME python -m ipykernel install --name=$CONDA_ENV_NAME --display-name="Python ($CONDA_ENV_NAME)"
