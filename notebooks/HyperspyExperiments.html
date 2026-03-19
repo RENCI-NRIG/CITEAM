@@ -1,0 +1,2360 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Hyperspy experiments – CITEAM</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e5403370e956e0757cd94a4662f953cd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-2d6ff8c01cbb6fe121a2f5aeecf9db25.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-e5403370e956e0757cd94a4662f953cd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CITEAM</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#first-the-simplest-use-of-hyperspy-just-to-get-the-blood-flowing-and-limbs-limbered-up." id="toc-first-the-simplest-use-of-hyperspy-just-to-get-the-blood-flowing-and-limbs-limbered-up." class="nav-link active" data-scroll-target="#first-the-simplest-use-of-hyperspy-just-to-get-the-blood-flowing-and-limbs-limbered-up.">First, the simplest use of HyperSpy just to get the blood flowing and limbs limbered up.</a>
+  <ul class="collapse">
+  <li><a href="#now-lets-define-some-of-the-convenience-functions-we-were-using-in-the-chatgpt-generated-examples." id="toc-now-lets-define-some-of-the-convenience-functions-we-were-using-in-the-chatgpt-generated-examples." class="nav-link" data-scroll-target="#now-lets-define-some-of-the-convenience-functions-we-were-using-in-the-chatgpt-generated-examples.">Now let’s define some of the convenience functions we were using in the ChatGPT-generated examples.</a></li>
+  <li><a href="#and-go-ahead-now-and-set-the-paths-for-inputs-and-outputs." id="toc-and-go-ahead-now-and-set-the-paths-for-inputs-and-outputs." class="nav-link" data-scroll-target="#and-go-ahead-now-and-set-the-paths-for-inputs-and-outputs.">…and go ahead now and set the paths for inputs and outputs.</a></li>
+  <li><a href="#for-the-sake-of-completeness-lets-go-ahead-and-load-our-single-image-again.-we-may-decide-later-we-still-want-to-play-with-it." id="toc-for-the-sake-of-completeness-lets-go-ahead-and-load-our-single-image-again.-we-may-decide-later-we-still-want-to-play-with-it." class="nav-link" data-scroll-target="#for-the-sake-of-completeness-lets-go-ahead-and-load-our-single-image-again.-we-may-decide-later-we-still-want-to-play-with-it.">For the sake of completeness, let’s go ahead and load our single image again. We may decide later we still want to play with it.</a></li>
+  <li><a href="#load-the-image-again-but-this-time-with-hyperspy." id="toc-load-the-image-again-but-this-time-with-hyperspy." class="nav-link" data-scroll-target="#load-the-image-again-but-this-time-with-hyperspy.">Load the image again, but this time with HyperSpy.</a></li>
+  <li><a href="#load-an-image-stack-via-hyperspys-load-function" id="toc-load-an-image-stack-via-hyperspys-load-function" class="nav-link" data-scroll-target="#load-an-image-stack-via-hyperspys-load-function">Load an image stack (via HyperSpy’s load() function)</a>
+  <ul class="collapse">
+  <li><a href="#next-step-stack-em-up" id="toc-next-step-stack-em-up" class="nav-link" data-scroll-target="#next-step-stack-em-up">Next Step: Stack ’em up!</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Hyperspy experiments</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This is a throwaway notebook just for experimenting. <strong>DO NOT</strong> assume anything in here is correct, makes sense, or for that matter safe to be in the same room with.</p>
+<div id="5242f444-e226-406f-8cbc-bb84f4ed8bc2" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import the modules we'll be using later.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, re, json, hashlib</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tifffile <span class="im">as</span> tiff</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> h5py   <span class="co"># Used for HDF5, if we decide to actually use that.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> ndimage</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> fftconvolve</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hyperspy.api <span class="im">as</span> hs</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="first-the-simplest-use-of-hyperspy-just-to-get-the-blood-flowing-and-limbs-limbered-up." class="level1">
+<h1>First, the simplest use of HyperSpy just to get the blood flowing and limbs limbered up.</h1>
+<div id="3405e1b6-87c5-45f7-a658-2de1e874ba12" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># straight out of the hyperspy example directory. Possibly with some changes. Likely.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hyperspy.api <span class="im">as</span> hs</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an image stack with random data</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> hs.signals.Signal2D(np.random.random((<span class="dv">16</span>, <span class="dv">32</span>, <span class="dv">32</span>)))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the axis properties</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>im.axes_manager.signal_axes[<span class="dv">0</span>].name <span class="op">=</span> <span class="st">'X'</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>im.axes_manager.signal_axes[<span class="dv">0</span>].units <span class="op">=</span> <span class="st">'nm'</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>im.axes_manager.signal_axes[<span class="dv">0</span>].scale <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>im.axes_manager.signal_axes[<span class="dv">0</span>].offset <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>im.axes_manager.signal_axes[<span class="dv">1</span>].name <span class="op">=</span> <span class="st">'Y'</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>im.axes_manager.signal_axes[<span class="dv">1</span>].units <span class="op">=</span> <span class="st">'nm'</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>im.axes_manager.signal_axes[<span class="dv">1</span>].scale <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>im.axes_manager.signal_axes[<span class="dv">1</span>].offset <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>im.axes_manager.navigation_axes[<span class="dv">0</span>].name <span class="op">=</span> <span class="st">'time'</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>im.axes_manager.navigation_axes[<span class="dv">0</span>].units <span class="op">=</span> <span class="st">'fs'</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>im.axes_manager.navigation_axes[<span class="dv">0</span>].scale <span class="op">=</span> <span class="fl">0.3</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>im.axes_manager.navigation_axes[<span class="dv">0</span>].offset <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Give a title</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>im.metadata.General.title <span class="op">=</span> <span class="st">'Random image stack'</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot it</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>im.plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-3-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="now-lets-define-some-of-the-convenience-functions-we-were-using-in-the-chatgpt-generated-examples." class="level2">
+<h2 class="anchored" data-anchor-id="now-lets-define-some-of-the-convenience-functions-we-were-using-in-the-chatgpt-generated-examples.">Now let’s define some of the convenience functions we were using in the ChatGPT-generated examples.</h2>
+<div id="9b7f7357-0e67-4a47-8fff-a3f2d09c0cbb" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#straight outta Codex...</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># === Module 0.1 utilities ===</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>HAS_TIFFFILE <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>HAS_H5PY <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>HAS_SCIPY <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_tiff(path):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> HAS_TIFFFILE:</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        arr <span class="op">=</span> tiff.imread(path)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> arr</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> matplotlib.image <span class="im">as</span> mpimg</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    arr <span class="op">=</span> mpimg.imread(path)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> arr.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        arr <span class="op">=</span> arr.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> arr.astype(<span class="bu">float</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> save_jpeg_thumbnail(img2d, out_path, p_low<span class="op">=</span><span class="dv">1</span>, p_high<span class="op">=</span><span class="dv">99</span>, max_size<span class="op">=</span><span class="dv">512</span>):</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img2d.astype(<span class="bu">float</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> np.percentile(img, [p_low, p_high])</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> np.clip((img <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    H, W <span class="op">=</span> img.shape</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    scale <span class="op">=</span> <span class="bu">max</span>(H, W) <span class="op">/</span> max_size</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> scale <span class="op">&gt;</span> <span class="dv">1</span>:</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        step <span class="op">=</span> <span class="bu">int</span>(np.ceil(scale))</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img[::step, ::step]</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    plt.imsave(out_path, img, cmap<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> image_stats(img2d):</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img2d.astype(<span class="bu">float</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        <span class="st">"shape"</span>: <span class="bu">list</span>(img.shape),</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        <span class="st">"dtype"</span>: <span class="bu">str</span>(img2d.dtype),</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>        <span class="st">"min"</span>: <span class="bu">float</span>(np.<span class="bu">min</span>(img)),</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>        <span class="st">"max"</span>: <span class="bu">float</span>(np.<span class="bu">max</span>(img)),</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mean"</span>: <span class="bu">float</span>(np.mean(img)),</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>        <span class="st">"std"</span>: <span class="bu">float</span>(np.std(img)),</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        <span class="st">"p1"</span>: <span class="bu">float</span>(np.percentile(img, <span class="dv">1</span>)),</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>        <span class="st">"p50"</span>: <span class="bu">float</span>(np.percentile(img, <span class="dv">50</span>)),</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>        <span class="st">"p99"</span>: <span class="bu">float</span>(np.percentile(img, <span class="dv">99</span>))</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sha256_file(path, chunk_size<span class="op">=</span><span class="dv">1024</span><span class="op">*</span><span class="dv">1024</span>):</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> hashlib.sha256()</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(path, <span class="st">"rb"</span>) <span class="im">as</span> f:</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>            b <span class="op">=</span> f.read(chunk_size)</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> b:</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>            h.update(b)</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> h.hexdigest()</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> safe_mkdir(p):</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    Path(p).mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="and-go-ahead-now-and-set-the-paths-for-inputs-and-outputs." class="level2">
+<h2 class="anchored" data-anchor-id="and-go-ahead-now-and-set-the-paths-for-inputs-and-outputs.">…and go ahead now and set the paths for inputs and outputs.</h2>
+<div id="241486ea-fac6-43c0-b1a0-3a8fb99baf0d" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SINGLE_TIFF_PATH <span class="op">=</span> <span class="st">"/Users/escott/projects/citeam/SiGe/JEM-ARM200FImage_20251210_1036_43_ADF1_ImagePanel1/JEM-ARM200FImage_20251210_1036_46_ADF1_1_ImagePanel1.tif"</span>          <span class="co"># e.g., "data/single/micrograph_01.tif"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>STACK_FOLDER_PATH <span class="op">=</span> <span class="st">"/Users/escott/projects/citeam/SiGe/JEM-ARM200FImage_20251210_1036_43_ADF1_ImagePanel1"</span>         <span class="co"># e.g., "data/stack_01_frames/"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>OUTPUT_DIR <span class="op">=</span> <span class="st">"outputs_0_1"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>safe_mkdir(OUTPUT_DIR)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"OUTPUT_DIR:"</span>, OUTPUT_DIR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>OUTPUT_DIR: outputs_0_1</code></pre>
+</div>
+</div>
+</section>
+<section id="for-the-sake-of-completeness-lets-go-ahead-and-load-our-single-image-again.-we-may-decide-later-we-still-want-to-play-with-it." class="level2">
+<h2 class="anchored" data-anchor-id="for-the-sake-of-completeness-lets-go-ahead-and-load-our-single-image-again.-we-may-decide-later-we-still-want-to-play-with-it.">For the sake of completeness, let’s go ahead and load our single image again. We may decide later we still want to play with it.</h2>
+<div id="f6195c7a-7eb4-41f7-93ea-cd9bff94a92f" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.1.1 — Load a single TIFF</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> SINGLE_TIFF_PATH:</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set SINGLE_TIFF_PATH to a TIFF file."</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> read_tiff(SINGLE_TIFF_PATH)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img.astype(<span class="bu">float</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Single image stats:"</span>, json.dumps(image_stats(img), indent<span class="op">=</span><span class="dv">2</span>))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(img)<span class="op">;</span> plt.title(<span class="st">"0.1.1 Single TIFF"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    thumb_path <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="st">"_thumb.jpg"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    save_jpeg_thumbnail(img, thumb_path)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Saved thumbnail:"</span>, thumb_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Single image stats: {
+  "shape": [
+    1024,
+    1024
+  ],
+  "dtype": "float64",
+  "min": 2520.0,
+  "max": 65519.0,
+  "mean": 28151.08589744568,
+  "std": 11373.67557322414,
+  "p1": 6855.0,
+  "p50": 27148.0,
+  "p99": 56632.25
+}</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Saved thumbnail: outputs_0_1/JEM-ARM200FImage_20251210_1036_46_ADF1_1_ImagePanel1_thumb.jpg</code></pre>
+</div>
+</div>
+</section>
+<section id="load-the-image-again-but-this-time-with-hyperspy." class="level2">
+<h2 class="anchored" data-anchor-id="load-the-image-again-but-this-time-with-hyperspy.">Load the image again, but this time with HyperSpy.</h2>
+<p><strong>We will create the “s” variable for playing with HyperSpy or the above-defined “img” variable for doing the Old School way.</strong></p>
+<div id="2ee19587-7c44-4fb8-b834-fe375f6c26fa" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hs is hyperspy.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> hs.load(SINGLE_TIFF_PATH)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"loaded an image"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>loaded an image</code></pre>
+</div>
+</div>
+<div id="af65ae2c-a615-4b77-bc09-bf4a20162ba8" class="cell" data-scrolled="true" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(s[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>['T',
+ '__abs__',
+ '__add__',
+ '__and__',
+ '__array__',
+ '__array_wrap__',
+ '__class__',
+ '__deepcopy__',
+ '__delattr__',
+ '__dict__',
+ '__dir__',
+ '__divmod__',
+ '__doc__',
+ '__eq__',
+ '__firstlineno__',
+ '__floordiv__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__getstate__',
+ '__gt__',
+ '__hash__',
+ '__iadd__',
+ '__iand__',
+ '__ifloordiv__',
+ '__ilshift__',
+ '__imod__',
+ '__imul__',
+ '__init__',
+ '__init_subclass__',
+ '__invert__',
+ '__ior__',
+ '__ipow__',
+ '__irshift__',
+ '__isub__',
+ '__iter__',
+ '__itruediv__',
+ '__ixor__',
+ '__le__',
+ '__len__',
+ '__lshift__',
+ '__lt__',
+ '__mod__',
+ '__module__',
+ '__mul__',
+ '__ne__',
+ '__neg__',
+ '__new__',
+ '__next__',
+ '__or__',
+ '__pos__',
+ '__pow__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__rshift__',
+ '__setattr__',
+ '__sizeof__',
+ '__static_attributes__',
+ '__str__',
+ '__sub__',
+ '__subclasshook__',
+ '__truediv__',
+ '__weakref__',
+ '__xor__',
+ '_additional_slicing_targets',
+ '_alias_signal_types',
+ '_apply_function_on_data_and_remove_axis',
+ '_assign_subclass',
+ '_auto_reverse_bss_component',
+ '_binary_operator_ruler',
+ '_calculate_recmatrix',
+ '_calculate_summary_statistics',
+ '_calibrate',
+ '_check_navigation_mask',
+ '_check_signal_dimension_equals_one',
+ '_check_signal_dimension_equals_two',
+ '_check_signal_mask',
+ '_cluster_analysis',
+ '_create_metadata',
+ '_cycle_signal',
+ '_data',
+ '_data_aligned_with_axes',
+ '_deepcopy_with_new_data',
+ '_distances_within_cluster',
+ '_dtype',
+ '_estimate_poissonian_noise_variance',
+ '_export_factors',
+ '_export_loadings',
+ '_get_array_slices',
+ '_get_cluster_algorithm',
+ '_get_cluster_preprocessing_algorithm',
+ '_get_cluster_signal',
+ '_get_cluster_signals_factors',
+ '_get_current_data',
+ '_get_factors',
+ '_get_iterating_kwargs',
+ '_get_loadings',
+ '_get_navigation_signal',
+ '_get_number_of_components_for_clustering',
+ '_get_plot_title',
+ '_get_signal2d_scale',
+ '_get_signal_signal',
+ '_get_undefined_axes_list',
+ '_iterate_signal',
+ '_lazy',
+ '_load_dictionary',
+ '_ma_workaround',
+ '_make_sure_data_is_contiguous',
+ '_map_all',
+ '_map_iterate',
+ '_mask_for_clustering',
+ '_metadata',
+ '_original_metadata',
+ '_plot',
+ '_plot_factors_or_pchars',
+ '_plot_loadings',
+ '_plot_permanent_markers',
+ '_print_summary',
+ '_remove_axis',
+ '_render_figure',
+ '_replot',
+ '_scale_data_for_clustering',
+ '_signal_dimension',
+ '_signal_type',
+ '_slicer',
+ '_summary',
+ '_to_dictionary',
+ '_unary_operator_ruler',
+ '_unfold',
+ '_unmix_components',
+ '_validate_rebin_args_and_get_factors',
+ 'add_gaussian_noise',
+ 'add_marker',
+ 'add_poissonian_noise',
+ 'add_ramp',
+ 'align2D',
+ 'apply_apodization',
+ 'as_lazy',
+ 'as_signal1D',
+ 'as_signal2D',
+ 'axes_manager',
+ 'blind_source_separation',
+ 'calibrate',
+ 'change_dtype',
+ 'cluster_analysis',
+ 'copy',
+ 'create_model',
+ 'crop',
+ 'crop_signal',
+ 'data',
+ 'decomposition',
+ 'deepcopy',
+ 'derivative',
+ 'diff',
+ 'estimate_elbow_position',
+ 'estimate_number_of_clusters',
+ 'estimate_poissonian_noise_variance',
+ 'estimate_shift2D',
+ 'events',
+ 'export_bss_results',
+ 'export_cluster_results',
+ 'export_decomposition_results',
+ 'fft',
+ 'find_peaks',
+ 'fold',
+ 'get_bss_factors',
+ 'get_bss_loadings',
+ 'get_bss_model',
+ 'get_cluster_distances',
+ 'get_cluster_labels',
+ 'get_cluster_signals',
+ 'get_current_signal',
+ 'get_decomposition_factors',
+ 'get_decomposition_loadings',
+ 'get_decomposition_model',
+ 'get_dimensions_from_data',
+ 'get_explained_variance_ratio',
+ 'get_histogram',
+ 'get_noise_variance',
+ 'ifft',
+ 'inav',
+ 'indexmax',
+ 'indexmin',
+ 'integrate1D',
+ 'integrate_simpson',
+ 'interpolate_on_axis',
+ 'is_rgb',
+ 'is_rgba',
+ 'is_rgbx',
+ 'isig',
+ 'learning_results',
+ 'map',
+ 'max',
+ 'mean',
+ 'metadata',
+ 'min',
+ 'models',
+ 'nanmax',
+ 'nanmean',
+ 'nanmin',
+ 'nanstd',
+ 'nansum',
+ 'nanvar',
+ 'navigator',
+ 'normalize_bss_components',
+ 'normalize_decomposition_components',
+ 'normalize_poissonian_noise',
+ 'original_metadata',
+ 'plot',
+ 'plot_bss_factors',
+ 'plot_bss_loadings',
+ 'plot_bss_results',
+ 'plot_cluster_distances',
+ 'plot_cluster_labels',
+ 'plot_cluster_metric',
+ 'plot_cluster_results',
+ 'plot_cluster_signals',
+ 'plot_cumulative_explained_variance_ratio',
+ 'plot_decomposition_factors',
+ 'plot_decomposition_loadings',
+ 'plot_decomposition_results',
+ 'plot_explained_variance_ratio',
+ 'print_summary_statistics',
+ 'ragged',
+ 'rebin',
+ 'remove_spikes',
+ 'reverse_bss_component',
+ 'reverse_decomposition_component',
+ 'rollaxis',
+ 'save',
+ 'set_noise_variance',
+ 'set_signal_origin',
+ 'set_signal_type',
+ 'split',
+ 'squeeze',
+ 'std',
+ 'sum',
+ 'swap_axes',
+ 'tmp_parameters',
+ 'to_device',
+ 'to_host',
+ 'to_signal1D',
+ 'transpose',
+ 'undo_treatments',
+ 'unfold',
+ 'unfold_navigation_space',
+ 'unfold_signal_space',
+ 'unfolded',
+ 'update_plot',
+ 'valuemax',
+ 'valuemin',
+ 'var']</code></pre>
+</div>
+</div>
+<div id="6d96c15a-587f-491b-8a4a-380fe618e45b" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">0</span>].plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="abd57036-0d63-47ef-a38e-f2f0a8cc4f6c" class="cell" data-scrolled="true" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">1</span>].plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="load-an-image-stack-via-hyperspys-load-function" class="level2">
+<h2 class="anchored" data-anchor-id="load-an-image-stack-via-hyperspys-load-function">Load an image stack (via HyperSpy’s load() function)</h2>
+<p><strong>Load a directory full of images, presumably multiple samples of all the same thing, presumably because we’re going to average all of the values together at some point, presumably after alignment.</strong></p>
+<p><strong>Presumably.</strong></p>
+<p>Python note: the “return sorted(…” line is a very elegant way to step through every filename is a given directory and return an alphabetized list of all the ones that have .tiff or .tif on the end.</p>
+<div id="8b91601b-e7b9-473c-bf02-a77f951a8bf0" class="cell" data-execution_count="49">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> list_tiff_frames(folder):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    folder <span class="op">=</span> Path(folder)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    exts <span class="op">=</span> {<span class="st">".tif"</span>, <span class="st">".tiff"</span>}</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sorted</span>([p <span class="cf">for</span> p <span class="kw">in</span> folder.iterdir() <span class="cf">if</span> p.suffix.lower() <span class="kw">in</span> exts])</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>tiffFilesWildcard <span class="op">=</span> STACK_FOLDER_PATH <span class="op">+</span> <span class="st">"/*.tif"</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tfw = "</span>, tiffFilesWildcard)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#imgStack = hs.load(list_tiff_frames(STACK_FOLDER_PATH))</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>imgStack <span class="op">=</span> hs.load(tiffFilesWildcard, stack<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Found"</span>,<span class="bu">len</span>(imgStack),<span class="st">" frames."</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(imgStack)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>fullSizeStack <span class="op">=</span> imgStack[<span class="dv">0</span>]</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fullSizeStack)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>fullSizeStack.plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tfw =  /Users/escott/projects/citeam/SiGe/JEM-ARM200FImage_20251210_1036_43_ADF1_ImagePanel1/*.tif</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"fd3be90a3cef4a81862a03f47cfa2d4d","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"e66f424358b74fad984eebd80b2580f7","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Found 2  frames.
+[&lt;Signal2D, title: JEM-ARM200FImage_20251210_1036_43_ADF1_ImagePanel1, dimensions: (10|1024, 1024)&gt;, &lt;Signal2D, title: JEM-ARM200FImage_20251210_1036_43_ADF1_ImagePanel1, dimensions: (10|256, 256)&gt;]
+&lt;Signal2D, title: JEM-ARM200FImage_20251210_1036_43_ADF1_ImagePanel1, dimensions: (10|1024, 1024)&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-11-output-5.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-11-output-6.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cec19d4b-f787-4351-b182-9676033f8147" class="cell" data-execution_count="34">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>hs.print_known_signal_types()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">signal_type</th>
+<th data-quarto-table-cell-role="th">aliases</th>
+<th data-quarto-table-cell-role="th">class name</th>
+<th data-quarto-table-cell-role="th">package</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<section id="next-step-stack-em-up" class="level3">
+<h3 class="anchored" data-anchor-id="next-step-stack-em-up">Next Step: Stack ’em up!</h3>
+<p>The easiest way (for now, <em>possibly</em> the only way, to handle multiple images at a time in HyperSpy is to combine all of your tiff images into one “multi page” tiff file and then read it with the load() function. In Mac or Linux environments, you can use the “tiffcp” command to create such a file:</p>
+<p><code>tiffcp /Users/escott/projects/citeam/scopeImages/*.tif /Users/escott/Pictures/severalTiffsInOne.tif</code></p>
+<p>This finds every tif file in the /Users/escott/projects/citeam/scopeImages directory, combines them into a single, large, multi-page tiff, and saves it in /Users/escott/Pictures.</p>
+<p>In case you’re curious, both “tiff” and “tif” are correct - sort of. In the Bad Old Days, MSDOS and early versions of Windows could only handle three letter file extensions. That limitation has long been remedied, but the practice persists.</p>
+<p>To install tiffcp on a Mac, assuming you already have Homebrew installed and working, you can use:</p>
+<p><code>brew install libtiff</code></p>
+<p>On linux (Ubuntu, Debian, Mint, or similar variants) use</p>
+<p><code>sudo apt install libtiff-tools</code></p>
+<p>Windows users are encouraged to make friends with Mac and/or Linux users.</p>
+<div id="8f94899b-9016-45f9-9971-9b6c712963cd" class="cell" data-scrolled="true" data-execution_count="50">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>wholeStack <span class="op">=</span> hs.load(<span class="st">'/Users/escott/projects/citeam/tentiffs.tif'</span>)  <span class="co"># Load stack</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"got 'em"</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(wholeStack))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(wholeStack)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"metadata ="</span>, wholeStack.metadata)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"original_metadata ="</span>, wholeStack.original_metadata)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>shifts <span class="op">=</span> wholeStack.estimate_shift2D()   <span class="co"># Estimate shifts</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>wholeStack.align2D(shifts<span class="op">=</span>shifts)        <span class="co"># Apply alignment</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>wholeStack.plot()</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>got 'em
+&lt;class 'hyperspy._signals.signal2d.Signal2D'&gt;
+&lt;Signal2D, title: , dimensions: (10|1024, 1024)&gt;
+metadata = ├── General
+│   ├── FileIO
+│   │   └── 0
+│   │       ├── hyperspy_version = 2.4.0
+│   │       ├── io_plugin = rsciio.tiff
+│   │       ├── operation = load
+│   │       └── timestamp = 2026-03-17T23:04:27.623203-04:00
+│   ├── original_filename = tentiffs.tif
+│   └── title = 
+└── Signal
+    └── signal_type = 
+
+original_metadata = ├── BitsPerSample = 16
+├── Compression = &lt;COMPRESSION.NONE: 1&gt;
+├── ImageDescription = &lt;?xml version="1.0"?&gt;
+&lt;TemReporter xmlns:xsd="http://www.w3.org/2001/XMLSchem ... ourceDetector&gt;
+  &lt;ThirdParty&gt;
+    &lt;Items /&gt;
+  &lt;/ThirdParty&gt;
+&lt;/TemReporter&gt;
+├── ImageLength = 1024
+├── ImageWidth = 1024
+├── Orientation = &lt;ORIENTATION.TOPLEFT: 1&gt;
+├── PhotometricInterpretation = &lt;PHOTOMETRIC.MINISBLACK: 1&gt;
+├── PlanarConfiguration = &lt;PLANARCONFIG.CONTIG: 1&gt;
+├── RowsPerStrip = 4
+├── SamplesPerPixel = 1
+├── StripByteCounts &lt;tuple&gt;
+│   ╠══ [0] = 8192
+│   ╠══ [1] = 8192
+│   ╠══ [10] = 8192
+│   ╠══ [100] = 8192
+│   ╠══ [101] = 8192
+│   ╠══ [102] = 8192
+│   ╠══ [103] = 8192
+│   ╠══ [104] = 8192
+│   ╠══ [105] = 8192
+│   ╠══ [106] = 8192
+│   ╠══ [107] = 8192
+│   ╠══ [108] = 8192
+│   ╠══ [109] = 8192
+│   ╠══ [11] = 8192
+│   ╠══ [110] = 8192
+│   ╠══ [111] = 8192
+│   ╠══ [112] = 8192
+│   ╠══ [113] = 8192
+│   ╠══ [114] = 8192
+│   ╠══ [115] = 8192
+│   ╠══ [116] = 8192
+│   ╠══ [117] = 8192
+│   ╠══ [118] = 8192
+│   ╠══ [119] = 8192
+│   ╠══ [12] = 8192
+│   ╠══ [120] = 8192
+│   ╠══ [121] = 8192
+│   ╠══ [122] = 8192
+│   ╠══ [123] = 8192
+│   ╠══ [124] = 8192
+│   ╠══ [125] = 8192
+│   ╠══ [126] = 8192
+│   ╠══ [127] = 8192
+│   ╠══ [128] = 8192
+│   ╠══ [129] = 8192
+│   ╠══ [13] = 8192
+│   ╠══ [130] = 8192
+│   ╠══ [131] = 8192
+│   ╠══ [132] = 8192
+│   ╠══ [133] = 8192
+│   ╠══ [134] = 8192
+│   ╠══ [135] = 8192
+│   ╠══ [136] = 8192
+│   ╠══ [137] = 8192
+│   ╠══ [138] = 8192
+│   ╠══ [139] = 8192
+│   ╠══ [14] = 8192
+│   ╠══ [140] = 8192
+│   ╠══ [141] = 8192
+│   ╠══ [142] = 8192
+│   ╠══ [143] = 8192
+│   ╠══ [144] = 8192
+│   ╠══ [145] = 8192
+│   ╠══ [146] = 8192
+│   ╠══ [147] = 8192
+│   ╠══ [148] = 8192
+│   ╠══ [149] = 8192
+│   ╠══ [15] = 8192
+│   ╠══ [150] = 8192
+│   ╠══ [151] = 8192
+│   ╠══ [152] = 8192
+│   ╠══ [153] = 8192
+│   ╠══ [154] = 8192
+│   ╠══ [155] = 8192
+│   ╠══ [156] = 8192
+│   ╠══ [157] = 8192
+│   ╠══ [158] = 8192
+│   ╠══ [159] = 8192
+│   ╠══ [16] = 8192
+│   ╠══ [160] = 8192
+│   ╠══ [161] = 8192
+│   ╠══ [162] = 8192
+│   ╠══ [163] = 8192
+│   ╠══ [164] = 8192
+│   ╠══ [165] = 8192
+│   ╠══ [166] = 8192
+│   ╠══ [167] = 8192
+│   ╠══ [168] = 8192
+│   ╠══ [169] = 8192
+│   ╠══ [17] = 8192
+│   ╠══ [170] = 8192
+│   ╠══ [171] = 8192
+│   ╠══ [172] = 8192
+│   ╠══ [173] = 8192
+│   ╠══ [174] = 8192
+│   ╠══ [175] = 8192
+│   ╠══ [176] = 8192
+│   ╠══ [177] = 8192
+│   ╠══ [178] = 8192
+│   ╠══ [179] = 8192
+│   ╠══ [18] = 8192
+│   ╠══ [180] = 8192
+│   ╠══ [181] = 8192
+│   ╠══ [182] = 8192
+│   ╠══ [183] = 8192
+│   ╠══ [184] = 8192
+│   ╠══ [185] = 8192
+│   ╠══ [186] = 8192
+│   ╠══ [187] = 8192
+│   ╠══ [188] = 8192
+│   ╠══ [189] = 8192
+│   ╠══ [19] = 8192
+│   ╠══ [190] = 8192
+│   ╠══ [191] = 8192
+│   ╠══ [192] = 8192
+│   ╠══ [193] = 8192
+│   ╠══ [194] = 8192
+│   ╠══ [195] = 8192
+│   ╠══ [196] = 8192
+│   ╠══ [197] = 8192
+│   ╠══ [198] = 8192
+│   ╠══ [199] = 8192
+│   ╠══ [2] = 8192
+│   ╠══ [20] = 8192
+│   ╠══ [200] = 8192
+│   ╠══ [201] = 8192
+│   ╠══ [202] = 8192
+│   ╠══ [203] = 8192
+│   ╠══ [204] = 8192
+│   ╠══ [205] = 8192
+│   ╠══ [206] = 8192
+│   ╠══ [207] = 8192
+│   ╠══ [208] = 8192
+│   ╠══ [209] = 8192
+│   ╠══ [21] = 8192
+│   ╠══ [210] = 8192
+│   ╠══ [211] = 8192
+│   ╠══ [212] = 8192
+│   ╠══ [213] = 8192
+│   ╠══ [214] = 8192
+│   ╠══ [215] = 8192
+│   ╠══ [216] = 8192
+│   ╠══ [217] = 8192
+│   ╠══ [218] = 8192
+│   ╠══ [219] = 8192
+│   ╠══ [22] = 8192
+│   ╠══ [220] = 8192
+│   ╠══ [221] = 8192
+│   ╠══ [222] = 8192
+│   ╠══ [223] = 8192
+│   ╠══ [224] = 8192
+│   ╠══ [225] = 8192
+│   ╠══ [226] = 8192
+│   ╠══ [227] = 8192
+│   ╠══ [228] = 8192
+│   ╠══ [229] = 8192
+│   ╠══ [23] = 8192
+│   ╠══ [230] = 8192
+│   ╠══ [231] = 8192
+│   ╠══ [232] = 8192
+│   ╠══ [233] = 8192
+│   ╠══ [234] = 8192
+│   ╠══ [235] = 8192
+│   ╠══ [236] = 8192
+│   ╠══ [237] = 8192
+│   ╠══ [238] = 8192
+│   ╠══ [239] = 8192
+│   ╠══ [24] = 8192
+│   ╠══ [240] = 8192
+│   ╠══ [241] = 8192
+│   ╠══ [242] = 8192
+│   ╠══ [243] = 8192
+│   ╠══ [244] = 8192
+│   ╠══ [245] = 8192
+│   ╠══ [246] = 8192
+│   ╠══ [247] = 8192
+│   ╠══ [248] = 8192
+│   ╠══ [249] = 8192
+│   ╠══ [25] = 8192
+│   ╠══ [250] = 8192
+│   ╠══ [251] = 8192
+│   ╠══ [252] = 8192
+│   ╠══ [253] = 8192
+│   ╠══ [254] = 8192
+│   ╠══ [255] = 8192
+│   ╠══ [26] = 8192
+│   ╠══ [27] = 8192
+│   ╠══ [28] = 8192
+│   ╠══ [29] = 8192
+│   ╠══ [3] = 8192
+│   ╠══ [30] = 8192
+│   ╠══ [31] = 8192
+│   ╠══ [32] = 8192
+│   ╠══ [33] = 8192
+│   ╠══ [34] = 8192
+│   ╠══ [35] = 8192
+│   ╠══ [36] = 8192
+│   ╠══ [37] = 8192
+│   ╠══ [38] = 8192
+│   ╠══ [39] = 8192
+│   ╠══ [4] = 8192
+│   ╠══ [40] = 8192
+│   ╠══ [41] = 8192
+│   ╠══ [42] = 8192
+│   ╠══ [43] = 8192
+│   ╠══ [44] = 8192
+│   ╠══ [45] = 8192
+│   ╠══ [46] = 8192
+│   ╠══ [47] = 8192
+│   ╠══ [48] = 8192
+│   ╠══ [49] = 8192
+│   ╠══ [5] = 8192
+│   ╠══ [50] = 8192
+│   ╠══ [51] = 8192
+│   ╠══ [52] = 8192
+│   ╠══ [53] = 8192
+│   ╠══ [54] = 8192
+│   ╠══ [55] = 8192
+│   ╠══ [56] = 8192
+│   ╠══ [57] = 8192
+│   ╠══ [58] = 8192
+│   ╠══ [59] = 8192
+│   ╠══ [6] = 8192
+│   ╠══ [60] = 8192
+│   ╠══ [61] = 8192
+│   ╠══ [62] = 8192
+│   ╠══ [63] = 8192
+│   ╠══ [64] = 8192
+│   ╠══ [65] = 8192
+│   ╠══ [66] = 8192
+│   ╠══ [67] = 8192
+│   ╠══ [68] = 8192
+│   ╠══ [69] = 8192
+│   ╠══ [7] = 8192
+│   ╠══ [70] = 8192
+│   ╠══ [71] = 8192
+│   ╠══ [72] = 8192
+│   ╠══ [73] = 8192
+│   ╠══ [74] = 8192
+│   ╠══ [75] = 8192
+│   ╠══ [76] = 8192
+│   ╠══ [77] = 8192
+│   ╠══ [78] = 8192
+│   ╠══ [79] = 8192
+│   ╠══ [8] = 8192
+│   ╠══ [80] = 8192
+│   ╠══ [81] = 8192
+│   ╠══ [82] = 8192
+│   ╠══ [83] = 8192
+│   ╠══ [84] = 8192
+│   ╠══ [85] = 8192
+│   ╠══ [86] = 8192
+│   ╠══ [87] = 8192
+│   ╠══ [88] = 8192
+│   ╠══ [89] = 8192
+│   ╠══ [9] = 8192
+│   ╠══ [90] = 8192
+│   ╠══ [91] = 8192
+│   ╠══ [92] = 8192
+│   ╠══ [93] = 8192
+│   ╠══ [94] = 8192
+│   ╠══ [95] = 8192
+│   ╠══ [96] = 8192
+│   ╠══ [97] = 8192
+│   ╠══ [98] = 8192
+│   ╚══ [99] = 8192
+├── StripOffsets &lt;tuple&gt;
+│   ╠══ [0] = 8
+│   ╠══ [1] = 8200
+│   ╠══ [10] = 81928
+│   ╠══ [100] = 819208
+│   ╠══ [101] = 827400
+│   ╠══ [102] = 835592
+│   ╠══ [103] = 843784
+│   ╠══ [104] = 851976
+│   ╠══ [105] = 860168
+│   ╠══ [106] = 868360
+│   ╠══ [107] = 876552
+│   ╠══ [108] = 884744
+│   ╠══ [109] = 892936
+│   ╠══ [11] = 90120
+│   ╠══ [110] = 901128
+│   ╠══ [111] = 909320
+│   ╠══ [112] = 917512
+│   ╠══ [113] = 925704
+│   ╠══ [114] = 933896
+│   ╠══ [115] = 942088
+│   ╠══ [116] = 950280
+│   ╠══ [117] = 958472
+│   ╠══ [118] = 966664
+│   ╠══ [119] = 974856
+│   ╠══ [12] = 98312
+│   ╠══ [120] = 983048
+│   ╠══ [121] = 991240
+│   ╠══ [122] = 999432
+│   ╠══ [123] = 1007624
+│   ╠══ [124] = 1015816
+│   ╠══ [125] = 1024008
+│   ╠══ [126] = 1032200
+│   ╠══ [127] = 1040392
+│   ╠══ [128] = 1048584
+│   ╠══ [129] = 1056776
+│   ╠══ [13] = 106504
+│   ╠══ [130] = 1064968
+│   ╠══ [131] = 1073160
+│   ╠══ [132] = 1081352
+│   ╠══ [133] = 1089544
+│   ╠══ [134] = 1097736
+│   ╠══ [135] = 1105928
+│   ╠══ [136] = 1114120
+│   ╠══ [137] = 1122312
+│   ╠══ [138] = 1130504
+│   ╠══ [139] = 1138696
+│   ╠══ [14] = 114696
+│   ╠══ [140] = 1146888
+│   ╠══ [141] = 1155080
+│   ╠══ [142] = 1163272
+│   ╠══ [143] = 1171464
+│   ╠══ [144] = 1179656
+│   ╠══ [145] = 1187848
+│   ╠══ [146] = 1196040
+│   ╠══ [147] = 1204232
+│   ╠══ [148] = 1212424
+│   ╠══ [149] = 1220616
+│   ╠══ [15] = 122888
+│   ╠══ [150] = 1228808
+│   ╠══ [151] = 1237000
+│   ╠══ [152] = 1245192
+│   ╠══ [153] = 1253384
+│   ╠══ [154] = 1261576
+│   ╠══ [155] = 1269768
+│   ╠══ [156] = 1277960
+│   ╠══ [157] = 1286152
+│   ╠══ [158] = 1294344
+│   ╠══ [159] = 1302536
+│   ╠══ [16] = 131080
+│   ╠══ [160] = 1310728
+│   ╠══ [161] = 1318920
+│   ╠══ [162] = 1327112
+│   ╠══ [163] = 1335304
+│   ╠══ [164] = 1343496
+│   ╠══ [165] = 1351688
+│   ╠══ [166] = 1359880
+│   ╠══ [167] = 1368072
+│   ╠══ [168] = 1376264
+│   ╠══ [169] = 1384456
+│   ╠══ [17] = 139272
+│   ╠══ [170] = 1392648
+│   ╠══ [171] = 1400840
+│   ╠══ [172] = 1409032
+│   ╠══ [173] = 1417224
+│   ╠══ [174] = 1425416
+│   ╠══ [175] = 1433608
+│   ╠══ [176] = 1441800
+│   ╠══ [177] = 1449992
+│   ╠══ [178] = 1458184
+│   ╠══ [179] = 1466376
+│   ╠══ [18] = 147464
+│   ╠══ [180] = 1474568
+│   ╠══ [181] = 1482760
+│   ╠══ [182] = 1490952
+│   ╠══ [183] = 1499144
+│   ╠══ [184] = 1507336
+│   ╠══ [185] = 1515528
+│   ╠══ [186] = 1523720
+│   ╠══ [187] = 1531912
+│   ╠══ [188] = 1540104
+│   ╠══ [189] = 1548296
+│   ╠══ [19] = 155656
+│   ╠══ [190] = 1556488
+│   ╠══ [191] = 1564680
+│   ╠══ [192] = 1572872
+│   ╠══ [193] = 1581064
+│   ╠══ [194] = 1589256
+│   ╠══ [195] = 1597448
+│   ╠══ [196] = 1605640
+│   ╠══ [197] = 1613832
+│   ╠══ [198] = 1622024
+│   ╠══ [199] = 1630216
+│   ╠══ [2] = 16392
+│   ╠══ [20] = 163848
+│   ╠══ [200] = 1638408
+│   ╠══ [201] = 1646600
+│   ╠══ [202] = 1654792
+│   ╠══ [203] = 1662984
+│   ╠══ [204] = 1671176
+│   ╠══ [205] = 1679368
+│   ╠══ [206] = 1687560
+│   ╠══ [207] = 1695752
+│   ╠══ [208] = 1703944
+│   ╠══ [209] = 1712136
+│   ╠══ [21] = 172040
+│   ╠══ [210] = 1720328
+│   ╠══ [211] = 1728520
+│   ╠══ [212] = 1736712
+│   ╠══ [213] = 1744904
+│   ╠══ [214] = 1753096
+│   ╠══ [215] = 1761288
+│   ╠══ [216] = 1769480
+│   ╠══ [217] = 1777672
+│   ╠══ [218] = 1785864
+│   ╠══ [219] = 1794056
+│   ╠══ [22] = 180232
+│   ╠══ [220] = 1802248
+│   ╠══ [221] = 1810440
+│   ╠══ [222] = 1818632
+│   ╠══ [223] = 1826824
+│   ╠══ [224] = 1835016
+│   ╠══ [225] = 1843208
+│   ╠══ [226] = 1851400
+│   ╠══ [227] = 1859592
+│   ╠══ [228] = 1867784
+│   ╠══ [229] = 1875976
+│   ╠══ [23] = 188424
+│   ╠══ [230] = 1884168
+│   ╠══ [231] = 1892360
+│   ╠══ [232] = 1900552
+│   ╠══ [233] = 1908744
+│   ╠══ [234] = 1916936
+│   ╠══ [235] = 1925128
+│   ╠══ [236] = 1933320
+│   ╠══ [237] = 1941512
+│   ╠══ [238] = 1949704
+│   ╠══ [239] = 1957896
+│   ╠══ [24] = 196616
+│   ╠══ [240] = 1966088
+│   ╠══ [241] = 1974280
+│   ╠══ [242] = 1982472
+│   ╠══ [243] = 1990664
+│   ╠══ [244] = 1998856
+│   ╠══ [245] = 2007048
+│   ╠══ [246] = 2015240
+│   ╠══ [247] = 2023432
+│   ╠══ [248] = 2031624
+│   ╠══ [249] = 2039816
+│   ╠══ [25] = 204808
+│   ╠══ [250] = 2048008
+│   ╠══ [251] = 2056200
+│   ╠══ [252] = 2064392
+│   ╠══ [253] = 2072584
+│   ╠══ [254] = 2080776
+│   ╠══ [255] = 2088968
+│   ╠══ [26] = 213000
+│   ╠══ [27] = 221192
+│   ╠══ [28] = 229384
+│   ╠══ [29] = 237576
+│   ╠══ [3] = 24584
+│   ╠══ [30] = 245768
+│   ╠══ [31] = 253960
+│   ╠══ [32] = 262152
+│   ╠══ [33] = 270344
+│   ╠══ [34] = 278536
+│   ╠══ [35] = 286728
+│   ╠══ [36] = 294920
+│   ╠══ [37] = 303112
+│   ╠══ [38] = 311304
+│   ╠══ [39] = 319496
+│   ╠══ [4] = 32776
+│   ╠══ [40] = 327688
+│   ╠══ [41] = 335880
+│   ╠══ [42] = 344072
+│   ╠══ [43] = 352264
+│   ╠══ [44] = 360456
+│   ╠══ [45] = 368648
+│   ╠══ [46] = 376840
+│   ╠══ [47] = 385032
+│   ╠══ [48] = 393224
+│   ╠══ [49] = 401416
+│   ╠══ [5] = 40968
+│   ╠══ [50] = 409608
+│   ╠══ [51] = 417800
+│   ╠══ [52] = 425992
+│   ╠══ [53] = 434184
+│   ╠══ [54] = 442376
+│   ╠══ [55] = 450568
+│   ╠══ [56] = 458760
+│   ╠══ [57] = 466952
+│   ╠══ [58] = 475144
+│   ╠══ [59] = 483336
+│   ╠══ [6] = 49160
+│   ╠══ [60] = 491528
+│   ╠══ [61] = 499720
+│   ╠══ [62] = 507912
+│   ╠══ [63] = 516104
+│   ╠══ [64] = 524296
+│   ╠══ [65] = 532488
+│   ╠══ [66] = 540680
+│   ╠══ [67] = 548872
+│   ╠══ [68] = 557064
+│   ╠══ [69] = 565256
+│   ╠══ [7] = 57352
+│   ╠══ [70] = 573448
+│   ╠══ [71] = 581640
+│   ╠══ [72] = 589832
+│   ╠══ [73] = 598024
+│   ╠══ [74] = 606216
+│   ╠══ [75] = 614408
+│   ╠══ [76] = 622600
+│   ╠══ [77] = 630792
+│   ╠══ [78] = 638984
+│   ╠══ [79] = 647176
+│   ╠══ [8] = 65544
+│   ╠══ [80] = 655368
+│   ╠══ [81] = 663560
+│   ╠══ [82] = 671752
+│   ╠══ [83] = 679944
+│   ╠══ [84] = 688136
+│   ╠══ [85] = 696328
+│   ╠══ [86] = 704520
+│   ╠══ [87] = 712712
+│   ╠══ [88] = 720904
+│   ╠══ [89] = 729096
+│   ╠══ [9] = 73736
+│   ╠══ [90] = 737288
+│   ╠══ [91] = 745480
+│   ╠══ [92] = 753672
+│   ╠══ [93] = 761864
+│   ╠══ [94] = 770056
+│   ╠══ [95] = 778248
+│   ╠══ [96] = 786440
+│   ╠══ [97] = 794632
+│   ╠══ [98] = 802824
+│   ╚══ [99] = 811016
+├── XResolution = (4261413, 32768)
+└── YResolution = (4261413, 32768)
+</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|███████████████████████████████████████████████████████████████████████████████| 10/10 [00:03&lt;00:00,  3.08it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"28aa988bae494038a04ae6328ebdce06","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-13-output-4.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-13-output-5.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="15d0f33f-0f50-40ee-a5fb-75d897ac401d" class="cell" data-scrolled="true">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.1.1 — Load a TIFF stack from a folder of frames</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> list_tiff_frames(folder):</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    folder <span class="op">=</span> Path(folder)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    exts <span class="op">=</span> {<span class="st">".tif"</span>, <span class="st">".tiff"</span>}</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sorted</span>([p <span class="cf">for</span> p <span class="kw">in</span> folder.iterdir() <span class="cf">if</span> p.suffix.lower() <span class="kw">in</span> exts])</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> STACK_FOLDER_PATH:</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set STACK_FOLDER_PATH to a folder containing TIFF frames."</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    frame_files <span class="op">=</span> list_tiff_frames(STACK_FOLDER_PATH)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Found frames:"</span>, <span class="bu">len</span>(frame_files))</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(frame_files) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">RuntimeError</span>(<span class="st">"No TIFF frames found in STACK_FOLDER_PATH."</span>)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    stack <span class="op">=</span> []</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> p <span class="kw">in</span> frame_files:</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>        f <span class="op">=</span> read_tiff(<span class="bu">str</span>(p))</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> f.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>            f <span class="op">=</span> f.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>        stack.append(f.astype(<span class="bu">float</span>))</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    stack <span class="op">=</span> np.stack(stack, axis<span class="op">=</span><span class="dv">0</span>)  <span class="co"># (N,H,W)</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Stack shape (N,H,W):"</span>, stack.shape)</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(frame_files)):</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>        plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(stack[i])<span class="op">;</span> plt.title(<span class="ss">f"0.1.1 Stack frame </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>    plt.hist(stack[<span class="dv">0</span>][<span class="dv">0</span>].ravel(), bins<span class="op">=</span><span class="dv">128</span>)</span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"0.1.2 Histogram (raw)"</span>)</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"Intensity"</span>)<span class="op">;</span> plt.ylabel(<span class="st">"Count"</span>)</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"============"</span>)</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Percentilification :-) "</span>)</span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>    p_low, p_high <span class="op">=</span> <span class="dv">1</span>, <span class="dv">99</span></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> np.percentile(imgStack[<span class="dv">0</span>][<span class="dv">0</span>], [p_low, p_high])</span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>    img_cs <span class="op">=</span> np.clip((imgStack[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>    gamma <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># try 0.7 or 1.4</span></span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>    img_out <span class="op">=</span> np.clip(img_cs <span class="op">**</span> gamma, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>    plt.imshow(img_out)</span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"0.1.2 Contrast-stretched (</span><span class="sc">{</span>p_low<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>p_high<span class="sc">}</span><span class="ss">%) + gamma=</span><span class="sc">{</span>gamma<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>    plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a><span class="co">#    out_jpg = os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem + f"_cs_{p_low}_{p_high}_g{gamma}.jpg")</span></span>
+<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a><span class="co">#    save_jpeg_thumbnail(img_out, out_jpg, p_low=0, p_high=100)</span></span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a><span class="co">#    print("Saved JPEG:", out_jpg)</span></span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> HAS_TIFFFILE:</span>
+<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>        out_tif <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="ss">f"_cs_</span><span class="sc">{</span>p_low<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>p_high<span class="sc">}</span><span class="ss">_g</span><span class="sc">{</span>gamma<span class="sc">}</span><span class="ss">.tif"</span>)</span>
+<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a>        img_cs.save(out_tif, overwrite<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Saved TIFF:"</span>, out_tif)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="2609990d-f96f-402b-ad04-15ad4f458354" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> SINGLE_TIFF_PATH:</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set SINGLE_TIFF_PATH first."</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> read_tiff(SINGLE_TIFF_PATH)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img.astype(<span class="bu">float</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    plt.hist(img.ravel(), bins<span class="op">=</span><span class="dv">128</span>)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"0.1.2 Histogram (raw)"</span>)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"Intensity"</span>)<span class="op">;</span> plt.ylabel(<span class="st">"Count"</span>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    p_low, p_high <span class="op">=</span> <span class="dv">1</span>, <span class="dv">99</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> np.percentile(img, [p_low, p_high])</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    img_cs <span class="op">=</span> np.clip((img <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    gamma <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># try 0.7 or 1.4</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    img_out <span class="op">=</span> np.clip(img_cs <span class="op">**</span> gamma, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    plt.imshow(img_out)</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"0.1.2 Contrast-stretched (</span><span class="sc">{</span>p_low<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>p_high<span class="sc">}</span><span class="ss">%) + gamma=</span><span class="sc">{</span>gamma<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>    plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a><span class="co"># inputs: img_out is the pervcentile-ed, gamma-ed image. Set sigma as needed</span></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a><span class="co"># output: dn -s the "de-noised" image.</span></span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># try 0.5, 1.0, 2.0</span></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>    dn <span class="op">=</span> ndimage.gaussian_filter(img_out, sigma<span class="op">=</span>sigma)</span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a><span class="co"># now plot the result</span></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>    plt.imshow(dn)</span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"0.1.3 After Gaussian (sigma=</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>    plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a>    out_jpg <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="ss">f"_cs_</span><span class="sc">{</span>p_low<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>p_high<span class="sc">}</span><span class="ss">_g</span><span class="sc">{</span>gamma<span class="sc">}</span><span class="ss">.jpg"</span>)</span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>    save_jpeg_thumbnail(dn, out_jpg, p_low<span class="op">=</span><span class="dv">0</span>, p_high<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Saved JPEG:"</span>, out_jpg)</span>
+<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> HAS_TIFFFILE:</span>
+<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a>        out_tif <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="ss">f"_cs_</span><span class="sc">{</span>p_low<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>p_high<span class="sc">}</span><span class="ss">_g</span><span class="sc">{</span>gamma<span class="sc">}</span><span class="ss">.tif"</span>)</span>
+<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a>        tiff.imwrite(out_tif, (img_out <span class="op">*</span> <span class="dv">65535</span>).astype(np.uint16))</span>
+<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Saved TIFF:"</span>, out_tif)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="d6597f8a-065c-4c5d-bffa-14c0520319c8" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># try 0.5, 1.0, 2.0</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    dn <span class="op">=</span> ndimage.gaussian_filter(vis, sigma<span class="op">=</span>sigma)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(vis)<span class="op">;</span> plt.title(<span class="st">"0.1.3 Before"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(dn)<span class="op">;</span> plt.title(<span class="ss">f"0.1.3 After Gaussian (sigma=</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">)"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="a1b94b0f-9f0d-4fab-bff5-040d5d7bff58" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> SINGLE_TIFF_PATH:</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set SINGLE_TIFF_PATH first."</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> <span class="kw">not</span> HAS_SCIPY:</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"SciPy not available; cannot run gaussian_filter."</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> read_tiff(SINGLE_TIFF_PATH)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img.astype(<span class="bu">float</span>)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> np.percentile(img, [<span class="dv">1</span>, <span class="dv">99</span>])</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    vis <span class="op">=</span> np.clip((img <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># try 0.5, 1.0, 2.0</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    dn <span class="op">=</span> ndimage.gaussian_filter(vis, sigma<span class="op">=</span>sigma)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(vis)<span class="op">;</span> plt.title(<span class="st">"0.1.3 Before"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(dn)<span class="op">;</span> plt.title(<span class="ss">f"0.1.3 After Gaussian (sigma=</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">)"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>    out_jpg <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="ss">f"_denoise_sigma</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">.jpg"</span>)</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>    save_jpeg_thumbnail(dn, out_jpg, p_low<span class="op">=</span><span class="dv">0</span>, p_high<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Saved JPEG:"</span>, out_jpg)</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> HAS_TIFFFILE:</span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>        out_tif <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="ss">f"_denoise_sigma</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">.tif"</span>)</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>        tiff.imwrite(out_tif, (dn <span class="op">*</span> <span class="dv">65535</span>).astype(np.uint16))</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Saved TIFF:"</span>, out_tif)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="728d7b6a-7984-4244-bde3-a9356935ac06" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> STACK_FOLDER_PATH:</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set STACK_FOLDER_PATH first."</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> <span class="kw">not</span> HAS_SCIPY:</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"SciPy not available; cannot run drift correction."</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    frame_files <span class="op">=</span> list_tiff_frames(STACK_FOLDER_PATH)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    stack <span class="op">=</span> []</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> p <span class="kw">in</span> frame_files:</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>        f <span class="op">=</span> read_tiff(<span class="bu">str</span>(p))</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> f.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>            f <span class="op">=</span> f.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>        stack.append(f.astype(<span class="bu">float</span>))</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    stack <span class="op">=</span> np.stack(stack, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># normalize per frame for robust correlation (used ONLY for shift estimation)</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>    stack_n <span class="op">=</span> np.empty_like(stack)</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(stack.shape[<span class="dv">0</span>]):</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>        lo, hi <span class="op">=</span> np.percentile(stack[i], [<span class="dv">1</span>, <span class="dv">99</span>])</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>        stack_n[i] <span class="op">=</span> np.clip((stack[i] <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># use average normalized frame as reference for more stable shifts</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>    ref <span class="op">=</span> stack_n.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> estimate_shift(ref, img):</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>        a <span class="op">=</span> img <span class="op">-</span> img.mean()</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>        b <span class="op">=</span> ref <span class="op">-</span> ref.mean()</span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>        corr <span class="op">=</span> fftconvolve(a, b[::<span class="op">-</span><span class="dv">1</span>, ::<span class="op">-</span><span class="dv">1</span>], mode<span class="op">=</span><span class="st">"same"</span>)</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>        y0, x0 <span class="op">=</span> np.unravel_index(np.argmax(corr), corr.shape)</span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>        cy, cx <span class="op">=</span> np.array(corr.shape) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>        dy, dx <span class="op">=</span> y0 <span class="op">-</span> cy, x0 <span class="op">-</span> cx</span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">-</span>dy, <span class="op">-</span>dx</span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>    aligned <span class="op">=</span> [stack[<span class="dv">0</span>]]</span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>    shifts <span class="op">=</span> [(<span class="fl">0.0</span>, <span class="fl">0.0</span>)]</span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, stack_n.shape[<span class="dv">0</span>]):</span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>        dy, dx <span class="op">=</span> estimate_shift(ref, stack_n[i])</span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>        shifts.append((<span class="bu">float</span>(dy), <span class="bu">float</span>(dx)))</span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>        aligned.append(ndimage.shift(stack[i], shift<span class="op">=</span>(dy, dx), order<span class="op">=</span><span class="dv">1</span>, mode<span class="op">=</span><span class="st">"nearest"</span>))</span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a>    aligned <span class="op">=</span> np.stack(aligned, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compare averages on RAW intensity</span></span>
+<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a>    avg_nocorr <span class="op">=</span> stack.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a>    avg_corr <span class="op">=</span> aligned.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb26-44"><a href="#cb26-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-45"><a href="#cb26-45" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Shifts (dy, dx):"</span>)</span>
+<span id="cb26-46"><a href="#cb26-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, s <span class="kw">in</span> <span class="bu">enumerate</span>(shifts):</span>
+<span id="cb26-47"><a href="#cb26-47" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(i, s)</span>
+<span id="cb26-48"><a href="#cb26-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-49"><a href="#cb26-49" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(avg_nocorr)<span class="op">;</span> plt.title(<span class="st">"0.1.4 Avg (no correction)"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
+<span id="cb26-50"><a href="#cb26-50" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(avg_corr)<span class="op">;</span> plt.title(<span class="st">"0.1.4 Avg (drift-corrected)"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
+<span id="cb26-51"><a href="#cb26-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-52"><a href="#cb26-52" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'avg_nocorr type is '</span>, <span class="bu">type</span>(avg_nocorr))</span>
+<span id="cb26-53"><a href="#cb26-53" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'avg_nocorr itself is '</span>,avg_nocorr)</span>
+<span id="cb26-54"><a href="#cb26-54" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>()</span>
+<span id="cb26-55"><a href="#cb26-55" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'avg_driftcorr type is '</span>, <span class="bu">type</span>(avg_nocorr))</span>
+<span id="cb26-56"><a href="#cb26-56" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'avg_driftcorr itself is '</span>,avg_nocorr)</span>
+<span id="cb26-57"><a href="#cb26-57" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-58"><a href="#cb26-58" aria-hidden="true" tabindex="-1"></a>    base <span class="op">=</span> Path(STACK_FOLDER_PATH).name.rstrip(<span class="st">"/"</span>)</span>
+<span id="cb26-59"><a href="#cb26-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> HAS_TIFFFILE:</span>
+<span id="cb26-60"><a href="#cb26-60" aria-hidden="true" tabindex="-1"></a>        <span class="co">#tiff.imwrite(os.path.join(OUTPUT_DIR, f"{base}_avg_nocorr.tif"), (avg_nocorr*65535).astype(np.uint16))</span></span>
+<span id="cb26-61"><a href="#cb26-61" aria-hidden="true" tabindex="-1"></a>        <span class="co">#tiff.imwrite(os.path.join(OUTPUT_DIR, f"{base}_avg_driftcorr.tif"), (avg_corr*65535).astype(np.uint16))</span></span>
+<span id="cb26-62"><a href="#cb26-62" aria-hidden="true" tabindex="-1"></a>        tiff.imwrite(os.path.join(OUTPUT_DIR, <span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}</span><span class="ss">_avg_nocorr.tif"</span>), avg_nocorr)</span>
+<span id="cb26-63"><a href="#cb26-63" aria-hidden="true" tabindex="-1"></a>        tiff.imwrite(os.path.join(OUTPUT_DIR, <span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}</span><span class="ss">_avg_driftcorr.tif"</span>), avg_corr)</span>
+<span id="cb26-64"><a href="#cb26-64" aria-hidden="true" tabindex="-1"></a>    save_jpeg_thumbnail(avg_nocorr, os.path.join(OUTPUT_DIR, <span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}</span><span class="ss">_avg_nocorr.jpg"</span>), p_low<span class="op">=</span><span class="dv">0</span>, p_high<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb26-65"><a href="#cb26-65" aria-hidden="true" tabindex="-1"></a>    save_jpeg_thumbnail(avg_corr, os.path.join(OUTPUT_DIR, <span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}</span><span class="ss">_avg_driftcorr.jpg"</span>), p_low<span class="op">=</span><span class="dv">0</span>, p_high<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb26-66"><a href="#cb26-66" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Saved averaged outputs to"</span>, OUTPUT_DIR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="0111752f-dae2-46f5-9d98-b1a99849a53c" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.1.5 — Interactive backend setup (Jupyter-friendly)</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Tries widget backend; falls back to notebook; otherwise inline + manual input.</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    get_ipython</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">%</span>matplotlib widget</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'Using %matplotlib widget'</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span>:</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>            <span class="op">%</span>matplotlib notebook</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">'Using %matplotlib notebook'</span>)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span>:</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>            <span class="op">%</span>matplotlib inline</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">'Using %matplotlib inline (manual coordinate fallback will be used)'</span>)</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span>:</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib widget</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="8df75fb0-968a-413d-8502-5f82aac2e0ab" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> SINGLE_TIFF_PATH:</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set SINGLE_TIFF_PATH first."</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> read_tiff(SINGLE_TIFF_PATH)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img.astype(<span class="bu">float</span>)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> np.percentile(img, [<span class="dv">1</span>, <span class="dv">99</span>])</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    vis <span class="op">=</span> np.clip((img <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> select_two_points(title, allow_manual<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>        fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>        plt.imshow(vis)<span class="op">;</span> plt.title(title)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>        pts <span class="op">=</span> []</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"going to try to get 2 points - wish me luck!"</span>)</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>            pts <span class="op">=</span> plt.ginput(<span class="dv">2</span>, timeout<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span>:</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>            pts <span class="op">=</span> []</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>        plt.close(fig)</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"len(pts) = "</span>, <span class="bu">len</span>(pts))</span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(pts) <span class="op">&lt;</span> <span class="dv">2</span> <span class="kw">and</span> allow_manual:</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"Interactive selection failed. Enter coordinates manually as x1,y1,x2,y2"</span>)</span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>            raw <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Coords: "</span>).strip()</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>            parts <span class="op">=</span> [p.strip() <span class="cf">for</span> p <span class="kw">in</span> raw.split(<span class="st">","</span>)]</span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(parts) <span class="op">==</span> <span class="dv">4</span>:</span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>                x1, y1, x2, y2 <span class="op">=</span> <span class="bu">map</span>(<span class="bu">float</span>, parts)</span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>                pts <span class="op">=</span> [(x1, y1), (x2, y2)]</span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> pts</span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Click TWO points for the feature (line profile), then press Enter."</span>)</span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>    pts <span class="op">=</span> select_two_points(<span class="st">"Feature: click 2 points, Enter"</span>)</span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(pts) <span class="op">&lt;</span> <span class="dv">2</span>:</span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">RuntimeError</span>(<span class="st">"No points captured. Ensure interactive backend or use manual input."</span>)</span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>    (x1, y1), (x2, y2) <span class="op">=</span> pts</span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>    feature_px <span class="op">=</span> <span class="bu">float</span>(np.hypot(x2<span class="op">-</span>x1, y2<span class="op">-</span>y1))</span>
+<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Feature length: </span><span class="sc">{</span>feature_px<span class="sc">:.2f}</span><span class="ss"> px"</span>)</span>
+<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- Line profile along the selected feature ---</span></span>
+<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a>    n_samples <span class="op">=</span> <span class="bu">int</span>(<span class="bu">max</span>(<span class="dv">2</span>, np.ceil(feature_px)))</span>
+<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a>    xs <span class="op">=</span> np.linspace(x1, x2, n_samples)</span>
+<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a>    ys <span class="op">=</span> np.linspace(y1, y2, n_samples)</span>
+<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a>        <span class="co"># use scipy if available</span></span>
+<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> HAS_SCIPY:</span>
+<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a>            <span class="im">from</span> scipy.ndimage <span class="im">import</span> map_coordinates</span>
+<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a>            profile <span class="op">=</span> map_coordinates(img, [ys, xs], order<span class="op">=</span><span class="dv">1</span>, mode<span class="op">=</span><span class="st">'nearest'</span>)</span>
+<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a>            <span class="co"># nearest-neighbor fallback</span></span>
+<span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a>            xi <span class="op">=</span> np.clip(np.<span class="bu">round</span>(xs).astype(<span class="bu">int</span>), <span class="dv">0</span>, img.shape[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a>            yi <span class="op">=</span> np.clip(np.<span class="bu">round</span>(ys).astype(<span class="bu">int</span>), <span class="dv">0</span>, img.shape[<span class="dv">0</span>]<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb28-56"><a href="#cb28-56" aria-hidden="true" tabindex="-1"></a>            profile <span class="op">=</span> img[yi, xi]</span>
+<span id="cb28-57"><a href="#cb28-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span>:</span>
+<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a>        xi <span class="op">=</span> np.clip(np.<span class="bu">round</span>(xs).astype(<span class="bu">int</span>), <span class="dv">0</span>, img.shape[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a>        yi <span class="op">=</span> np.clip(np.<span class="bu">round</span>(ys).astype(<span class="bu">int</span>), <span class="dv">0</span>, img.shape[<span class="dv">0</span>]<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb28-60"><a href="#cb28-60" aria-hidden="true" tabindex="-1"></a>        profile <span class="op">=</span> img[yi, xi]</span>
+<span id="cb28-61"><a href="#cb28-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-62"><a href="#cb28-62" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
+<span id="cb28-63"><a href="#cb28-63" aria-hidden="true" tabindex="-1"></a>    plt.plot(profile)</span>
+<span id="cb28-64"><a href="#cb28-64" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"0.1.5 Line profile (intensity vs. distance)"</span>)</span>
+<span id="cb28-65"><a href="#cb28-65" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"Sample index"</span>)</span>
+<span id="cb28-66"><a href="#cb28-66" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"Intensity"</span>)</span>
+<span id="cb28-67"><a href="#cb28-67" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb28-68"><a href="#cb28-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-69"><a href="#cb28-69" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Save profile to CSV</span></span>
+<span id="cb28-70"><a href="#cb28-70" aria-hidden="true" tabindex="-1"></a>    prof_path <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="st">"_line_profile.csv"</span>)</span>
+<span id="cb28-71"><a href="#cb28-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(prof_path, <span class="st">"w"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
+<span id="cb28-72"><a href="#cb28-72" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="st">"index,intensity"</span>)</span>
+<span id="cb28-73"><a href="#cb28-73" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> k, v <span class="kw">in</span> <span class="bu">enumerate</span>(profile):</span>
+<span id="cb28-74"><a href="#cb28-74" aria-hidden="true" tabindex="-1"></a>            f.write(<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="bu">float</span>(v)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb28-75"><a href="#cb28-75" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Saved line profile:"</span>, prof_path)</span>
+<span id="cb28-76"><a href="#cb28-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-77"><a href="#cb28-77" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Now click TWO endpoints of the scale bar, then press Enter."</span>)</span>
+<span id="cb28-78"><a href="#cb28-78" aria-hidden="true" tabindex="-1"></a>    sb <span class="op">=</span> select_two_points(<span class="st">"Scale bar: click 2 points, Enter"</span>)</span>
+<span id="cb28-79"><a href="#cb28-79" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(sb) <span class="op">&lt;</span> <span class="dv">2</span>:</span>
+<span id="cb28-80"><a href="#cb28-80" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">RuntimeError</span>(<span class="st">"No scale-bar points captured."</span>)</span>
+<span id="cb28-81"><a href="#cb28-81" aria-hidden="true" tabindex="-1"></a>    (sx1, sy1), (sx2, sy2) <span class="op">=</span> sb</span>
+<span id="cb28-82"><a href="#cb28-82" aria-hidden="true" tabindex="-1"></a>    sb_px <span class="op">=</span> <span class="bu">float</span>(np.hypot(sx2<span class="op">-</span>sx1, sy2<span class="op">-</span>sy1))</span>
+<span id="cb28-83"><a href="#cb28-83" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Scale bar length: </span><span class="sc">{</span>sb_px<span class="sc">:.2f}</span><span class="ss"> px"</span>)</span>
+<span id="cb28-84"><a href="#cb28-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-85"><a href="#cb28-85" aria-hidden="true" tabindex="-1"></a>    sb_nm <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Enter the scale bar length in nm (read from label): "</span>))</span>
+<span id="cb28-86"><a href="#cb28-86" aria-hidden="true" tabindex="-1"></a>    nm_per_px <span class="op">=</span> sb_nm <span class="op">/</span> <span class="bu">max</span>(sb_px, <span class="fl">1e-12</span>)</span>
+<span id="cb28-87"><a href="#cb28-87" aria-hidden="true" tabindex="-1"></a>    feature_nm <span class="op">=</span> feature_px <span class="op">*</span> nm_per_px</span>
+<span id="cb28-88"><a href="#cb28-88" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Calibration: </span><span class="sc">{</span>nm_per_px<span class="sc">:.6f}</span><span class="ss"> nm/px"</span>)</span>
+<span id="cb28-89"><a href="#cb28-89" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Feature length: </span><span class="sc">{</span>feature_nm<span class="sc">:.2f}</span><span class="ss"> nm"</span>)</span>
+<span id="cb28-90"><a href="#cb28-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-91"><a href="#cb28-91" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> {</span>
+<span id="cb28-92"><a href="#cb28-92" aria-hidden="true" tabindex="-1"></a>        <span class="st">"input_file"</span>: SINGLE_TIFF_PATH,</span>
+<span id="cb28-93"><a href="#cb28-93" aria-hidden="true" tabindex="-1"></a>        <span class="st">"feature_px"</span>: feature_px,</span>
+<span id="cb28-94"><a href="#cb28-94" aria-hidden="true" tabindex="-1"></a>        <span class="st">"scale_bar_px"</span>: sb_px,</span>
+<span id="cb28-95"><a href="#cb28-95" aria-hidden="true" tabindex="-1"></a>        <span class="st">"scale_bar_nm"</span>: sb_nm,</span>
+<span id="cb28-96"><a href="#cb28-96" aria-hidden="true" tabindex="-1"></a>        <span class="st">"nm_per_px"</span>: nm_per_px,</span>
+<span id="cb28-97"><a href="#cb28-97" aria-hidden="true" tabindex="-1"></a>        <span class="st">"feature_nm"</span>: feature_nm,</span>
+<span id="cb28-98"><a href="#cb28-98" aria-hidden="true" tabindex="-1"></a>        <span class="st">"created_utc"</span>: datetime.utcnow().isoformat() <span class="op">+</span> <span class="st">"Z"</span>,</span>
+<span id="cb28-99"><a href="#cb28-99" aria-hidden="true" tabindex="-1"></a>        <span class="st">"line_profile_csv"</span>: prof_path,</span>
+<span id="cb28-100"><a href="#cb28-100" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb28-101"><a href="#cb28-101" aria-hidden="true" tabindex="-1"></a>    out_path <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="st">"_measurement.json"</span>)</span>
+<span id="cb28-102"><a href="#cb28-102" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(out_path, <span class="st">"w"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
+<span id="cb28-103"><a href="#cb28-103" aria-hidden="true" tabindex="-1"></a>        json.dump(out, f, indent<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb28-104"><a href="#cb28-104" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Saved measurement JSON:"</span>, out_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="f18dcf55-02e0-4846-985d-5e96fa7ee2dd" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> SINGLE_TIFF_PATH:</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set SINGLE_TIFF_PATH first."</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> read_tiff(SINGLE_TIFF_PATH)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img.astype(<span class="bu">float</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    p_low, p_high <span class="op">=</span> <span class="dv">1</span>, <span class="dv">99</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> np.percentile(img, [p_low, p_high])</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    proc <span class="op">=</span> np.clip((img <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> HAS_SCIPY:</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>        proc <span class="op">=</span> ndimage.gaussian_filter(proc, sigma<span class="op">=</span>sigma)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    in_sha <span class="op">=</span> sha256_file(SINGLE_TIFF_PATH) <span class="cf">if</span> os.path.exists(SINGLE_TIFF_PATH) <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    meta <span class="op">=</span> {</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"input_file"</span>: SINGLE_TIFF_PATH,</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"input_sha256"</span>: in_sha,</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"created_utc"</span>: datetime.utcnow().isoformat() <span class="op">+</span> <span class="st">"Z"</span>,</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"processing"</span>: [</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"step"</span>: <span class="st">"percentile_contrast"</span>, <span class="st">"p_low"</span>: p_low, <span class="st">"p_high"</span>: p_high},</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"step"</span>: <span class="st">"gaussian_denoise"</span>, <span class="st">"sigma"</span>: sigma, <span class="st">"scipy"</span>: <span class="bu">bool</span>(HAS_SCIPY)},</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"stats_raw"</span>: image_stats(img),</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">"stats_processed"</span>: image_stats(proc),</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>        <span class="st">"software"</span>: {</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>            <span class="st">"python"</span>: <span class="ss">f"</span><span class="sc">{</span>os<span class="sc">.</span>sys<span class="sc">.</span>version_info<span class="sc">.</span>major<span class="sc">}</span><span class="ss">.</span><span class="sc">{</span>os<span class="sc">.</span>sys<span class="sc">.</span>version_info<span class="sc">.</span>minor<span class="sc">}</span><span class="ss">.</span><span class="sc">{</span>os<span class="sc">.</span>sys<span class="sc">.</span>version_info<span class="sc">.</span>micro<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>            <span class="st">"numpy"</span>: np.__version__,</span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>    base <span class="op">=</span> Path(SINGLE_TIFF_PATH).stem</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>    h5_path <span class="op">=</span> os.path.join(OUTPUT_DIR, base <span class="op">+</span> <span class="st">"_bundle.h5"</span>)</span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>    readme_path <span class="op">=</span> os.path.join(OUTPUT_DIR, base <span class="op">+</span> <span class="st">"_README.txt"</span>)</span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> HAS_H5PY:</span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>        <span class="im">import</span> h5py</span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> h5py.File(h5_path, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a>            f.create_dataset(<span class="st">"raw"</span>, data<span class="op">=</span>img, compression<span class="op">=</span><span class="st">"gzip"</span>)</span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>            f.create_dataset(<span class="st">"processed"</span>, data<span class="op">=</span>proc, compression<span class="op">=</span><span class="st">"gzip"</span>)</span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>            f.attrs[<span class="st">"metadata_json"</span>] <span class="op">=</span> json.dumps(meta)</span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Wrote HDF5:"</span>, h5_path)</span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"h5py not available; skipping HDF5 export."</span>)</span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>    readme <span class="op">=</span> <span class="ss">f"""TEM Processing README</span></span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a><span class="ss">====================</span></span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a><span class="ss">Input file: </span><span class="sc">{</span>SINGLE_TIFF_PATH<span class="sc">}</span></span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a><span class="ss">Input sha256: </span><span class="sc">{</span>in_sha<span class="sc">}</span></span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a><span class="ss">Created (UTC): </span><span class="sc">{</span>meta[<span class="st">'created_utc'</span>]<span class="sc">}</span></span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a><span class="ss">Processing:</span></span>
+<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- Percentile contrast: </span><span class="sc">{</span>p_low<span class="sc">}</span><span class="ss">–</span><span class="sc">{</span>p_high<span class="sc">}</span><span class="ss">%</span></span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- Gaussian denoise: sigma=</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss"> (SciPy: </span><span class="sc">{</span><span class="bu">bool</span>(HAS_SCIPY)<span class="sc">}</span><span class="ss">)</span></span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a><span class="ss">Raw stats: </span><span class="sc">{</span>meta[<span class="st">'stats_raw'</span>]<span class="sc">}</span></span>
+<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a><span class="ss">Processed stats: </span><span class="sc">{</span>meta[<span class="st">'stats_processed'</span>]<span class="sc">}</span></span>
+<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a><span class="ss">Software:</span></span>
+<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- Python: </span><span class="sc">{</span>meta[<span class="st">'software'</span>][<span class="st">'python'</span>]<span class="sc">}</span></span>
+<span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- NumPy: </span><span class="sc">{</span>meta[<span class="st">'software'</span>][<span class="st">'numpy'</span>]<span class="sc">}</span></span>
+<span id="cb29-64"><a href="#cb29-64" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
+<span id="cb29-65"><a href="#cb29-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-66"><a href="#cb29-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(readme_path, <span class="st">"w"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
+<span id="cb29-67"><a href="#cb29-67" aria-hidden="true" tabindex="-1"></a>        f.write(readme)</span>
+<span id="cb29-68"><a href="#cb29-68" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="st">"</span><span class="ch">\n</span><span class="st">Code excerpt:</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb29-69"><a href="#cb29-69" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="st">"  lo, hi = np.percentile(img, [p_low, p_high])</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb29-70"><a href="#cb29-70" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="st">"  proc = np.clip((img - lo) / (hi - lo + 1e-12), 0, 1)</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb29-71"><a href="#cb29-71" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="st">"  proc = ndimage.gaussian_filter(proc, sigma=sigma)</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb29-72"><a href="#cb29-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-73"><a href="#cb29-73" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Wrote README:"</span>, readme_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/renci-nrig\.github\.io\/CITEAM\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.25rem 0;">
+<p><img src="images/nsf.png" alt="NSF logo" style="height: 35px; width: auto;"> <span style="font-size: 0.85rem; color: #666;"> CITEAM is supported by the NSF under award number <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519465" target="_blank">2519465</a>. </span></p>
+</div>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
