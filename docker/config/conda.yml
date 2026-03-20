@@ -15,3 +15,5 @@ dependencies:
   - pip==23.0.1
   - pip:
     - certif-pyspec==1.5.3
+    - file:///tmp/config/hyperspy_tools/hyperspy_tools-0.1.2-py3-none-any.whl
+    - -r file:///tmp/config/hyperspy_tools/requirements.txt
