@@ -11,6 +11,8 @@ dependencies:
   - tifffile==2026.2.24 
   - h5py==3.15.1
   - hyperspy==2.4.0
+  - hyperspy-gui-ipywidgets==2.1.0
+#  - ipympl
   - ipykernel #need for installing conda as a jupyter kernel
   - pip==23.0.1
   - pip:

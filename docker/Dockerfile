@@ -34,7 +34,9 @@ ADD ./config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # install jupyterlab using conda
 # nodejs is required for jupyterlab
-RUN conda install -y -c conda-forge nodejs jupyterlab
+# ipympl is required for interactive widgets
+RUN conda install -y -c conda-forge nodejs jupyterlab ipympl
+RUN jupyter labextension enable ipympl
 
 # Locale and timezone
 ENV LANG=en_US.UTF-8
@@ -59,6 +61,7 @@ RUN conda clean -y --all
 
 # create a jupyter kernel for environment mentioned in the conda.yml file
 RUN conda run -n $CONDA_ENV_NAME python -m ipykernel install --name=$CONDA_ENV_NAME --display-name="Python ($CONDA_ENV_NAME)"
+
 
 CMD ["/start.sh"]
 
