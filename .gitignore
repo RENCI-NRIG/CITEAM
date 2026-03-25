@@ -775,4 +775,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# escott: ignore hyperspy and codex-generated outputs
+notebooks/outputs_0_1
+
 # End of https://www.toptal.com/developers/gitignore/api/c,c++,git,vim,java,node,venv,emacs,linux,macos,maven,direnv,dotenv,python,eclipse,windows,virtualenv,intellij+all,visualstudiocode
