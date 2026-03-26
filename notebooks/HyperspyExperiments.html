@@ -61,7 +61,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -80,9 +80,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9c3bd8e02d6621b99f38e66907a4e682.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-c1ebe0940d0620468b49c590899f0854.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9c3bd8e02d6621b99f38e66907a4e682.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-758ef7c12d19a5a86c60c87f6cce63c4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-69184bbaf9c795545f892a2a7df8348d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-758ef7c12d19a5a86c60c87f6cce63c4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -111,6 +111,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
 
 
 <link rel="stylesheet" href="../css/styles.css">
@@ -324,11 +328,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#now-lets-define-some-of-the-convenience-functions-we-were-using-in-the-chatgpt-generated-examples." id="toc-now-lets-define-some-of-the-convenience-functions-we-were-using-in-the-chatgpt-generated-examples." class="nav-link" data-scroll-target="#now-lets-define-some-of-the-convenience-functions-we-were-using-in-the-chatgpt-generated-examples.">Now let’s define some of the convenience functions we were using in the ChatGPT-generated examples.</a></li>
   <li><a href="#and-go-ahead-now-and-set-the-paths-for-inputs-and-outputs." id="toc-and-go-ahead-now-and-set-the-paths-for-inputs-and-outputs." class="nav-link" data-scroll-target="#and-go-ahead-now-and-set-the-paths-for-inputs-and-outputs.">…and go ahead now and set the paths for inputs and outputs.</a></li>
-  <li><a href="#for-the-sake-of-completeness-lets-go-ahead-and-load-our-single-image-again.-we-may-decide-later-we-still-want-to-play-with-it." id="toc-for-the-sake-of-completeness-lets-go-ahead-and-load-our-single-image-again.-we-may-decide-later-we-still-want-to-play-with-it." class="nav-link" data-scroll-target="#for-the-sake-of-completeness-lets-go-ahead-and-load-our-single-image-again.-we-may-decide-later-we-still-want-to-play-with-it.">For the sake of completeness, let’s go ahead and load our single image again. We may decide later we still want to play with it.</a></li>
+  <li><a href="#will-probably-move-this-to-much-later-but-the-following-cell-will-load-a-single-image-into-a-numpy-array" id="toc-will-probably-move-this-to-much-later-but-the-following-cell-will-load-a-single-image-into-a-numpy-array" class="nav-link" data-scroll-target="#will-probably-move-this-to-much-later-but-the-following-cell-will-load-a-single-image-into-a-numpy-array">Will probably move this to much later, but the following cell will load a single image into a numpy array</a></li>
   <li><a href="#load-the-image-again-but-this-time-with-hyperspy." id="toc-load-the-image-again-but-this-time-with-hyperspy." class="nav-link" data-scroll-target="#load-the-image-again-but-this-time-with-hyperspy.">Load the image again, but this time with HyperSpy.</a></li>
   <li><a href="#load-an-image-stack-via-hyperspys-load-function" id="toc-load-an-image-stack-via-hyperspys-load-function" class="nav-link" data-scroll-target="#load-an-image-stack-via-hyperspys-load-function">Load an image stack (via HyperSpy’s load() function)</a></li>
-  <li><a href="#de-noise-the-image" id="toc-de-noise-the-image" class="nav-link" data-scroll-target="#de-noise-the-image">De-noise the Image</a></li>
+  <li><a href="#plot-calibrate-and-remove-some-noise" id="toc-plot-calibrate-and-remove-some-noise" class="nav-link" data-scroll-target="#plot-calibrate-and-remove-some-noise">Plot, Calibrate, and Remove Some Noise</a></li>
+  <li><a href="#directly-reading-and-writing-the-underlying-data" id="toc-directly-reading-and-writing-the-underlying-data" class="nav-link" data-scroll-target="#directly-reading-and-writing-the-underlying-data">Directly Reading and Writing the Underlying Data</a></li>
   </ul></li>
+  <li><a href="#extra-greebles" id="toc-extra-greebles" class="nav-link" data-scroll-target="#extra-greebles">Extra Greebles:</a></li>
   </ul>
 </nav>
     </div>
@@ -356,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This is a throwaway notebook just for experimenting. <strong>DO NOT</strong> assume anything in here is correct, makes sense, or for that matter safe to be in the same room with.</p>
-<div id="5242f444-e226-406f-8cbc-bb84f4ed8bc2" class="cell">
+<div id="5242f444-e226-406f-8cbc-bb84f4ed8bc2" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import the modules we'll be using later.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, re, json, hashlib</span>
@@ -370,7 +376,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> ndimage</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> fftconvolve</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hyperspy.api <span class="im">as</span> hs</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hyperspy.api <span class="im">as</span> hs</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="first-the-simplest-use-of-hyperspy-just-to-get-the-blood-flowing-and-limbs-limbered-up." class="level1">
 <h1>First, the simplest use of HyperSpy just to get the blood flowing and limbs limbered up.</h1>
@@ -406,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="now-lets-define-some-of-the-convenience-functions-we-were-using-in-the-chatgpt-generated-examples." class="level2">
 <h2 class="anchored" data-anchor-id="now-lets-define-some-of-the-convenience-functions-we-were-using-in-the-chatgpt-generated-examples.">Now let’s define some of the convenience functions we were using in the ChatGPT-generated examples.</h2>
-<div id="9b7f7357-0e67-4a47-8fff-a3f2d09c0cbb" class="cell">
+<div id="9b7f7357-0e67-4a47-8fff-a3f2d09c0cbb" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#straight outta Codex...</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -473,543 +480,302 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="and-go-ahead-now-and-set-the-paths-for-inputs-and-outputs." class="level2">
 <h2 class="anchored" data-anchor-id="and-go-ahead-now-and-set-the-paths-for-inputs-and-outputs.">…and go ahead now and set the paths for inputs and outputs.</h2>
-<div id="241486ea-fac6-43c0-b1a0-3a8fb99baf0d" class="cell">
+<div id="241486ea-fac6-43c0-b1a0-3a8fb99baf0d" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SINGLE_TIFF_PATH <span class="op">=</span> <span class="st">"/Users/escott/projects/working-CITEAM/SiGe/JEM-ARM200FImage_20251210_1036_43_ADF1_ImagePanel1/JEM-ARM200FImage_20251210_1036_46_ADF1_1_ImagePanel1.tif"</span>          <span class="co"># e.g., "data/single/micrograph_01.tif"</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>STACK_FOLDER_PATH <span class="op">=</span> <span class="st">"/Users/escott/projects/working-CITEAM/SiGe/JEM-ARM200FImage_20251210_1036_43_ADF1_ImagePanel1"</span>         <span class="co"># e.g., "data/stack_01_frames/"</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>OUTPUT_DIR <span class="op">=</span> <span class="st">"outputs_0_1"</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>safe_mkdir(OUTPUT_DIR)</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"OUTPUT_DIR:"</span>, OUTPUT_DIR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>OUTPUT_DIR: outputs_0_1</code></pre>
+</div>
 </div>
 </section>
-<section id="for-the-sake-of-completeness-lets-go-ahead-and-load-our-single-image-again.-we-may-decide-later-we-still-want-to-play-with-it." class="level2">
-<h2 class="anchored" data-anchor-id="for-the-sake-of-completeness-lets-go-ahead-and-load-our-single-image-again.-we-may-decide-later-we-still-want-to-play-with-it.">For the sake of completeness, let’s go ahead and load our single image again. We may decide later we still want to play with it.</h2>
+<section id="will-probably-move-this-to-much-later-but-the-following-cell-will-load-a-single-image-into-a-numpy-array" class="level2">
+<h2 class="anchored" data-anchor-id="will-probably-move-this-to-much-later-but-the-following-cell-will-load-a-single-image-into-a-numpy-array">Will probably move this to much later, but the following cell will load a single image into a numpy array</h2>
 <div id="f6195c7a-7eb4-41f7-93ea-cd9bff94a92f" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.1.1 — Load a single TIFF</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> SINGLE_TIFF_PATH:</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set SINGLE_TIFF_PATH to a TIFF file."</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> read_tiff(SINGLE_TIFF_PATH)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img.astype(<span class="bu">float</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Single image stats:"</span>, json.dumps(image_stats(img), indent<span class="op">=</span><span class="dv">2</span>))</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(img)<span class="op">;</span> plt.title(<span class="st">"0.1.1 Single TIFF"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    thumb_path <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="st">"_thumb.jpg"</span>)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    save_jpeg_thumbnail(img, thumb_path)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Saved thumbnail:"</span>, thumb_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.1.1 — Load a single TIFF</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> SINGLE_TIFF_PATH:</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set SINGLE_TIFF_PATH to a TIFF file."</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> read_tiff(SINGLE_TIFF_PATH)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img.astype(<span class="bu">float</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Single image stats:"</span>, json.dumps(image_stats(img), indent<span class="op">=</span><span class="dv">2</span>))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(img)<span class="op">;</span> plt.title(<span class="st">"0.1.1 Single TIFF"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    thumb_path <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="st">"_thumb.jpg"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    save_jpeg_thumbnail(img, thumb_path)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Saved thumbnail:"</span>, thumb_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="load-the-image-again-but-this-time-with-hyperspy." class="level2">
 <h2 class="anchored" data-anchor-id="load-the-image-again-but-this-time-with-hyperspy.">Load the image again, but this time with HyperSpy.</h2>
 <p><strong>We will create the “s” variable for playing with HyperSpy or the above-defined “img” variable for doing the Old School way.</strong></p>
-<div id="2ee19587-7c44-4fb8-b834-fe375f6c26fa" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hs is hyperspy.</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> hs.load(SINGLE_TIFF_PATH)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"loaded an image"</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="2ee19587-7c44-4fb8-b834-fe375f6c26fa" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hs is hyperspy.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> hs.load(SINGLE_TIFF_PATH)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"loaded an image"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#print(s[0].original_metadata.ImageDescription)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>loaded an image</code></pre>
+</div>
 </div>
 <div id="af65ae2c-a615-4b77-bc09-bf4a20162ba8" class="cell" data-scrolled="true">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"s ="</span>, s)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"length is "</span>, <span class="bu">len</span>(s))</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(s[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print("s =", s)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s[<span class="dv">0</span>].metadata)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"==============="</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s[<span class="dv">0</span>].original_metadata)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"length is "</span>, <span class="bu">len</span>(s))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(s[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="6d96c15a-587f-491b-8a4a-380fe618e45b" class="cell" data-scrolled="true">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">0</span>].plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="6d96c15a-587f-491b-8a4a-380fe618e45b" class="cell" data-scrolled="true" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">0</span>].plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 <div id="abd57036-0d63-47ef-a38e-f2f0a8cc4f6c" class="cell" data-scrolled="true">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">1</span>].plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">1</span>].plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="b1c878fa-dda8-4244-b29d-cc104bbaec34" class="cell" data-scrolled="true">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s[<span class="dv">0</span>].original_metadata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="46338917-9327-42b3-a586-a430dd935501" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s[<span class="dv">0</span>].metadata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="ed352f9e-845f-4444-98a0-3d6b4581e7a2" class="cell">
+<div id="ed352f9e-845f-4444-98a0-3d6b4581e7a2" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">0</span>].axes_manager.gui()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"25dc04b37ef54405807961ad613be45f","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+</div>
+<div id="99d6aa90-6205-4f5d-a522-18517d13bbf9" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">0</span>].plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="load-an-image-stack-via-hyperspys-load-function" class="level2">
 <h2 class="anchored" data-anchor-id="load-an-image-stack-via-hyperspys-load-function">Load an image stack (via HyperSpy’s load() function)</h2>
-<p><strong>Load a directory full of images, presumably multiple samples of all the same thing, presumably because we’re going to average all of the values together at some point, presumably after alignment.</strong></p>
-<p><strong>Presumably.</strong></p>
-<p>Python note: the “return sorted(…” line is a very elegant way to step through every filename is a given directory and return an alphabetized list of all the ones that have .tiff or .tif on the end.</p>
-<div id="8b91601b-e7b9-473c-bf02-a77f951a8bf0" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> list_tiff_frames(folder):</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    folder <span class="op">=</span> Path(folder)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    exts <span class="op">=</span> {<span class="st">".tif"</span>, <span class="st">".tiff"</span>}</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sorted</span>([p <span class="cf">for</span> p <span class="kw">in</span> folder.iterdir() <span class="cf">if</span> p.suffix.lower() <span class="kw">in</span> exts])</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>tiffFilesWildcard <span class="op">=</span> STACK_FOLDER_PATH <span class="op">+</span> <span class="st">"/*.tif"</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tfw = "</span>, tiffFilesWildcard)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#imgStack = hs.load(list_tiff_frames(STACK_FOLDER_PATH))</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>imgStack <span class="op">=</span> hs.load(tiffFilesWildcard, stack<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#print(imgStack[0])</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#imgStack[0]</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(imgStack))</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(imgStack))</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#print(imgStack[0])</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co">#print(imgStack[0].metadata)</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co">#print("=================")</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co">#print(imgStack[0].original_metadata)</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="8b91601b-e7b9-473c-bf02-a77f951a8bf0" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>tiffFilesWildcard <span class="op">=</span> STACK_FOLDER_PATH <span class="op">+</span> <span class="st">"/*.tif"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>imgStack <span class="op">=</span> hs.load(tiffFilesWildcard, stack<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print(imgStack[0])</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#imgStack[0]</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(imgStack))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(imgStack))</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#print(imgStack[0])</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">#print(imgStack[0].metadata)</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">#print("=================")</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co">#print(imgStack[0].original_metadata)</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"186bac3c04d84f2a8f295fde07cedf19","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
 </div>
-<div id="8f94899b-9016-45f9-9971-9b6c712963cd" class="cell" data-scrolled="true">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>wholeStack <span class="op">=</span> hs.load(<span class="st">'/Users/escott/projects/working-CITEAM/tentiffs.tif'</span>)  <span class="co"># Load stack</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"got 'em"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(wholeStack))</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(wholeStack)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"metadata ="</span>, wholeStack.metadata)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"original_metadata ="</span>, wholeStack.original_metadata)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ==========================</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># This loses the important metadata!</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ==========================</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"09aa2154053b44a7a97820ae4af9742e","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'list'&gt;
+2</code></pre>
+</div>
+</div>
+<div id="2d69b871-0ee9-4fe9-8414-643893b0b13e" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(imgStack[<span class="dv">0</span>].data[<span class="dv">0</span>][<span class="dv">0</span>][<span class="dv">30</span>])</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(imgStack[<span class="dv">0</span>].data[<span class="dv">1</span>][<span class="dv">0</span>][<span class="dv">30</span>])</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].align2D()</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].plot()</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(imgStack[<span class="dv">0</span>].data[<span class="dv">0</span>][<span class="dv">0</span>][<span class="dv">30</span>])</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(imgStack[<span class="dv">0</span>].data[<span class="dv">1</span>][<span class="dv">0</span>][<span class="dv">30</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>41712
+28616</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:03&lt;00:00,  2.98it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"1a99fe8f01c64abc99b59d032585ec33","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>25215
+25792</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-14-output-5.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-14-output-6.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="df7365a7-f866-4ebe-88ea-3f153528b065" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager.gui()</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"80d334c9209a40149881121e2e4f4c51","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-15-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-15-output-3.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
-<section id="de-noise-the-image" class="level2">
-<h2 class="anchored" data-anchor-id="de-noise-the-image">De-noise the Image</h2>
-<div id="8c6c5cf3-65f0-486e-b33a-ffc02abed3df" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># it's currently full of 16 bit integers (0 to 65535). We need floating-point values for doing actual math. So we convert:</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].change_dtype(<span class="st">'float64'</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#imgStack[0].decomposition()    # see the plot_* functions from signal.py; you're not done yet!</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].plot()</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="plot-calibrate-and-remove-some-noise" class="level2">
+<h2 class="anchored" data-anchor-id="plot-calibrate-and-remove-some-noise">Plot, Calibrate, and Remove Some Noise</h2>
+<div id="8c6c5cf3-65f0-486e-b33a-ffc02abed3df" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># it's currently full of 16 bit integers (0 to 65535). We need floating-point values for doing actual math. So we convert:</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].change_dtype(<span class="st">'float64'</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].decomposition()    <span class="co"># taking ALL the defaults - a lot to understand here.</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].plot()</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Decomposition info:
+  normalize_poissonian_noise=False
+  algorithm=SVD
+  output_dimension=None
+  centre=None</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-19-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-19-output-3.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 <div id="c29b6b0a-6b7b-48c5-8570-8d96d469d91d" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save the filtered, shifted image to an HDF5 file</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#imgStack[0].save(OUTPUT_DIR + "/savedResult")</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># calibrate</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact, widgets</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib widget </span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].calibrate(interactive<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save the filtered, shifted image to an HDF5 file</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].save(OUTPUT_DIR <span class="op">+</span> <span class="st">"/savedResult"</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># calibrate</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact, widgets</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib widget </span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].plot()</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].calibrate(interactive<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="c007a6cd-1dd5-4dc1-bc7b-df1e4c739b79" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager.gui()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager.gui()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="15d0f33f-0f50-40ee-a5fb-75d897ac401d" class="cell" data-scrolled="true">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.1.1 — Load a TIFF stack from a folder of frames</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> list_tiff_frames(folder):</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    folder <span class="op">=</span> Path(folder)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    exts <span class="op">=</span> {<span class="st">".tif"</span>, <span class="st">".tiff"</span>}</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sorted</span>([p <span class="cf">for</span> p <span class="kw">in</span> folder.iterdir() <span class="cf">if</span> p.suffix.lower() <span class="kw">in</span> exts])</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> STACK_FOLDER_PATH:</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set STACK_FOLDER_PATH to a folder containing TIFF frames."</span>)</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    frame_files <span class="op">=</span> list_tiff_frames(STACK_FOLDER_PATH)</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Found frames:"</span>, <span class="bu">len</span>(frame_files))</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(frame_files) <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">RuntimeError</span>(<span class="st">"No TIFF frames found in STACK_FOLDER_PATH."</span>)</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    stack <span class="op">=</span> []</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> p <span class="kw">in</span> frame_files:</span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>        f <span class="op">=</span> read_tiff(<span class="bu">str</span>(p))</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> f.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>            f <span class="op">=</span> f.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>        stack.append(f.astype(<span class="bu">float</span>))</span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    stack <span class="op">=</span> np.stack(stack, axis<span class="op">=</span><span class="dv">0</span>)  <span class="co"># (N,H,W)</span></span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Stack shape (N,H,W):"</span>, stack.shape)</span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(frame_files)):</span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>        plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(stack[i])<span class="op">;</span> plt.title(<span class="ss">f"0.1.1 Stack frame </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    plt.hist(stack[<span class="dv">0</span>][<span class="dv">0</span>].ravel(), bins<span class="op">=</span><span class="dv">128</span>)</span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"0.1.2 Histogram (raw)"</span>)</span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"Intensity"</span>)<span class="op">;</span> plt.ylabel(<span class="st">"Count"</span>)</span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"============"</span>)</span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Percentilification :-) "</span>)</span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    p_low, p_high <span class="op">=</span> <span class="dv">1</span>, <span class="dv">99</span></span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> np.percentile(imgStack[<span class="dv">0</span>][<span class="dv">0</span>], [p_low, p_high])</span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>    img_cs <span class="op">=</span> np.clip((imgStack[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>    gamma <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># try 0.7 or 1.4</span></span>
-<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>    img_out <span class="op">=</span> np.clip(img_cs <span class="op">**</span> gamma, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>    plt.imshow(img_out)</span>
-<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"0.1.2 Contrast-stretched (</span><span class="sc">{</span>p_low<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>p_high<span class="sc">}</span><span class="ss">%) + gamma=</span><span class="sc">{</span>gamma<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>    plt.axis(<span class="st">"off"</span>)</span>
-<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a><span class="co">#    out_jpg = os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem + f"_cs_{p_low}_{p_high}_g{gamma}.jpg")</span></span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a><span class="co">#    save_jpeg_thumbnail(img_out, out_jpg, p_low=0, p_high=100)</span></span>
-<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a><span class="co">#    print("Saved JPEG:", out_jpg)</span></span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> HAS_TIFFFILE:</span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>        out_tif <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="ss">f"_cs_</span><span class="sc">{</span>p_low<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>p_high<span class="sc">}</span><span class="ss">_g</span><span class="sc">{</span>gamma<span class="sc">}</span><span class="ss">.tif"</span>)</span>
-<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>        img_cs.save(out_tif, overwrite<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Saved TIFF:"</span>, out_tif)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="5e251ad1-8c88-4be5-8aaf-92b2a88096d4" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="2609990d-f96f-402b-ad04-15ad4f458354" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> SINGLE_TIFF_PATH:</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set SINGLE_TIFF_PATH first."</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> read_tiff(SINGLE_TIFF_PATH)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img.astype(<span class="bu">float</span>)</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    plt.hist(img.ravel(), bins<span class="op">=</span><span class="dv">128</span>)</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"0.1.2 Histogram (raw)"</span>)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"Intensity"</span>)<span class="op">;</span> plt.ylabel(<span class="st">"Count"</span>)</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    p_low, p_high <span class="op">=</span> <span class="dv">1</span>, <span class="dv">99</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> np.percentile(img, [p_low, p_high])</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    img_cs <span class="op">=</span> np.clip((img <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    gamma <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># try 0.7 or 1.4</span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    img_out <span class="op">=</span> np.clip(img_cs <span class="op">**</span> gamma, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    plt.imshow(img_out)</span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"0.1.2 Contrast-stretched (</span><span class="sc">{</span>p_low<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>p_high<span class="sc">}</span><span class="ss">%) + gamma=</span><span class="sc">{</span>gamma<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    plt.axis(<span class="st">"off"</span>)</span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="co"># inputs: img_out is the pervcentile-ed, gamma-ed image. Set sigma as needed</span></span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a><span class="co"># output: dn -s the "de-noised" image.</span></span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># try 0.5, 1.0, 2.0</span></span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>    dn <span class="op">=</span> ndimage.gaussian_filter(img_out, sigma<span class="op">=</span>sigma)</span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a><span class="co"># now plot the result</span></span>
-<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
-<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>    plt.imshow(dn)</span>
-<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"0.1.3 After Gaussian (sigma=</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>    plt.axis(<span class="st">"off"</span>)</span>
-<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>    out_jpg <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="ss">f"_cs_</span><span class="sc">{</span>p_low<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>p_high<span class="sc">}</span><span class="ss">_g</span><span class="sc">{</span>gamma<span class="sc">}</span><span class="ss">.jpg"</span>)</span>
-<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>    save_jpeg_thumbnail(dn, out_jpg, p_low<span class="op">=</span><span class="dv">0</span>, p_high<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Saved JPEG:"</span>, out_jpg)</span>
-<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> HAS_TIFFFILE:</span>
-<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>        out_tif <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="ss">f"_cs_</span><span class="sc">{</span>p_low<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>p_high<span class="sc">}</span><span class="ss">_g</span><span class="sc">{</span>gamma<span class="sc">}</span><span class="ss">.tif"</span>)</span>
-<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>        tiff.imwrite(out_tif, (img_out <span class="op">*</span> <span class="dv">65535</span>).astype(np.uint16))</span>
-<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Saved TIFF:"</span>, out_tif)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="d6597f8a-065c-4c5d-bffa-14c0520319c8" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># try 0.5, 1.0, 2.0</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    dn <span class="op">=</span> ndimage.gaussian_filter(vis, sigma<span class="op">=</span>sigma)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(vis)<span class="op">;</span> plt.title(<span class="st">"0.1.3 Before"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(dn)<span class="op">;</span> plt.title(<span class="ss">f"0.1.3 After Gaussian (sigma=</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">)"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="a1b94b0f-9f0d-4fab-bff5-040d5d7bff58" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> SINGLE_TIFF_PATH:</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set SINGLE_TIFF_PATH first."</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> <span class="kw">not</span> HAS_SCIPY:</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"SciPy not available; cannot run gaussian_filter."</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> read_tiff(SINGLE_TIFF_PATH)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img.astype(<span class="bu">float</span>)</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> np.percentile(img, [<span class="dv">1</span>, <span class="dv">99</span>])</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    vis <span class="op">=</span> np.clip((img <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># try 0.5, 1.0, 2.0</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    dn <span class="op">=</span> ndimage.gaussian_filter(vis, sigma<span class="op">=</span>sigma)</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(vis)<span class="op">;</span> plt.title(<span class="st">"0.1.3 Before"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(dn)<span class="op">;</span> plt.title(<span class="ss">f"0.1.3 After Gaussian (sigma=</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">)"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    out_jpg <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="ss">f"_denoise_sigma</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">.jpg"</span>)</span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    save_jpeg_thumbnail(dn, out_jpg, p_low<span class="op">=</span><span class="dv">0</span>, p_high<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Saved JPEG:"</span>, out_jpg)</span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> HAS_TIFFFILE:</span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>        out_tif <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="ss">f"_denoise_sigma</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">.tif"</span>)</span>
-<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>        tiff.imwrite(out_tif, (dn <span class="op">*</span> <span class="dv">65535</span>).astype(np.uint16))</span>
-<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Saved TIFF:"</span>, out_tif)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="728d7b6a-7984-4244-bde3-a9356935ac06" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> STACK_FOLDER_PATH:</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set STACK_FOLDER_PATH first."</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> <span class="kw">not</span> HAS_SCIPY:</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"SciPy not available; cannot run drift correction."</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    frame_files <span class="op">=</span> list_tiff_frames(STACK_FOLDER_PATH)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    stack <span class="op">=</span> []</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> p <span class="kw">in</span> frame_files:</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>        f <span class="op">=</span> read_tiff(<span class="bu">str</span>(p))</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> f.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>            f <span class="op">=</span> f.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>        stack.append(f.astype(<span class="bu">float</span>))</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    stack <span class="op">=</span> np.stack(stack, axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># normalize per frame for robust correlation (used ONLY for shift estimation)</span></span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    stack_n <span class="op">=</span> np.empty_like(stack)</span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(stack.shape[<span class="dv">0</span>]):</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>        lo, hi <span class="op">=</span> np.percentile(stack[i], [<span class="dv">1</span>, <span class="dv">99</span>])</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>        stack_n[i] <span class="op">=</span> np.clip((stack[i] <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># use average normalized frame as reference for more stable shifts</span></span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    ref <span class="op">=</span> stack_n.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> estimate_shift(ref, img):</span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>        a <span class="op">=</span> img <span class="op">-</span> img.mean()</span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>        b <span class="op">=</span> ref <span class="op">-</span> ref.mean()</span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>        corr <span class="op">=</span> fftconvolve(a, b[::<span class="op">-</span><span class="dv">1</span>, ::<span class="op">-</span><span class="dv">1</span>], mode<span class="op">=</span><span class="st">"same"</span>)</span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>        y0, x0 <span class="op">=</span> np.unravel_index(np.argmax(corr), corr.shape)</span>
-<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>        cy, cx <span class="op">=</span> np.array(corr.shape) <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>        dy, dx <span class="op">=</span> y0 <span class="op">-</span> cy, x0 <span class="op">-</span> cx</span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">-</span>dy, <span class="op">-</span>dx</span>
-<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>    aligned <span class="op">=</span> [stack[<span class="dv">0</span>]]</span>
-<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>    shifts <span class="op">=</span> [(<span class="fl">0.0</span>, <span class="fl">0.0</span>)]</span>
-<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, stack_n.shape[<span class="dv">0</span>]):</span>
-<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>        dy, dx <span class="op">=</span> estimate_shift(ref, stack_n[i])</span>
-<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>        shifts.append((<span class="bu">float</span>(dy), <span class="bu">float</span>(dx)))</span>
-<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>        aligned.append(ndimage.shift(stack[i], shift<span class="op">=</span>(dy, dx), order<span class="op">=</span><span class="dv">1</span>, mode<span class="op">=</span><span class="st">"nearest"</span>))</span>
-<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>    aligned <span class="op">=</span> np.stack(aligned, axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compare averages on RAW intensity</span></span>
-<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>    avg_nocorr <span class="op">=</span> stack.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>    avg_corr <span class="op">=</span> aligned.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Shifts (dy, dx):"</span>)</span>
-<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, s <span class="kw">in</span> <span class="bu">enumerate</span>(shifts):</span>
-<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(i, s)</span>
-<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(avg_nocorr)<span class="op">;</span> plt.title(<span class="st">"0.1.4 Avg (no correction)"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
-<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))<span class="op">;</span> plt.imshow(avg_corr)<span class="op">;</span> plt.title(<span class="st">"0.1.4 Avg (drift-corrected)"</span>)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)<span class="op">;</span> plt.show()</span>
-<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'avg_nocorr type is '</span>, <span class="bu">type</span>(avg_nocorr))</span>
-<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'avg_nocorr itself is '</span>,avg_nocorr)</span>
-<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>()</span>
-<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'avg_driftcorr type is '</span>, <span class="bu">type</span>(avg_nocorr))</span>
-<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'avg_driftcorr itself is '</span>,avg_nocorr)</span>
-<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a>    base <span class="op">=</span> Path(STACK_FOLDER_PATH).name.rstrip(<span class="st">"/"</span>)</span>
-<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> HAS_TIFFFILE:</span>
-<span id="cb22-60"><a href="#cb22-60" aria-hidden="true" tabindex="-1"></a>        <span class="co">#tiff.imwrite(os.path.join(OUTPUT_DIR, f"{base}_avg_nocorr.tif"), (avg_nocorr*65535).astype(np.uint16))</span></span>
-<span id="cb22-61"><a href="#cb22-61" aria-hidden="true" tabindex="-1"></a>        <span class="co">#tiff.imwrite(os.path.join(OUTPUT_DIR, f"{base}_avg_driftcorr.tif"), (avg_corr*65535).astype(np.uint16))</span></span>
-<span id="cb22-62"><a href="#cb22-62" aria-hidden="true" tabindex="-1"></a>        tiff.imwrite(os.path.join(OUTPUT_DIR, <span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}</span><span class="ss">_avg_nocorr.tif"</span>), avg_nocorr)</span>
-<span id="cb22-63"><a href="#cb22-63" aria-hidden="true" tabindex="-1"></a>        tiff.imwrite(os.path.join(OUTPUT_DIR, <span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}</span><span class="ss">_avg_driftcorr.tif"</span>), avg_corr)</span>
-<span id="cb22-64"><a href="#cb22-64" aria-hidden="true" tabindex="-1"></a>    save_jpeg_thumbnail(avg_nocorr, os.path.join(OUTPUT_DIR, <span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}</span><span class="ss">_avg_nocorr.jpg"</span>), p_low<span class="op">=</span><span class="dv">0</span>, p_high<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb22-65"><a href="#cb22-65" aria-hidden="true" tabindex="-1"></a>    save_jpeg_thumbnail(avg_corr, os.path.join(OUTPUT_DIR, <span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}</span><span class="ss">_avg_driftcorr.jpg"</span>), p_low<span class="op">=</span><span class="dv">0</span>, p_high<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb22-66"><a href="#cb22-66" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Saved averaged outputs to"</span>, OUTPUT_DIR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="0111752f-dae2-46f5-9d98-b1a99849a53c" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.1.5 — Interactive backend setup (Jupyter-friendly)</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Tries widget backend; falls back to notebook; otherwise inline + manual input.</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    get_ipython</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">%</span>matplotlib widget</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'Using %matplotlib widget'</span>)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span>:</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>            <span class="op">%</span>matplotlib notebook</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">'Using %matplotlib notebook'</span>)</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span>:</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>            <span class="op">%</span>matplotlib inline</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">'Using %matplotlib inline (manual coordinate fallback will be used)'</span>)</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span>:</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib widget</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="8df75fb0-968a-413d-8502-5f82aac2e0ab" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> SINGLE_TIFF_PATH:</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set SINGLE_TIFF_PATH first."</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> read_tiff(SINGLE_TIFF_PATH)</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img.astype(<span class="bu">float</span>)</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> np.percentile(img, [<span class="dv">1</span>, <span class="dv">99</span>])</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    vis <span class="op">=</span> np.clip((img <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> select_two_points(title, allow_manual<span class="op">=</span><span class="va">True</span>):</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>        fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>        plt.imshow(vis)<span class="op">;</span> plt.title(title)<span class="op">;</span> plt.axis(<span class="st">"off"</span>)</span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>        pts <span class="op">=</span> []</span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"going to try to get 2 points - wish me luck!"</span>)</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>            pts <span class="op">=</span> plt.ginput(<span class="dv">2</span>, timeout<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span>:</span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>            pts <span class="op">=</span> []</span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>        plt.close(fig)</span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"len(pts) = "</span>, <span class="bu">len</span>(pts))</span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(pts) <span class="op">&lt;</span> <span class="dv">2</span> <span class="kw">and</span> allow_manual:</span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"Interactive selection failed. Enter coordinates manually as x1,y1,x2,y2"</span>)</span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>            raw <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Coords: "</span>).strip()</span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>            parts <span class="op">=</span> [p.strip() <span class="cf">for</span> p <span class="kw">in</span> raw.split(<span class="st">","</span>)]</span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(parts) <span class="op">==</span> <span class="dv">4</span>:</span>
-<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>                x1, y1, x2, y2 <span class="op">=</span> <span class="bu">map</span>(<span class="bu">float</span>, parts)</span>
-<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>                pts <span class="op">=</span> [(x1, y1), (x2, y2)]</span>
-<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> pts</span>
-<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Click TWO points for the feature (line profile), then press Enter."</span>)</span>
-<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>    pts <span class="op">=</span> select_two_points(<span class="st">"Feature: click 2 points, Enter"</span>)</span>
-<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(pts) <span class="op">&lt;</span> <span class="dv">2</span>:</span>
-<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">RuntimeError</span>(<span class="st">"No points captured. Ensure interactive backend or use manual input."</span>)</span>
-<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>    (x1, y1), (x2, y2) <span class="op">=</span> pts</span>
-<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>    feature_px <span class="op">=</span> <span class="bu">float</span>(np.hypot(x2<span class="op">-</span>x1, y2<span class="op">-</span>y1))</span>
-<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Feature length: </span><span class="sc">{</span>feature_px<span class="sc">:.2f}</span><span class="ss"> px"</span>)</span>
-<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- Line profile along the selected feature ---</span></span>
-<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>    n_samples <span class="op">=</span> <span class="bu">int</span>(<span class="bu">max</span>(<span class="dv">2</span>, np.ceil(feature_px)))</span>
-<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a>    xs <span class="op">=</span> np.linspace(x1, x2, n_samples)</span>
-<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a>    ys <span class="op">=</span> np.linspace(y1, y2, n_samples)</span>
-<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>        <span class="co"># use scipy if available</span></span>
-<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> HAS_SCIPY:</span>
-<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>            <span class="im">from</span> scipy.ndimage <span class="im">import</span> map_coordinates</span>
-<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a>            profile <span class="op">=</span> map_coordinates(img, [ys, xs], order<span class="op">=</span><span class="dv">1</span>, mode<span class="op">=</span><span class="st">'nearest'</span>)</span>
-<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a>            <span class="co"># nearest-neighbor fallback</span></span>
-<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a>            xi <span class="op">=</span> np.clip(np.<span class="bu">round</span>(xs).astype(<span class="bu">int</span>), <span class="dv">0</span>, img.shape[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a>            yi <span class="op">=</span> np.clip(np.<span class="bu">round</span>(ys).astype(<span class="bu">int</span>), <span class="dv">0</span>, img.shape[<span class="dv">0</span>]<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a>            profile <span class="op">=</span> img[yi, xi]</span>
-<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span>:</span>
-<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a>        xi <span class="op">=</span> np.clip(np.<span class="bu">round</span>(xs).astype(<span class="bu">int</span>), <span class="dv">0</span>, img.shape[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a>        yi <span class="op">=</span> np.clip(np.<span class="bu">round</span>(ys).astype(<span class="bu">int</span>), <span class="dv">0</span>, img.shape[<span class="dv">0</span>]<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a>        profile <span class="op">=</span> img[yi, xi]</span>
-<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
-<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a>    plt.plot(profile)</span>
-<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"0.1.5 Line profile (intensity vs. distance)"</span>)</span>
-<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"Sample index"</span>)</span>
-<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"Intensity"</span>)</span>
-<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb24-68"><a href="#cb24-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-69"><a href="#cb24-69" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Save profile to CSV</span></span>
-<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a>    prof_path <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="st">"_line_profile.csv"</span>)</span>
-<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(prof_path, <span class="st">"w"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
-<span id="cb24-72"><a href="#cb24-72" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="st">"index,intensity"</span>)</span>
-<span id="cb24-73"><a href="#cb24-73" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> k, v <span class="kw">in</span> <span class="bu">enumerate</span>(profile):</span>
-<span id="cb24-74"><a href="#cb24-74" aria-hidden="true" tabindex="-1"></a>            f.write(<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span><span class="bu">float</span>(v)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb24-75"><a href="#cb24-75" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Saved line profile:"</span>, prof_path)</span>
-<span id="cb24-76"><a href="#cb24-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-77"><a href="#cb24-77" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Now click TWO endpoints of the scale bar, then press Enter."</span>)</span>
-<span id="cb24-78"><a href="#cb24-78" aria-hidden="true" tabindex="-1"></a>    sb <span class="op">=</span> select_two_points(<span class="st">"Scale bar: click 2 points, Enter"</span>)</span>
-<span id="cb24-79"><a href="#cb24-79" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(sb) <span class="op">&lt;</span> <span class="dv">2</span>:</span>
-<span id="cb24-80"><a href="#cb24-80" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">RuntimeError</span>(<span class="st">"No scale-bar points captured."</span>)</span>
-<span id="cb24-81"><a href="#cb24-81" aria-hidden="true" tabindex="-1"></a>    (sx1, sy1), (sx2, sy2) <span class="op">=</span> sb</span>
-<span id="cb24-82"><a href="#cb24-82" aria-hidden="true" tabindex="-1"></a>    sb_px <span class="op">=</span> <span class="bu">float</span>(np.hypot(sx2<span class="op">-</span>sx1, sy2<span class="op">-</span>sy1))</span>
-<span id="cb24-83"><a href="#cb24-83" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Scale bar length: </span><span class="sc">{</span>sb_px<span class="sc">:.2f}</span><span class="ss"> px"</span>)</span>
-<span id="cb24-84"><a href="#cb24-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-85"><a href="#cb24-85" aria-hidden="true" tabindex="-1"></a>    sb_nm <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Enter the scale bar length in nm (read from label): "</span>))</span>
-<span id="cb24-86"><a href="#cb24-86" aria-hidden="true" tabindex="-1"></a>    nm_per_px <span class="op">=</span> sb_nm <span class="op">/</span> <span class="bu">max</span>(sb_px, <span class="fl">1e-12</span>)</span>
-<span id="cb24-87"><a href="#cb24-87" aria-hidden="true" tabindex="-1"></a>    feature_nm <span class="op">=</span> feature_px <span class="op">*</span> nm_per_px</span>
-<span id="cb24-88"><a href="#cb24-88" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Calibration: </span><span class="sc">{</span>nm_per_px<span class="sc">:.6f}</span><span class="ss"> nm/px"</span>)</span>
-<span id="cb24-89"><a href="#cb24-89" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Feature length: </span><span class="sc">{</span>feature_nm<span class="sc">:.2f}</span><span class="ss"> nm"</span>)</span>
-<span id="cb24-90"><a href="#cb24-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-91"><a href="#cb24-91" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> {</span>
-<span id="cb24-92"><a href="#cb24-92" aria-hidden="true" tabindex="-1"></a>        <span class="st">"input_file"</span>: SINGLE_TIFF_PATH,</span>
-<span id="cb24-93"><a href="#cb24-93" aria-hidden="true" tabindex="-1"></a>        <span class="st">"feature_px"</span>: feature_px,</span>
-<span id="cb24-94"><a href="#cb24-94" aria-hidden="true" tabindex="-1"></a>        <span class="st">"scale_bar_px"</span>: sb_px,</span>
-<span id="cb24-95"><a href="#cb24-95" aria-hidden="true" tabindex="-1"></a>        <span class="st">"scale_bar_nm"</span>: sb_nm,</span>
-<span id="cb24-96"><a href="#cb24-96" aria-hidden="true" tabindex="-1"></a>        <span class="st">"nm_per_px"</span>: nm_per_px,</span>
-<span id="cb24-97"><a href="#cb24-97" aria-hidden="true" tabindex="-1"></a>        <span class="st">"feature_nm"</span>: feature_nm,</span>
-<span id="cb24-98"><a href="#cb24-98" aria-hidden="true" tabindex="-1"></a>        <span class="st">"created_utc"</span>: datetime.utcnow().isoformat() <span class="op">+</span> <span class="st">"Z"</span>,</span>
-<span id="cb24-99"><a href="#cb24-99" aria-hidden="true" tabindex="-1"></a>        <span class="st">"line_profile_csv"</span>: prof_path,</span>
-<span id="cb24-100"><a href="#cb24-100" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb24-101"><a href="#cb24-101" aria-hidden="true" tabindex="-1"></a>    out_path <span class="op">=</span> os.path.join(OUTPUT_DIR, Path(SINGLE_TIFF_PATH).stem <span class="op">+</span> <span class="st">"_measurement.json"</span>)</span>
-<span id="cb24-102"><a href="#cb24-102" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(out_path, <span class="st">"w"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
-<span id="cb24-103"><a href="#cb24-103" aria-hidden="true" tabindex="-1"></a>        json.dump(out, f, indent<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb24-104"><a href="#cb24-104" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Saved measurement JSON:"</span>, out_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="f18dcf55-02e0-4846-985d-5e96fa7ee2dd" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> SINGLE_TIFF_PATH:</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Set SINGLE_TIFF_PATH first."</span>)</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> read_tiff(SINGLE_TIFF_PATH)</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img.ndim <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img.mean(axis<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img.astype(<span class="bu">float</span>)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    p_low, p_high <span class="op">=</span> <span class="dv">1</span>, <span class="dv">99</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> np.percentile(img, [p_low, p_high])</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    proc <span class="op">=</span> np.clip((img <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> HAS_SCIPY:</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>        proc <span class="op">=</span> ndimage.gaussian_filter(proc, sigma<span class="op">=</span>sigma)</span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    in_sha <span class="op">=</span> sha256_file(SINGLE_TIFF_PATH) <span class="cf">if</span> os.path.exists(SINGLE_TIFF_PATH) <span class="cf">else</span> <span class="va">None</span></span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>    meta <span class="op">=</span> {</span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"input_file"</span>: SINGLE_TIFF_PATH,</span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"input_sha256"</span>: in_sha,</span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"created_utc"</span>: datetime.utcnow().isoformat() <span class="op">+</span> <span class="st">"Z"</span>,</span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"processing"</span>: [</span>
-<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"step"</span>: <span class="st">"percentile_contrast"</span>, <span class="st">"p_low"</span>: p_low, <span class="st">"p_high"</span>: p_high},</span>
-<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>            {<span class="st">"step"</span>: <span class="st">"gaussian_denoise"</span>, <span class="st">"sigma"</span>: sigma, <span class="st">"scipy"</span>: <span class="bu">bool</span>(HAS_SCIPY)},</span>
-<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>        ],</span>
-<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"stats_raw"</span>: image_stats(img),</span>
-<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">"stats_processed"</span>: image_stats(proc),</span>
-<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>        <span class="st">"software"</span>: {</span>
-<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>            <span class="st">"python"</span>: <span class="ss">f"</span><span class="sc">{</span>os<span class="sc">.</span>sys<span class="sc">.</span>version_info<span class="sc">.</span>major<span class="sc">}</span><span class="ss">.</span><span class="sc">{</span>os<span class="sc">.</span>sys<span class="sc">.</span>version_info<span class="sc">.</span>minor<span class="sc">}</span><span class="ss">.</span><span class="sc">{</span>os<span class="sc">.</span>sys<span class="sc">.</span>version_info<span class="sc">.</span>micro<span class="sc">}</span><span class="ss">"</span>,</span>
-<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>            <span class="st">"numpy"</span>: np.__version__,</span>
-<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a>        },</span>
-<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>    base <span class="op">=</span> Path(SINGLE_TIFF_PATH).stem</span>
-<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>    h5_path <span class="op">=</span> os.path.join(OUTPUT_DIR, base <span class="op">+</span> <span class="st">"_bundle.h5"</span>)</span>
-<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>    readme_path <span class="op">=</span> os.path.join(OUTPUT_DIR, base <span class="op">+</span> <span class="st">"_README.txt"</span>)</span>
-<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> HAS_H5PY:</span>
-<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>        <span class="im">import</span> h5py</span>
-<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> h5py.File(h5_path, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
-<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a>            f.create_dataset(<span class="st">"raw"</span>, data<span class="op">=</span>img, compression<span class="op">=</span><span class="st">"gzip"</span>)</span>
-<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a>            f.create_dataset(<span class="st">"processed"</span>, data<span class="op">=</span>proc, compression<span class="op">=</span><span class="st">"gzip"</span>)</span>
-<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a>            f.attrs[<span class="st">"metadata_json"</span>] <span class="op">=</span> json.dumps(meta)</span>
-<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Wrote HDF5:"</span>, h5_path)</span>
-<span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"h5py not available; skipping HDF5 export."</span>)</span>
-<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-48"><a href="#cb25-48" aria-hidden="true" tabindex="-1"></a>    readme <span class="op">=</span> <span class="ss">f"""TEM Processing README</span></span>
-<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a><span class="ss">====================</span></span>
-<span id="cb25-50"><a href="#cb25-50" aria-hidden="true" tabindex="-1"></a><span class="ss">Input file: </span><span class="sc">{</span>SINGLE_TIFF_PATH<span class="sc">}</span></span>
-<span id="cb25-51"><a href="#cb25-51" aria-hidden="true" tabindex="-1"></a><span class="ss">Input sha256: </span><span class="sc">{</span>in_sha<span class="sc">}</span></span>
-<span id="cb25-52"><a href="#cb25-52" aria-hidden="true" tabindex="-1"></a><span class="ss">Created (UTC): </span><span class="sc">{</span>meta[<span class="st">'created_utc'</span>]<span class="sc">}</span></span>
-<span id="cb25-53"><a href="#cb25-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-54"><a href="#cb25-54" aria-hidden="true" tabindex="-1"></a><span class="ss">Processing:</span></span>
-<span id="cb25-55"><a href="#cb25-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- Percentile contrast: </span><span class="sc">{</span>p_low<span class="sc">}</span><span class="ss">–</span><span class="sc">{</span>p_high<span class="sc">}</span><span class="ss">%</span></span>
-<span id="cb25-56"><a href="#cb25-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- Gaussian denoise: sigma=</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss"> (SciPy: </span><span class="sc">{</span><span class="bu">bool</span>(HAS_SCIPY)<span class="sc">}</span><span class="ss">)</span></span>
-<span id="cb25-57"><a href="#cb25-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-58"><a href="#cb25-58" aria-hidden="true" tabindex="-1"></a><span class="ss">Raw stats: </span><span class="sc">{</span>meta[<span class="st">'stats_raw'</span>]<span class="sc">}</span></span>
-<span id="cb25-59"><a href="#cb25-59" aria-hidden="true" tabindex="-1"></a><span class="ss">Processed stats: </span><span class="sc">{</span>meta[<span class="st">'stats_processed'</span>]<span class="sc">}</span></span>
-<span id="cb25-60"><a href="#cb25-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-61"><a href="#cb25-61" aria-hidden="true" tabindex="-1"></a><span class="ss">Software:</span></span>
-<span id="cb25-62"><a href="#cb25-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- Python: </span><span class="sc">{</span>meta[<span class="st">'software'</span>][<span class="st">'python'</span>]<span class="sc">}</span></span>
-<span id="cb25-63"><a href="#cb25-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- NumPy: </span><span class="sc">{</span>meta[<span class="st">'software'</span>][<span class="st">'numpy'</span>]<span class="sc">}</span></span>
-<span id="cb25-64"><a href="#cb25-64" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
-<span id="cb25-65"><a href="#cb25-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-66"><a href="#cb25-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(readme_path, <span class="st">"w"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
-<span id="cb25-67"><a href="#cb25-67" aria-hidden="true" tabindex="-1"></a>        f.write(readme)</span>
-<span id="cb25-68"><a href="#cb25-68" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="st">"</span><span class="ch">\n</span><span class="st">Code excerpt:</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb25-69"><a href="#cb25-69" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="st">"  lo, hi = np.percentile(img, [p_low, p_high])</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb25-70"><a href="#cb25-70" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="st">"  proc = np.clip((img - lo) / (hi - lo + 1e-12), 0, 1)</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb25-71"><a href="#cb25-71" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="st">"  proc = ndimage.gaussian_filter(proc, sigma=sigma)</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb25-72"><a href="#cb25-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-73"><a href="#cb25-73" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Wrote README:"</span>, readme_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-
-
 </section>
+<section id="directly-reading-and-writing-the-underlying-data" class="level2">
+<h2 class="anchored" data-anchor-id="directly-reading-and-writing-the-underlying-data">Directly Reading and Writing the Underlying Data</h2>
+<p>We can look directly into a Hyperspy signal object and access the exact data that respresents the image using any tools and techniques we want to.</p>
+<div id="96f789a1-1b57-43f9-92c3-9669f8aebe75" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Clipping and Gamma Correction</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="728d7b6a-7984-4244-bde3-a9356935ac06" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Clipping</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>stack_n <span class="op">=</span> np.empty_like(imgStack[<span class="dv">0</span>].data)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(imgStack[<span class="dv">0</span>].data.shape[<span class="dv">0</span>]):</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> np.percentile(imgStack[<span class="dv">0</span>].data[i], [<span class="dv">1</span>, <span class="dv">99</span>])</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    stack_n[i] <span class="op">=</span> np.clip((imgStack[<span class="dv">0</span>].data[i] <span class="op">-</span> lo) <span class="op">/</span> (hi <span class="op">-</span> lo <span class="op">+</span> <span class="fl">1e-12</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Gamma correction</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="dv">1</span>    <span class="co"># or 0.5, or 1.5, or whatever.  1 is identity, so don't expect much :-)</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>gamma_corrected <span class="op">=</span> np.clip(stack_n <span class="op">**</span> gamma, <span class="dv">0</span> ,<span class="dv">1</span>)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>freshNewHS <span class="op">=</span> hs.signals.Signal2D(gamma_corrected)</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>freshNewHS.plot()</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="HyperspyExperiments_files/figure-html/cell-24-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="97831a22-9a19-4128-9b28-a187a634937d" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>save_jpeg_thumbnail(gamma_corrected[<span class="dv">0</span>], <span class="st">"/tmp/gct.jpg"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="extra-greebles" class="level1">
+<h1>Extra Greebles:</h1>
+<div id="7137373e-bace-45cb-a626-8fe8d1c72b09" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;jupyter&quot;,&quot;value&quot;:{&quot;source_hidden&quot;:true}}">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL.TiffTags <span class="im">import</span> TAGS</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>pimg <span class="op">=</span> Image.<span class="bu">open</span>(<span class="st">'/Users/escott/projects/CITEAM/notebooks/SiGe/JEM-ARM200FImage_20251210_1036_43_ADF1_ImagePanel1/JEM-ARM200FImage_20251210_1036_56_ADF1_4_ImagePanel1.tif'</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>blah <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> pimg.tag.items():</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>key<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"========="</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pimg.tag[<span class="st">"Resolution"</span>])</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="co">#with Image.open('/Users/escott/projects/CITEAM/notebooks/SiGe/JEM-ARM200FImage_20251210_1036_43_ADF1_ImagePanel1/JEM-ARM200FImage_20251210_1036_56_ADF1_4_ImagePanel1.tif') as pimg:</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    for key in pimg.tag_v2.tags:</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="co">#        print(key)</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="co">#    meta_dict = {TAGS[key] : pimg.tag[key] for key in pimg.tag.iterkeys()}</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

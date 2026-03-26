@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE101/index.html</loc>
-    <lastmod>2026-03-25T19:26:29.730Z</lastmod>
+    <loc>https://renci-nrig.github.io/CITEAM/about.html</loc>
+    <lastmod>2026-03-26T17:26:30.131Z</lastmod>
   </url>
   <url>
     <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-03DecisionStructures.html</loc>
-    <lastmod>2026-03-25T19:26:29.730Z</lastmod>
+    <lastmod>2026-03-26T17:26:30.423Z</lastmod>
   </url>
   <url>
     <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-08Lists.html</loc>
-    <lastmod>2026-03-25T19:26:29.730Z</lastmod>
-  </url>
-  <url>
-    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-05Functions.html</loc>
-    <lastmod>2026-03-25T19:26:29.730Z</lastmod>
-  </url>
-  <url>
-    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-10Dictionaries.html</loc>
-    <lastmod>2026-03-25T19:26:29.730Z</lastmod>
-  </url>
-  <url>
-    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-04Repetition.html</loc>
-    <lastmod>2026-03-25T19:26:29.730Z</lastmod>
-  </url>
-  <url>
-    <loc>https://renci-nrig.github.io/CITEAM/index.html</loc>
-    <lastmod>2026-03-25T19:26:29.505Z</lastmod>
-  </url>
-  <url>
-    <loc>https://renci-nrig.github.io/CITEAM/about.html</loc>
-    <lastmod>2026-03-25T19:26:29.499Z</lastmod>
-  </url>
-  <url>
-    <loc>https://renci-nrig.github.io/CITEAM/notebooks/HyperspyExperiments.html</loc>
-    <lastmod>2026-03-25T19:26:29.505Z</lastmod>
-  </url>
-  <url>
-    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-01Introduction.html</loc>
-    <lastmod>2026-03-25T19:26:29.730Z</lastmod>
-  </url>
-  <url>
-    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-09Strings.html</loc>
-    <lastmod>2026-03-25T19:26:29.730Z</lastmod>
-  </url>
-  <url>
-    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/index.html</loc>
-    <lastmod>2026-03-25T19:26:29.730Z</lastmod>
+    <lastmod>2026-03-26T17:26:30.423Z</lastmod>
   </url>
   <url>
     <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-07Exceptions.html</loc>
-    <lastmod>2026-03-25T19:26:29.730Z</lastmod>
+    <lastmod>2026-03-26T17:26:30.423Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-01Introduction.html</loc>
+    <lastmod>2026-03-26T17:26:30.423Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-09Strings.html</loc>
+    <lastmod>2026-03-26T17:26:30.423Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PRE101/index.html</loc>
+    <lastmod>2026-03-26T17:26:30.423Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/index.html</loc>
+    <lastmod>2026-03-26T17:26:30.138Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/notebooks/HyperspyExperiments.html</loc>
+    <lastmod>2026-03-26T17:26:30.162Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/index.html</loc>
+    <lastmod>2026-03-26T17:26:30.423Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-04Repetition.html</loc>
+    <lastmod>2026-03-26T17:26:30.423Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-10Dictionaries.html</loc>
+    <lastmod>2026-03-26T17:26:30.423Z</lastmod>
+  </url>
+  <url>
+    <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-05Functions.html</loc>
+    <lastmod>2026-03-26T17:26:30.423Z</lastmod>
   </url>
   <url>
     <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-02TypesVarsAndOperators.html</loc>
-    <lastmod>2026-03-25T19:26:29.730Z</lastmod>
+    <lastmod>2026-03-26T17:26:30.423Z</lastmod>
   </url>
   <url>
     <loc>https://renci-nrig.github.io/CITEAM/preliminaries/PE100/PE100-06Files.html</loc>
-    <lastmod>2026-03-25T19:26:29.730Z</lastmod>
+    <lastmod>2026-03-26T17:26:30.423Z</lastmod>
   </url>
 </urlset>
