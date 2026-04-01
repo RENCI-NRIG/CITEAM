@@ -9,7 +9,7 @@ if [ "x$TUTORIAL_BASE_URL" = "x" ]; then
 fi
 ENCPASSWORD=$(python3 -c "from jupyter_server.auth import passwd;print(passwd(\"$TUTORIAL_PASSWORD\"))")
 mkdir -p /home/citeams/.jupyter
-cat >/home/citeams/.jupyter/jupyter_notebook_config.json <<EOF
+cat >/home/citeams/.jupyter/jupyter_server_config.json <<EOF
 { "ServerApp":
    {
         "base_url": "$TUTORIAL_BASE_URL"
