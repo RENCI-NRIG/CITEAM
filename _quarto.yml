@@ -13,6 +13,8 @@ website:
         text: Home
       - href: about.qmd
         text: About
+      - href: workshop-2026.qmd
+        text: Workshop 2026
   page-footer:
     border: true
     center: |
