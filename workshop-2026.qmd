@@ -1,0 +1,135 @@
+---
+page-layout: full
+format:
+  html:
+    toc: false
+---
+
+```{=html}
+<div style="border-bottom: 1px solid #e5e7eb; padding: 1rem 1.5rem;">
+  <div style="max-width: 48rem; margin: 0 auto; display: flex; align-items: center; gap: 2rem;">
+    <img src="https://yaxue1123.github.io/citeam-workshop-2026/logo-umd.png" alt="University of Maryland" style="height: 3.5rem; object-fit: contain;">
+    <img src="https://yaxue1123.github.io/citeam-workshop-2026/logo-unc.png" alt="UNC Chapel Hill" style="height: 3.5rem; object-fit: contain;">
+    <img src="https://yaxue1123.github.io/citeam-workshop-2026/logo-usc.png" alt="University of Southern California" style="height: 3.5rem; object-fit: contain;">
+  </div>
+</div>
+
+<div style="position: relative; width: 100%; height: 16rem; overflow: hidden; background: white;">
+  <img src="https://yaxue1123.github.io/citeam-workshop-2026/hero.png" alt="JEOL TEM instrument" style="width: 100%; height: 100%; object-fit: cover; object-position: right;">
+  <div style="position: absolute; inset: 0; background: linear-gradient(to right, white, rgba(255,255,255,0.6), transparent);"></div>
+</div>
+
+<div style="max-width: 48rem; margin: 0 auto; padding: 2.5rem 1.5rem;">
+
+<div style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1rem;">CITEAM Workshop 2026</div>
+
+<div style="display: flex; flex-direction: column; gap: 0.5rem; color: #4b5563; font-size: 0.875rem; margin-bottom: 3rem;">
+  <div style="display: flex; align-items: center; gap: 0.5rem;">
+    <span style="color: #9ca3af;">📍</span>
+    <span>University of Maryland · College Park, MD</span>
+  </div>
+  <div style="display: flex; align-items: center; gap: 0.5rem;">
+    <span style="color: #9ca3af;">📅</span>
+    <span>Wednesday, May 20 from 8:30 am to 5 pm</span>
+  </div>
+</div>
+
+<h2 style="font-size: 1.25rem; font-weight: 600; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; margin-bottom: 1rem;">Overview</h2>
+
+<div style="color: #374151; line-height: 1.75; font-size: 0.875rem; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem;">
+  <p>The <a href="https://citeamcourse.org/" target="_blank" rel="noopener noreferrer">CITEAM</a> workshop is geared toward cyberinfrastructure (CI) training for the community of scientists and researchers using the new generation of Transmission Electron Microscope (TEM) instruments at UMD. The training materials presented during the workshop and the associated training activities will help reduce barriers to the use of the instruments, data, software tools, and computing to help users in key steps critical to their scientific inquiry — from data collection, data analysis, to storing and publishing data — encompassing end-to-end TEM Data Management.</p>
+  <p>This edition of the workshop will include a keynote talk from <a href="https://mse.umd.edu/clark/faculty/722/Ichiro-Takeuchi" target="_blank" rel="noopener noreferrer">Professor Ichiro Takeuchi</a>, and cover foundational materials relevant to the instrument users.</p>
+  <p>This day-long workshop will be structured around a mix of lectures introducing the materials customized for the instrument users, hands-on sessions where participants will have the opportunity to go through end-to-end examples with the workshop instructors, site visit to the actual instrument, followed by office hours from the instructors to address specific questions and concerns.</p>
+  <p>Although this workshop is geared towards new users, intermediate and advanced users are also invited to attend, participate in the advanced hands-on sessions, and provide feedback on the materials presented.</p>
+</div>
+
+<h2 style="font-size: 1.25rem; font-weight: 600; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; margin-bottom: 1rem;">Register</h2>
+
+<div style="color: #374151; line-height: 1.75; font-size: 0.875rem; margin-bottom: 3rem;">
+  <p>The registration fee is $80 and will be collected via UMD-issued invoices. Payment can be made by check or credit card through the UMD Bursar's Office. Please note that registration fees are non-refundable.</p>
+  <div style="margin-top: 1rem;">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSoUTdiSjyiqth-y_PGRjp_xdyfJlvZz0_m55PARp4koZK7w/viewform?usp=publish-editor"
+       target="_blank"
+       rel="noopener noreferrer"
+       style="background-color: #EF9F27; color: white; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.875rem;">
+      RSVP
+    </a>
+  </div>
+</div>
+
+<h2 style="font-size: 1.25rem; font-weight: 600; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; margin-bottom: 1rem;">Location</h2>
+
+<div style="font-size: 0.875rem; color: #374151; margin-bottom: 3rem;">
+  <p style="font-weight: 600; color: #111827; margin-bottom: 0.25rem;">University of Maryland</p>
+  <p style="color: #6b7280; margin-bottom: 0.25rem;">Jeong H. Kim Engineering Building, Room 2107</p>
+  <p style="margin-bottom: 0.25rem;">8228 Paint Branch Dr</p>
+  <p>College Park, MD 20742</p>
+</div>
+
+<h2 style="font-size: 1.25rem; font-weight: 600; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; margin-bottom: 1rem;">Agenda</h2>
+
+<div style="border-top: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">08:30 AM – 08:45 AM</span>
+    <span style="font-size: 0.875rem; color: #1f2937; font-weight: 500;">Arrival + environment check</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">08:45 AM – 09:45 AM</span>
+    <span style="font-size: 0.875rem; color: #1f2937; font-weight: 500;">Why we are here: open science, data management, and workshop goals</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">09:45 AM – 10:15 AM</span>
+    <span style="font-size: 0.875rem; color: #1f2937; font-weight: 500;">Open TIFF image and generate a JPEG thumbnail</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">10:15 AM – 10:40 AM</span>
+    <span style="font-size: 0.875rem; color: #1f2937; font-weight: 500;">Histogram and contrast</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">10:40 AM – 10:55 AM</span>
+    <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Break</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">10:55 AM – 11:20 AM</span>
+    <span style="font-size: 0.875rem; color: #1f2937; font-weight: 500;">Noise correction</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">11:20 AM – 12:05 PM</span>
+    <span style="font-size: 0.875rem; color: #1f2937; font-weight: 500;">Drift correction on a stack</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">12:30 PM – 01:10 PM</span>
+    <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Lunch</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">01:10 PM – 02:10 PM</span>
+    <span style="font-size: 0.875rem; color: #1f2937; font-weight: 500;">Microscopy suite visit</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">02:10 PM – 02:40 PM</span>
+    <span style="font-size: 0.875rem; color: #1f2937; font-weight: 500;">Measure distances</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">02:40 PM – 03:20 PM</span>
+    <span style="font-size: 0.875rem; color: #1f2937; font-weight: 500;">Export to HDF5 + per-image README</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">03:20 PM – 03:35 PM</span>
+    <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Break</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">03:35 PM – 04:00 PM</span>
+    <span style="font-size: 0.875rem; color: #1f2937; font-weight: 500;">Bonus</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">04:00 PM – 04:40 PM</span>
+    <span style="font-size: 0.875rem; color: #1f2937; font-weight: 500;">Capstone: From raw image to documented output</span>
+  </div>
+  <div style="padding: 0.75rem 0; display: flex; align-items: baseline; gap: 1rem;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 13rem; flex-shrink: 0;">04:40 PM – 05:00 PM</span>
+    <span style="font-size: 0.875rem; color: #1f2937; font-weight: 500;">Final discussion + Q&amp;A + close</span>
+  </div>
+</div>
+
+</div>
+```
