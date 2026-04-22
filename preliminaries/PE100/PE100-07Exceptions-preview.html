@@ -617,7 +617,78 @@ further up the list.</code></pre>
 </div>
 
 
-     </main> <!-- /main -->  <script id="quarto-html-after-body" type="application/javascript">
+     </main> <!-- /main -->  <style>
+  .navbar-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: #ffffff;
+  }
+  .navbar-logos img {
+    height: 2.5rem;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+  }
+
+  /* Desktop: float logos centered inside the navbar */
+  @media (min-width: 992px) {
+    .navbar-logos {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      height: 100%;
+      pointer-events: none;
+    }
+  }
+
+  /* Mobile: show as a slim bar below the navbar */
+  @media (max-width: 991px) {
+    .navbar-logos {
+      padding: 0.35rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .navbar-logos img {
+      height: 1.5rem;
+    }
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.querySelector("nav.navbar");
+    if (!navbar) return;
+
+    const logoDiv = document.createElement("div");
+    logoDiv.className = "navbar-logos";
+
+    const logos = [
+      { src: "images/logo-umd.png", alt: "University of Maryland" },
+      { src: "images/logo-unc.png", alt: "UNC Chapel Hill" },
+      { src: "images/logo-usc.png", alt: "University of Southern California" },
+      { src: "images/logo-nsf.png", alt: "NSF" },
+    ];
+
+    logos.forEach(function (logo) {
+      const img = document.createElement("img");
+      img.src = logo.src;
+      img.alt = logo.alt;
+      logoDiv.appendChild(img);
+    });
+
+    // On desktop: place inside navbar for overlay; on mobile: insert after navbar
+    if (window.innerWidth >= 992) {
+      const container = navbar.querySelector(".navbar-container");
+      if (container) {
+        container.style.position = "relative";
+        container.appendChild(logoDiv);
+      }
+    } else {
+      navbar.insertAdjacentElement("afterend", logoDiv);
+    }
+  });
+</script>  <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

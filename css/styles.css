@@ -1,5 +1,6 @@
 body {
     scroll-behavior: smooth;
+    background-color: #ffffff;
   }
   h1, h2, h3 {
     font-weight: 700;
@@ -7,4 +8,14 @@ body {
   footer {
     font-size: 0.9rem;
   }
-  
+  .navbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #d1d5db;
+    min-height: 4rem;
+  }
+  .navbar-container {
+    min-height: 4rem;
+  }
+  .navbar-brand, .nav-link {
+    color: #111827 !important;
+  }
