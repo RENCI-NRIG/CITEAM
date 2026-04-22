@@ -1,5 +1,10 @@
 project:
   type: website
+  resources:
+    - images/logo-unc.png
+    - images/logo-usc.png
+    - images/logo-nsf.png
+    - images/nsf.png
 
 website:
   title: "CITEAM"
@@ -36,6 +41,7 @@ format:
       light: cosmo
       dark: cyborg
     css: css/styles.css
+    include-after-body: _navbar-logos.html
     toc: true
     toc-location: right
     code-copy: true
