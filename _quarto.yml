@@ -1,6 +1,7 @@
 project:
   type: website
   resources:
+    - images/logo-umd.png
     - images/logo-unc.png
     - images/logo-usc.png
     - images/logo-nsf.png
