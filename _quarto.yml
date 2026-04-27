@@ -1,5 +1,11 @@
 project:
   type: website
+  resources:
+    - images/logo-umd.png
+    - images/logo-unc.png
+    - images/logo-usc.png
+    - images/logo-nsf.png
+    - images/nsf.png
 
 website:
   title: "CITEAM"
@@ -13,14 +19,18 @@ website:
         text: Home
       - href: about.qmd
         text: About
+      - href: workshop-2026.qmd
+        text: Workshop 2026
   page-footer:
     border: true
     center: |
       <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.25rem 0;">
         <img src="images/nsf.png" alt="NSF logo" style="height: 35px; width: auto;">
         <span style="font-size: 0.85rem; color: #666;">
-          CITEAM is supported by the NSF under award number 
-          <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519465" target="_blank">2519465</a>.
+          CITEAM is supported by the NSF under award numbers
+          <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519465" target="_blank">2519465</a>,
+          <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519466" target="_blank">2519466</a>,
+          and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519467" target="_blank">2519467</a>.
         </span>
       </div>
 
@@ -32,6 +42,7 @@ format:
       light: cosmo
       dark: cyborg
     css: css/styles.css
+    include-after-body: _navbar-logos.html
     toc: true
     toc-location: right
     code-copy: true
