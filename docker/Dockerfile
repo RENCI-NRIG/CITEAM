@@ -35,8 +35,14 @@ ADD ./config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # install jupyterlab using conda
 # nodejs is required for jupyterlab
 # ipympl is required for interactive widgets
-RUN conda install -y -c conda-forge nodejs jupyterlab ipympl
-RUN jupyter labextension enable ipympl
+RUN conda install -y -c conda-forge nodejs jupyterlab==4.5.3 ipympl==0.10.0 ipywidgets==8.1.8 hyperspy-gui-ipywidgets
+
+# Add the overrides.json to disable commsOverSubshells
+ADD ./config/overrides.json /opt/conda/share/jupyter/lab/settings/overrides.json
+
+# not required for jupyter version greater than 3
+#RUN jupyter labextension enable ipympl ipywidgets
+
 
 # Locale and timezone
 ENV LANG=en_US.UTF-8
@@ -49,9 +55,6 @@ RUN echo "en_US.UTF-8 UTF-8" | tee -a /etc/locale.gen && \
 RUN chown -R $CITEAMS_USER /home/$CITEAMS_USER/
 RUN echo -e "$CITEAMS_USER ALL=(ALL)       NOPASSWD:ALL\n" >> /etc/sudoers
 
-# Set Kernel for Jupyter (exposes PATH and PYTHONPATH for use when terminal from jupyter is used)
-ADD ./config/kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
-
 # create the conda environment to use for citeams training
 ADD ./config  /tmp/config
 #ADD ./config/hyperspy_tools /tmp/hyperspy_tools-0.1.2-py3-none-any.whl /tmp/hyperspy_tools-0.1.2-py3-none-any.whl
@@ -60,8 +63,7 @@ RUN conda env create -n $CONDA_ENV_NAME -f /tmp/config/conda.yml
 RUN conda clean -y --all
 
 # create a jupyter kernel for environment mentioned in the conda.yml file
-RUN conda run -n $CONDA_ENV_NAME python -m ipykernel install --name=$CONDA_ENV_NAME --display-name="Python ($CONDA_ENV_NAME)"
-
+RUN conda run -n $CONDA_ENV_NAME python3 -m ipykernel install --name=$CONDA_ENV_NAME --display-name="Python ($CONDA_ENV_NAME)"
 
 CMD ["/start.sh"]
 
