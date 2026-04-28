@@ -35,8 +35,7 @@ ADD ./config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # install jupyterlab using conda
 # nodejs is required for jupyterlab
 # ipympl is required for interactive widgets
-RUN conda install -y -c conda-forge nodejs jupyterlab
-#ipympl jupyterlab_widgets ipywidgets
+RUN conda install -y -c conda-forge nodejs jupyterlab==4.5.3 ipympl==0.10.0 ipywidgets==8.1.8 hyperspy-gui-ipywidgets
 
 # not required for jupyter version greater than 3
 #RUN jupyter labextension enable ipympl ipywidgets
