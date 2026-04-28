@@ -55,9 +55,6 @@ RUN echo "en_US.UTF-8 UTF-8" | tee -a /etc/locale.gen && \
 RUN chown -R $CITEAMS_USER /home/$CITEAMS_USER/
 RUN echo -e "$CITEAMS_USER ALL=(ALL)       NOPASSWD:ALL\n" >> /etc/sudoers
 
-# Set Kernel for Jupyter (exposes PATH and PYTHONPATH for use when terminal from jupyter is used)
-ADD ./config/kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
-
 # create the conda environment to use for citeams training
 ADD ./config  /tmp/config
 #ADD ./config/hyperspy_tools /tmp/hyperspy_tools-0.1.2-py3-none-any.whl /tmp/hyperspy_tools-0.1.2-py3-none-any.whl
