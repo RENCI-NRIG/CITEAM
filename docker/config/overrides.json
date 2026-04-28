@@ -1,0 +1,6 @@
+{
+  "@jupyterlab/apputils-extension:kernels-settings": {
+    "showStatusBarItem": true,
+    "commsOverSubshells": "disabled"
+  }
+}

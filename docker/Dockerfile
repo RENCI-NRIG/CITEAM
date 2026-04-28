@@ -37,6 +37,9 @@ ADD ./config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # ipympl is required for interactive widgets
 RUN conda install -y -c conda-forge nodejs jupyterlab==4.5.3 ipympl==0.10.0 ipywidgets==8.1.8 hyperspy-gui-ipywidgets
 
+# Add the overrides.json to disable commsOverSubshells
+ADD ./config/overrides.json /opt/conda/share/jupyter/lab/settings/overrides.json
+
 # not required for jupyter version greater than 3
 #RUN jupyter labextension enable ipympl ipywidgets
 
