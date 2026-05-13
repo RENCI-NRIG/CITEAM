@@ -60,11 +60,23 @@ format:
 
 <h2 style="font-size: 1.25rem; font-weight: 600; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; margin-bottom: 1rem;">Location</h2>
 
-<div style="font-size: 0.875rem; color: #374151; margin-bottom: 3rem;">
+<div style="font-size: 0.875rem; color: #374151; margin-bottom: 1rem;">
   <p style="font-weight: 600; color: #111827; margin-bottom: 0.25rem;">University of Maryland</p>
   <p style="color: #6b7280; margin-bottom: 0.25rem;">Jeong H. Kim Engineering Building, Room 2107</p>
   <p style="margin-bottom: 0.25rem;">8228 Paint Branch Dr</p>
   <p>College Park, MD 20742</p>
+</div>
+
+<div style="margin-bottom: 3rem; border-radius: 0.5rem; overflow: hidden; border: 1px solid #e5e7eb; height: 300px;">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3109.6!2d-76.9378784!3d38.9908576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c6a3b1bdc52d%3A0x13a9812612a93c51!2sJeong+H.+Kim+Engineering+Building!5e0!3m2!1sen!2sus!4v1715000000000"
+    width="100%"
+    height="300"
+    style="border: 0; display: block;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
 </div>
 
 <h2 style="font-size: 1.25rem; font-weight: 600; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; margin-bottom: 1rem;">Agenda</h2>
@@ -79,7 +91,7 @@ format:
   <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">8:00 – 8:30 AM</span>
     <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Breakfast</span>
+      <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Breakfast (provided)</span>
     </div>
   </div>
   <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
@@ -110,16 +122,23 @@ format:
     </div>
   </div>
   <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
-    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">9:35 – 10:20 AM</span>
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">9:35 – 9:55 AM</span>
     <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
       <span style="font-size: 0.875rem; color: #1f2937;">Introduction to TEM</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Lourdes Salamanca-Riba &amp; Erik Scott</span>
+      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Lourdes Salamanca-Riba</span>
+    </div>
+  </div>
+  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+    <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">9:55 – 10:20 AM</span>
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
+      <span style="font-size: 0.875rem; color: #1f2937;">First Steps</span>
+      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Erik Scott</span>
     </div>
   </div>
   <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">10:20 – 10:35 AM</span>
     <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Break</span>
+      <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Coffee Break</span>
     </div>
   </div>
   <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
@@ -153,7 +172,7 @@ format:
   <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">11:35 AM – 12:30 PM</span>
     <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Lunch</span>
+      <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Lunch (provided)</span>
     </div>
   </div>
   <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
@@ -180,20 +199,20 @@ format:
   <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">2:20 – 2:35 PM</span>
     <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Break</span>
+      <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Coffee Break</span>
     </div>
   </div>
   <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">2:35 – 3:45 PM</span>
     <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
       <span style="font-size: 0.875rem; color: #1f2937;">FFT analysis</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Lourdes Salamanca-Riba &amp; Alex Hunt &amp; John Cumings</span>
+      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Lourdes Salamanca-Riba &amp; Alex Hall &amp; John Cumings</span>
     </div>
   </div>
   <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">3:45 – 4:15 PM</span>
     <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">Docker install on personal laptops</span>
+      <span style="font-size: 0.875rem; color: #1f2937;">Software setup on personal laptops</span>
       <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">John Cumings &amp; Karan Vahi</span>
     </div>
   </div>
