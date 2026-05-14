@@ -355,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#setting-physical-units-on-the-axes" id="toc-setting-physical-units-on-the-axes" class="nav-link" data-scroll-target="#setting-physical-units-on-the-axes">Setting physical units on the axes</a></li>
   <li><a href="#smoothing-for-presentation-not-analysis" id="toc-smoothing-for-presentation-not-analysis" class="nav-link" data-scroll-target="#smoothing-for-presentation-not-analysis">Smoothing for <em>presentation</em> (not analysis)</a></li>
   <li><a href="#other-denoising-algorithms-via-hyperspy" id="toc-other-denoising-algorithms-via-hyperspy" class="nav-link" data-scroll-target="#other-denoising-algorithms-via-hyperspy">Other denoising algorithms via HyperSpy</a></li>
-  <li><a href="#reading-the-scale-from-the-sidecar-.txt-metadata" id="toc-reading-the-scale-from-the-sidecar-.txt-metadata" class="nav-link" data-scroll-target="#reading-the-scale-from-the-sidecar-.txt-metadata">Reading the scale from the sidecar <code>.txt</code> metadata</a></li>
+  <li><a href="#reading-the-scale-from-the-sidecar-.txt-metadata" id="toc-reading-the-scale-from-the-sidecar-.txt-metadata" class="nav-link" data-scroll-target="#reading-the-scale-from-the-sidecar-.txt-metadata">Reading the scale from the sidecar .txt metadata¶</a></li>
   </ul></li>
   <li><a href="#section-0.1.5-measure-distances-pixels-nm-interactively---lourdes-and-erik" id="toc-section-0.1.5-measure-distances-pixels-nm-interactively---lourdes-and-erik" class="nav-link" data-scroll-target="#section-0.1.5-measure-distances-pixels-nm-interactively---lourdes-and-erik">Section 0.1.5 — Measure Distances (pixels → nm) Interactively - Lourdes and Erik</a></li>
   <li><a href="#section-0.1.6-fft-analysis---lourdes-and-alex" id="toc-section-0.1.6-fft-analysis---lourdes-and-alex" class="nav-link" data-scroll-target="#section-0.1.6-fft-analysis---lourdes-and-alex">Section 0.1.6 — FFT Analysis - Lourdes and Alex</a>
@@ -841,14 +841,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># let Hyperspy do the hard work for us...</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># start with a clean copy again:</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> hs.load(SINGLE_TIFF_PATH)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">0</span>].change_dtype(<span class="st">'float'</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>tiffFilesWildcard <span class="op">=</span> STACK_FOLDER_PATH <span class="op">+</span> <span class="st">"/*.tif"</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"loading all the files matching"</span>, tiffFilesWildcard)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>imgStack <span class="op">=</span> hs.load(tiffFilesWildcard, stack<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">0</span>].decomposition()    <span class="co"># taking ALL the defaults - a lot to understand here.</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">0</span>].plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].change_dtype(<span class="st">'float'</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].decomposition()    <span class="co"># taking ALL the defaults - a lot to understand here.</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <hr>
 </section>
@@ -1010,49 +1013,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="reading-the-scale-from-the-sidecar-.txt-metadata" class="level3">
-<h3 class="anchored" data-anchor-id="reading-the-scale-from-the-sidecar-.txt-metadata">Reading the scale from the sidecar <code>.txt</code> metadata</h3>
-<p>The GUI is fine for one-off use, but for any kind of repeatable workflow we want to read the scale information directly from the sidecar <code>.txt</code> file that the microscope writes alongside each TIFF, and then use those numbers to set the HyperSpy axis scales.</p>
-<div id="1137e3a1-6d50-4ecd-a315-becb80457aeb" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Alternative: read the metadata from the text file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<h3 class="anchored" data-anchor-id="reading-the-scale-from-the-sidecar-.txt-metadata">Reading the scale from the sidecar .txt metadata¶</h3>
+<p>The GUI is fine for one-off use, but for any kind of repeatable workflow we want to read the scale information directly from the sidecar .txt file that the microscope writes alongside each TIFF, and then use those numbers to set the HyperSpy axis scales.</p>
 <div id="48ccf327-99cc-4cb8-96e0-bd35b96d38a6" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> string_to_float_iterative(s):</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    numeric_string <span class="op">=</span> <span class="st">''</span>.join([c <span class="cf">for</span> c <span class="kw">in</span> s <span class="cf">if</span> c.isdigit() <span class="kw">or</span> c <span class="op">==</span> <span class="st">'.'</span>])</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(numeric_string)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(SINGLE_TIFF_METADATA)</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(SINGLE_TIFF_METADATA) <span class="im">as</span> f:</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co">#with open("/tmp/hi") as f:</span></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> f:</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>        lineList <span class="op">=</span> line.split()</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(lineList)<span class="op">==</span><span class="dv">0</span>:</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> lineList[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"$$SM_MICRON_BAR"</span>:</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>            smMicronBar <span class="op">=</span> <span class="bu">float</span>(lineList[<span class="dv">1</span>])</span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> lineList[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"$$SM_MICRON_MARKER"</span>:</span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>            smMicronMarker <span class="op">=</span> string_to_float_iterative(lineList[<span class="dv">1</span>])</span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    scale<span class="op">=</span>smMicronMarker<span class="op">/</span>smMicronBar</span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"A METADATA PROBLEM HAPPENED!"</span>)</span>
-<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>    scale<span class="op">=-</span><span class="fl">1000000.0</span></span>
-<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"Metadata text file suggests scale ="</span>, scale)</span>
-<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">1</span>].name <span class="op">=</span> <span class="st">"Distance"</span></span>
-<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">1</span>].units <span class="op">=</span> <span class="st">"nm"</span></span>
-<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">1</span>].scale <span class="op">=</span> scale</span>
-<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">1</span>].offset <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">2</span>].name <span class="op">=</span> <span class="st">"Distance"</span></span>
-<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">2</span>].units <span class="op">=</span> <span class="st">"nm"</span></span>
-<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">2</span>].scale <span class="op">=</span> scale</span>
-<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">2</span>].offset <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].plot()</span>
-<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(imgStack[<span class="dv">0</span>].calibrate(interactive<span class="op">=</span><span class="va">True</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Alternative: read the metadata from the text file</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> string_to_float_iterative(s):</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    numeric_string <span class="op">=</span> <span class="st">''</span>.join([c <span class="cf">for</span> c <span class="kw">in</span> s <span class="cf">if</span> c.isdigit() <span class="kw">or</span> c <span class="op">==</span> <span class="st">'.'</span>])</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(numeric_string)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(SINGLE_TIFF_METADATA)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(SINGLE_TIFF_METADATA) <span class="im">as</span> f:</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co">#with open("/tmp/hi") as f:</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> f:</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        lineList <span class="op">=</span> line.split()</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(lineList)<span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> lineList[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"$$SM_MICRON_BAR"</span>:</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>            smMicronBar <span class="op">=</span> <span class="bu">float</span>(lineList[<span class="dv">1</span>])</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> lineList[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"$$SM_MICRON_MARKER"</span>:</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>            smMicronMarker <span class="op">=</span> string_to_float_iterative(lineList[<span class="dv">1</span>])</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>    scale<span class="op">=</span>smMicronMarker<span class="op">/</span>smMicronBar</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"A METADATA PROBLEM HAPPENED!"</span>)</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>    scale<span class="op">=-</span><span class="fl">1000000.0</span></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"Metadata text file suggests scale ="</span>, scale)</span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">1</span>].name <span class="op">=</span> <span class="st">"Distance"</span></span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">1</span>].units <span class="op">=</span> <span class="st">"nm"</span></span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">1</span>].scale <span class="op">=</span> scale</span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">1</span>].offset <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">2</span>].name <span class="op">=</span> <span class="st">"Distance"</span></span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">2</span>].units <span class="op">=</span> <span class="st">"nm"</span></span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">2</span>].scale <span class="op">=</span> scale</span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager[<span class="dv">2</span>].offset <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].plot()</span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(imgStack[<span class="dv">0</span>].calibrate(interactive<span class="op">=</span><span class="va">True</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <hr>
 </section>
@@ -1070,27 +1072,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Instructor cue — Erik:</strong> Run the cell below and three buttons appear underneath: <em>Axis 1</em>, <em>Axis 2</em>, <em>Axis 3</em>. <em>Axis 1</em> is just the number of images in the stack (10). <em>Axis 2</em> is width and <em>Axis 3</em> is height. Click each, set units to <code>nm</code>, and the scale to <code>0.0390625</code> (~25.6 px/nm).</p>
 </blockquote>
 <div id="bf762dfe-4b10-4331-9c58-63938fd0acf2" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, we need to open the Hyperspy "axes manager" and enter the values for the scale.</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Run this code cell, and three clickable buttons will appear below: "Axis 1", "Axis 2", and "Axis 3".</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Axis 1 is just the number of images in the stack - 10. Axis 2 is the width axis and axis 3 is the height axis.</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Click on each of those two, enter "nm" for your units, and .0390625000 for the scale. In other words,</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># each pixel represents .039-ish nanometers, or 25.6 pixels per nanometer</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager.gui()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, we need to open the Hyperspy "axes manager" and enter the values for the scale.</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Run this code cell, and three clickable buttons will appear below: "Axis 1", "Axis 2", and "Axis 3".</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Axis 1 is just the number of images in the stack - 10. Axis 2 is the width axis and axis 3 is the height axis.</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Click on each of those two, enter "nm" for your units, and .0390625000 for the scale. In other words,</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># each pixel represents .039-ish nanometers, or 25.6 pixels per nanometer</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].axes_manager.gui()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>While the GUI works for one-off use, it is easier (and more reproducible) to read the scale from the sidecar <code>.txt</code> files. We did exactly that in the previous section.</p>
 <div id="37a662fe-e130-4c6a-9202-a2a0bc848446" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now we can plot the data. Take a look at the scale mark in the bottom left corner of the image.</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now we can plot the data. Take a look at the scale mark in the bottom left corner of the image.</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Once the axes have a real-world scale assigned, we can use the <code>calibrate()</code> tool to measure distances between features directly on the image:</p>
 <div id="ea31a4f0-b1c1-42f2-85e7-f011a9794be9" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We don't have to hold a ruler up to the screen. Hyperspy provides a handy "calibrate()" function that lets us</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># draw a line and it will report the length in our chose scale units. (If we hadn't set the axes scales above then this</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co"># would just return the number of pixels and we would have to do something sensible with it.</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].plot()</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].calibrate(interactive<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We don't have to hold a ruler up to the screen. Hyperspy provides a handy "calibrate()" function that lets us</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># draw a line and it will report the length in our chose scale units. (If we hadn't set the axes scales above then this</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># would just return the number of pixels and we would have to do something sensible with it.</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].plot()</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>imgStack[<span class="dv">0</span>].calibrate(interactive<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <hr>
 </section>
@@ -1115,70 +1117,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="a-1d-line-profile-across-the-image">A 1D line profile across the image</h3>
 <p>Before we go to 2D Fourier space, let’s pull a single line through our image and inspect its intensity profile. If the sample is crystalline, periodic oscillations in the profile already hint at the lattice spacing.</p>
 <div id="6db3a050-2de0-4f8c-9946-971ad25c334f" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">0</span>].plot()</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>line_profile <span class="op">=</span> hs.roi.Line2DROI(<span class="dv">400</span>, <span class="dv">250</span>, <span class="dv">220</span>, <span class="dv">600</span>, <span class="dv">100</span>)</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>line0 <span class="op">=</span> line_profile.interactive(s[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">0</span>].plot()</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>line_profile <span class="op">=</span> hs.roi.Line2DROI(<span class="dv">400</span>, <span class="dv">250</span>, <span class="dv">220</span>, <span class="dv">600</span>, <span class="dv">100</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>line0 <span class="op">=</span> line_profile.interactive(s[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="53decc34-ca4e-4146-8667-b52808951487" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>hs.plot.plot_spectra(line0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>hs.plot.plot_spectra(line0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="define-a-rectangular-roi-and-compute-its-fft" class="level3">
 <h3 class="anchored" data-anchor-id="define-a-rectangular-roi-and-compute-its-fft">Define a rectangular ROI and compute its FFT</h3>
 <p>Now we draw a rectangular region on the real-space image and compute the 2D FFT of just that region. <code>apodization=True</code> applies a window function to suppress edge artifacts; <code>shift=True</code> puts the DC component in the center of the plot.</p>
 <div id="7bef0767-715c-4e81-ba2e-e1a4678538c6" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">0</span>].plot()</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>roi <span class="op">=</span> hs.roi.RectangularROI()</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>sliced_signal <span class="op">=</span> roi.interactive(s[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">0</span>].plot()</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>roi <span class="op">=</span> hs.roi.RectangularROI()</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>sliced_signal <span class="op">=</span> roi.interactive(s[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="f9894540-522b-423e-a640-f2ab3b967763" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>s_fft <span class="op">=</span> hs.interactive(sliced_signal.fft, apodization<span class="op">=</span><span class="va">True</span>, shift<span class="op">=</span><span class="va">True</span>, recompute_out_event<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>s_fft.plot(power_spectrum<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>s_fft <span class="op">=</span> hs.interactive(sliced_signal.fft, apodization<span class="op">=</span><span class="va">True</span>, shift<span class="op">=</span><span class="va">True</span>, recompute_out_event<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>s_fft.plot(power_spectrum<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="mask-features-in-reciprocal-space" class="level3">
 <h3 class="anchored" data-anchor-id="mask-features-in-reciprocal-space">Mask features in reciprocal space</h3>
 <p>Define two polygon ROIs in the FFT plot. The plan: select specific spots (or sets of spots) in reciprocal space, mask everything else, and inverse-FFT to see which real-space periodicities they correspond to.</p>
 <div id="84514fa5-fcaf-4718-ab12-33f1c8a59203" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>p_roi <span class="op">=</span> hs.roi.PolygonROI([(<span class="fl">0.2</span>, <span class="fl">0.4</span>), (<span class="fl">0.45</span>, <span class="fl">0.45</span>), (<span class="fl">0.45</span>, <span class="fl">0.2</span>), (<span class="fl">0.35</span>, <span class="fl">0.35</span>)])</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>p_roi2 <span class="op">=</span> hs.roi.PolygonROI([(<span class="fl">0.1</span>, <span class="fl">0.2</span>), (<span class="fl">0.12</span>, <span class="fl">0.2</span>), (<span class="fl">0.15</span>, <span class="fl">0.1</span>), (<span class="fl">0.2</span>, <span class="fl">0.14</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>p_roi <span class="op">=</span> hs.roi.PolygonROI([(<span class="fl">0.2</span>, <span class="fl">0.4</span>), (<span class="fl">0.45</span>, <span class="fl">0.45</span>), (<span class="fl">0.45</span>, <span class="fl">0.2</span>), (<span class="fl">0.35</span>, <span class="fl">0.35</span>)])</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>p_roi2 <span class="op">=</span> hs.roi.PolygonROI([(<span class="fl">0.1</span>, <span class="fl">0.2</span>), (<span class="fl">0.12</span>, <span class="fl">0.2</span>), (<span class="fl">0.15</span>, <span class="fl">0.1</span>), (<span class="fl">0.2</span>, <span class="fl">0.14</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="8621fb24-5ffb-4cd1-b256-57a9446788fd" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>s_fft.plot(power_spectrum<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>p_roi.add_widget(s_fft, axes<span class="op">=</span>s_fft.axes_manager.signal_axes)</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>p_roi2.add_widget(s_fft, axes<span class="op">=</span>s_fft.axes_manager.signal_axes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>s_fft.plot(power_spectrum<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>p_roi.add_widget(s_fft, axes<span class="op">=</span>s_fft.axes_manager.signal_axes)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>p_roi2.add_widget(s_fft, axes<span class="op">=</span>s_fft.axes_manager.signal_axes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="b45170be-d894-472a-a3f5-887a57bcb713" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>s_roi_combined <span class="op">=</span> hs.roi.combine_rois(s_fft, [p_roi, p_roi2])</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>s_roi_combined.plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>s_roi_combined <span class="op">=</span> hs.roi.combine_rois(s_fft, [p_roi, p_roi2])</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>s_roi_combined.plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Build a boolean mask from the polygon ROIs and visualize it as its own 2D signal:</p>
 <div id="44077d8b-56dd-4b04-8239-a2d1b6421572" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>boolean_mask <span class="op">=</span> hs.roi.mask_from_rois([p_roi, p_roi2], s_fft.axes_manager)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>boolean_mask <span class="op">=</span> hs.signals.Signal2D(boolean_mask)</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>boolean_mask.plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>boolean_mask <span class="op">=</span> hs.roi.mask_from_rois([p_roi, p_roi2], s_fft.axes_manager)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>boolean_mask <span class="op">=</span> hs.signals.Signal2D(boolean_mask)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>boolean_mask.plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="e84b29b9-c7d1-4e87-9446-2f855d1a7047" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>np.shape(s_fft) <span class="op">==</span> np.shape(boolean_mask)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>np.shape(s_fft) <span class="op">==</span> np.shape(boolean_mask)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote class="blockquote">
 <p><strong>Instructor cue — Alex &amp; John:</strong> The next cell may error out — the original note suggests this happens when one of the polygons is folded / non-convex. This is a teachable moment for ROI hygiene; please walk the room through <em>why</em> the operation fails and how to repair the polygon.</p>
 </blockquote>
 <div id="bfeddfd9-3c1f-4e41-99f4-b5ba034b986e" class="cell" data-scrolled="true">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This will error out, perhaps because the smaller N-gon is folded?</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>masked_signal <span class="op">=</span> s_fft<span class="op">*</span>boolean_mask</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This will error out, perhaps because the smaller N-gon is folded?</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>masked_signal <span class="op">=</span> s_fft<span class="op">*</span>boolean_mask</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="4e0cabbe-dede-40d4-ba94-4287ba882930" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>masked_signal.plot(power_spectrum<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>masked_signal.plot(power_spectrum<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="inverse-fft-the-masked-region" class="level3">
 <h3 class="anchored" data-anchor-id="inverse-fft-the-masked-region">Inverse FFT the masked region</h3>
 <p>The whole point of building a mask in reciprocal space is to reconstruct a <em>filtered</em> real-space image: only the periodicities we kept. Run the inverse FFT and compare to the original.</p>
 <div id="66cfdc75-c088-49e5-92c3-8dacd78c0786" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>im_ifft <span class="op">=</span> masked_signal.ifft()</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>im_ifft.plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>im_ifft <span class="op">=</span> masked_signal.ifft()</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>im_ifft.plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <hr>
 </section>
