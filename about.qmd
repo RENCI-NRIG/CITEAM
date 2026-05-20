@@ -1,7 +1,0 @@
-The **Cyberinfrastructure Training for Electron Microscopy–Enabled
-Materials Science (CITEAM)** project brings together PIs with
-expertise in CI as well as in imaging-enabled materials science to
-develop an innovative training program targeting the materials science
-community that relies on advanced microscopes (e.g., Transmission
-Electron Microscopes (TEM)) for research.
-
