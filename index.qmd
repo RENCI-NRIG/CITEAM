@@ -38,25 +38,19 @@ resource providers. This approach ensures scalability, sustainability,
 and broad dissemination of training materials and practices.
 
 
-There are presently two sets of training modules available. The first
-one is a basic introduction to the Python programming language. Python
-has quickly become the dominant language for science and engineering,
-and all our remaining modules will use it. The second module is an
-introduction to electron microscope image processing and is, of
-course, written in Python.
+## Image Analysis for TEM Science
 
-The remaining modules have, sadly, not been written yet. Take this as
-an outline of what could be and as a "jumping off point" for further work.
+- IMG 100: [Image Analysis for TEM Science][img100]
+
+[img100]: ./image-analysis/IMG100/index.qmd
 
 ## Introductory Modules
 
 - PRE 100: [Python Programming and Jupyter notebooks][pe100]
 - PRE 101: [Microscopy Image Processing Basics][pre101]
 
-
 [pe100]: ./preliminaries/PE100/index.qmd
 [pre101]: ./preliminaries/PRE101/index.qmd
-
 
 ## Software Practices
 

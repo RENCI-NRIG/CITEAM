@@ -1,0 +1,58 @@
+---
+title: "IMG 100: Image Analysis for TEM Science"
+format:
+  html: default
+---
+
+This module covers foundational image analysis techniques for Transmission Electron Microscopy (TEM) science. Each section includes lecture slides and a hands-on programming notebook.
+
+## Section 0.1.1 – Introduction to TEM/STEM
+
+An introduction to Transmission and Scanning Transmission Electron Microscopy (TEM/STEM) instruments and their operation.
+
+- [Lecture Slides (PDF)](Section_0.1.1_Introduction_to_TEM_STEM.pdf)
+
+---
+
+## Section 0.1.2 – Histogram and Contrast
+
+Understanding image histograms and contrast adjustment techniques for TEM images.
+
+- [Lecture Slides (PDF)](Section_0.1.2_Histogram_and_Contrast.pdf)
+- [Programming Notebook (GitHub)](https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb)
+
+---
+
+## Section 0.1.3 – Noise Correction
+
+Techniques for identifying and correcting noise in TEM images.
+
+- [Lecture Slides (PDF)](Section_0.1.3_Noise_Correction.pdf)
+- [Programming Notebook (GitHub)](https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb)
+
+---
+
+## Section 0.1.4 – Drift Correction
+
+Methods for correcting sample drift in TEM image series.
+
+- [Lecture Slides (PDF)](Section_0.1.4_Drift_Correction.pdf)
+- [Programming Notebook (GitHub)](https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb)
+
+---
+
+## Section 0.1.5 – Measurement of Distances
+
+Calibration and measurement of distances and lattice spacings in TEM images.
+
+- [Lecture Slides (PDF)](Section_0.1.5_Measurement_of_Distances.pdf)
+- [Programming Notebook (GitHub)](https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb)
+
+---
+
+## Section 0.1.6 – FFT Analysis
+
+Using Fast Fourier Transform (FFT) analysis to extract structural information from TEM images.
+
+- [Lecture Slides (PDF)](Section_0.1.6_FFT_Analysis.pdf)
+- [Programming Notebook (GitHub)](https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb)
