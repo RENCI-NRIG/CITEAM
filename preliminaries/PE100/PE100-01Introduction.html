@@ -45,9 +45,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4c126188ccdf9f1976ed429720a0ada6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-53888b28e970cd90a5825eb57e97f52b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-4c126188ccdf9f1976ed429720a0ada6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4568b7d28f8c57a57ba72b841ab41158.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f7f960df6cf0a33174165c84016f8c95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-4568b7d28f8c57a57ba72b841ab41158.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -373,10 +373,10 @@ ul.task-list li input[type="checkbox"] {
     logoDiv.className = "navbar-logos";
 
     const logos = [
-      { src: "images/logo-umd.png", alt: "University of Maryland" },
-      { src: "images/logo-unc.png", alt: "UNC Chapel Hill" },
-      { src: "images/logo-usc.png", alt: "University of Southern California" },
-      { src: "images/logo-nsf.png", alt: "NSF" },
+      { src: "/images/logo-umd.png", alt: "University of Maryland" },
+      { src: "/images/logo-unc.png", alt: "UNC Chapel Hill" },
+      { src: "/images/logo-usc.png", alt: "University of Southern California" },
+      { src: "/images/logo-nsf.png", alt: "NSF" },
     ];
 
     logos.forEach(function (logo) {
@@ -396,6 +396,24 @@ ul.task-list li input[type="checkbox"] {
     } else {
       navbar.insertAdjacentElement("afterend", logoDiv);
     }
+  });
+</script>
+<style>
+  .nav-footer { align-items: center; }
+  .nav-footer-right { font-size: 0.85rem; color: #666; }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const center = document.querySelector(".nav-footer-center");
+    if (!center) return;
+    center.innerHTML = `
+      <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem;">
+        <img src="/images/nsf.png" alt="NSF logo" style="height: 35px; width: auto;">
+        <span style="font-size: 0.85rem; color: #666;">
+          <span style="white-space: nowrap;">CITEAM is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519465" target="_blank">2519465</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519466" target="_blank">2519466</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519467" target="_blank">2519467</a>.</span>
+        </span>
+      </div>
+    `;
   });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
@@ -818,13 +836,11 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.25rem 0;">
-<p><img src="images/nsf.png" alt="NSF logo" style="height: 35px; width: auto;"> <span style="font-size: 0.85rem; color: #666;"> CITEAM is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519465" target="_blank">2519465</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519466" target="_blank">2519466</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519467" target="_blank">2519467</a>. </span></p>
-</div>
+
 </div>
     <div class="nav-footer-right">
-      &nbsp;
-    </div>
+<p>Contact: <a href="mailto:anirban@renci.org">anirban@renci.org</a></p>
+</div>
   </div>
 </footer>
 

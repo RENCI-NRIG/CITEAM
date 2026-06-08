@@ -45,9 +45,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4c126188ccdf9f1976ed429720a0ada6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-53888b28e970cd90a5825eb57e97f52b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-4c126188ccdf9f1976ed429720a0ada6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4568b7d28f8c57a57ba72b841ab41158.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-f7f960df6cf0a33174165c84016f8c95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-4568b7d28f8c57a57ba72b841ab41158.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -359,152 +359,166 @@ ul.task-list li input[type="checkbox"] {
 
 <h2 style="font-size: 1.25rem; font-weight: 600; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; margin-bottom: 1rem;" class="anchored">Agenda</h2>
 
+<style>
+  .agenda-link { font-size: 0.75rem; color: #2563eb; text-decoration: none; white-space: nowrap; }
+  .agenda-link:hover { text-decoration: underline; }
+</style>
+
 <div style="display: flex; gap: 0.5rem; font-size: 0.75rem; font-weight: 600; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; padding-bottom: 0.5rem; margin-bottom: 0.25rem; border-bottom: 1px solid #e5e7eb;">
   <span style="width: 11rem; flex-shrink: 0;">Time</span>
   <span style="flex: 1;">Session</span>
-  <span>Speaker(s)</span>
+  <span style="width: 8rem; flex-shrink: 0;">Speaker(s)</span>
+  <span style="width: 3rem; flex-shrink: 0; text-align: center;">Slide</span>
+  <span style="width: 3rem; flex-shrink: 0; text-align: center;">Code</span>
 </div>
 
 <div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">8:00 – 8:30 AM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Breakfast (provided)</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic; flex: 1;">Breakfast (provided)</span>
+    <span style="width: 8rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">8:30 – 8:40 AM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">Arrival &amp; environment check</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">Arrival &amp; environment check</span>
+    <span style="width: 8rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">8:40 – 8:50 AM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">Workshop Welcome</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Anirban Mandal</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">Workshop Welcome</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">Anirban Mandal</span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">8:50 – 9:15 AM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">Keynote</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Ichiro Takeuchi</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">Keynote</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">Ichiro Takeuchi</span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">9:15 – 9:35 AM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">The UMD TEM facility</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">John Cumings</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">The UMD TEM facility</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">John Cumings</span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">9:35 – 9:55 AM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <a href="https://github.com/RENCI-NRIG/CITEAM/blob/main/workshops/2026/presentations/lourdes-tem-citeam2026.pdf" target="_blank" rel="noopener noreferrer" style="font-size: 0.875rem; color: #2563eb; text-decoration: none;">Introduction to TEM</a>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Lourdes Salamanca-Riba</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">Introduction to TEM</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">Lourdes Salamanca-Riba</span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="image-analysis/IMG100/Section_0.1.1_Introduction_to_TEM_STEM.pdf" target="_blank" rel="noopener noreferrer">PDF</a></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">9:55 – 10:20 AM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">First Steps</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Erik Scott</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">First Steps</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">Erik Scott</span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb" target="_blank" rel="noopener noreferrer">Code</a></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">10:20 – 10:35 AM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Coffee Break</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic; flex: 1;">Coffee Break</span>
+    <span style="width: 8rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">10:35 – 10:50 AM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">Histograms &amp; contrast</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Lourdes Salamanca-Riba &amp; Erik Scott</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">Histograms &amp; contrast</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">Lourdes Salamanca-Riba &amp; Erik Scott</span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="image-analysis/IMG100/Section_0.1.2_Histogram_and_Contrast.pdf" target="_blank" rel="noopener noreferrer">PDF</a></span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb" target="_blank" rel="noopener noreferrer">Code</a></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">10:50 – 10:55 AM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">Noise correction</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Lourdes Salamanca-Riba</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">Noise correction</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">Lourdes Salamanca-Riba</span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="image-analysis/IMG100/Section_0.1.3_Noise_Correction.pdf" target="_blank" rel="noopener noreferrer">PDF</a></span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb" target="_blank" rel="noopener noreferrer">Code</a></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">10:55 – 11:05 AM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">Gaussian blur &amp; HyperSpy denoising</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Erik Scott</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">Gaussian blur &amp; HyperSpy denoising</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">Erik Scott</span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb" target="_blank" rel="noopener noreferrer">Code</a></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">11:05 – 11:35 AM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">Drift correction</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Lourdes Salamanca-Riba &amp; Erik Scott</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">Drift correction</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">Lourdes Salamanca-Riba &amp; Erik Scott</span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="image-analysis/IMG100/Section_0.1.4_Drift_Correction.pdf" target="_blank" rel="noopener noreferrer">PDF</a></span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb" target="_blank" rel="noopener noreferrer">Code</a></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">11:35 AM – 12:30 PM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Lunch (provided)</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic; flex: 1;">Lunch (provided)</span>
+    <span style="width: 8rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">12:30 – 1:30 PM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">Microscopy suite visit</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">John Cumings</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">Microscopy suite visit</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">John Cumings</span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">1:30 – 2:00 PM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <a href="https://github.com/RENCI-NRIG/CITEAM/blob/main/workshops/2026/presentations/eva-openscience-citeams2026.pdf" target="_blank" rel="noopener noreferrer" style="font-size: 0.875rem; color: #2563eb; text-decoration: none;">Open science &amp; data management</a>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Eva Campo</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">Open science &amp; data management</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">Eva Campo</span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="workshops/2026/presentations/eva-openscience-citeams2026.pdf" target="_blank" rel="noopener noreferrer">PDF</a></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">2:00 – 2:20 PM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">Measuring distances</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Lourdes Salamanca-Riba &amp; Erik Scott</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">Measuring distances</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">Lourdes Salamanca-Riba &amp; Erik Scott</span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="image-analysis/IMG100/Section_0.1.5_Measurement_of_Distances.pdf" target="_blank" rel="noopener noreferrer">PDF</a></span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb" target="_blank" rel="noopener noreferrer">Code</a></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">2:20 – 2:35 PM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">Coffee Break</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic; flex: 1;">Coffee Break</span>
+    <span style="width: 8rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">2:35 – 3:45 PM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">FFT analysis</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">Lourdes Salamanca-Riba &amp; Alex Hall &amp; John Cumings</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">FFT analysis</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">Lourdes Salamanca-Riba &amp; Alex Hall &amp; John Cumings</span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="image-analysis/IMG100/Section_0.1.6_FFT_Analysis.pdf" target="_blank" rel="noopener noreferrer">PDF</a></span>
+    <span style="width: 3rem; flex-shrink: 0; text-align: center;"><a class="agenda-link" href="https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb" target="_blank" rel="noopener noreferrer">Code</a></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">3:45 – 4:15 PM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">Software setup on personal laptops</span>
-      <span style="font-size: 0.75rem; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">John Cumings &amp; Karan Vahi</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">Software setup on personal laptops</span>
+    <span style="font-size: 0.75rem; color: #9ca3af; width: 8rem; flex-shrink: 0;">John Cumings &amp; Karan Vahi</span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid #f3f4f6;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">4:15 – 4:30 PM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #1f2937;">Final Q&amp;A &amp; close</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #1f2937; flex: 1;">Final Q&amp;A &amp; close</span>
+    <span style="width: 8rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
-  <div style="padding: 1rem 0; display: flex; align-items: center; gap: 0.5rem;">
+  <div style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;">
     <span style="font-family: monospace; font-size: 0.75rem; color: #9ca3af; white-space: nowrap; width: 11rem; flex-shrink: 0;">4:30 PM</span>
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex: 1; min-width: 0;">
-      <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic;">End of workshop</span>
-    </div>
+    <span style="font-size: 0.875rem; color: #9ca3af; font-style: italic; flex: 1;">End of workshop</span>
+    <span style="width: 8rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
+    <span style="width: 3rem; flex-shrink: 0;"></span>
   </div>
 </div>
 
@@ -560,10 +574,10 @@ ul.task-list li input[type="checkbox"] {
     logoDiv.className = "navbar-logos";
 
     const logos = [
-      { src: "images/logo-umd.png", alt: "University of Maryland" },
-      { src: "images/logo-unc.png", alt: "UNC Chapel Hill" },
-      { src: "images/logo-usc.png", alt: "University of Southern California" },
-      { src: "images/logo-nsf.png", alt: "NSF" },
+      { src: "/images/logo-umd.png", alt: "University of Maryland" },
+      { src: "/images/logo-unc.png", alt: "UNC Chapel Hill" },
+      { src: "/images/logo-usc.png", alt: "University of Southern California" },
+      { src: "/images/logo-nsf.png", alt: "NSF" },
     ];
 
     logos.forEach(function (logo) {
@@ -583,6 +597,24 @@ ul.task-list li input[type="checkbox"] {
     } else {
       navbar.insertAdjacentElement("afterend", logoDiv);
     }
+  });
+</script>
+<style>
+  .nav-footer { align-items: center; }
+  .nav-footer-right { font-size: 0.85rem; color: #666; }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const center = document.querySelector(".nav-footer-center");
+    if (!center) return;
+    center.innerHTML = `
+      <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem;">
+        <img src="/images/nsf.png" alt="NSF logo" style="height: 35px; width: auto;">
+        <span style="font-size: 0.85rem; color: #666;">
+          <span style="white-space: nowrap;">CITEAM is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519465" target="_blank">2519465</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519466" target="_blank">2519466</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519467" target="_blank">2519467</a>.</span>
+        </span>
+      </div>
+    `;
   });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1005,13 +1037,11 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.25rem 0;">
-<p><img src="images/nsf.png" alt="NSF logo" style="height: 35px; width: auto;"> <span style="font-size: 0.85rem; color: #666;"> CITEAM is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519465" target="_blank">2519465</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519466" target="_blank">2519466</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2519467" target="_blank">2519467</a>. </span></p>
-</div>
+
 </div>
     <div class="nav-footer-right">
-      &nbsp;
-    </div>
+<p>Contact: <a href="mailto:anirban@renci.org">anirban@renci.org</a></p>
+</div>
   </div>
 </footer>
 
