@@ -10,7 +10,7 @@ This module covers foundational image analysis techniques for Transmission Elect
 
 An introduction to Transmission and Scanning Transmission Electron Microscopy (TEM/STEM) instruments and their operation.
 
-- [Lecture Slides (PDF)](Section_0.1.1_Introduction_to_TEM_STEM.pdf)
+- [Lecture Slides (PDF)](slides/Section_0.1.1_Introduction_to_TEM_STEM.pdf)
 
 ---
 
@@ -18,7 +18,7 @@ An introduction to Transmission and Scanning Transmission Electron Microscopy (T
 
 Understanding image histograms and contrast adjustment techniques for TEM images.
 
-- [Lecture Slides (PDF)](Section_0.1.2_Histogram_and_Contrast.pdf)
+- [Lecture Slides (PDF)](slides/Section_0.1.2_Histogram_and_Contrast.pdf)
 - [Programming Notebook (GitHub)](https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb)
 
 ---
@@ -27,7 +27,7 @@ Understanding image histograms and contrast adjustment techniques for TEM images
 
 Techniques for identifying and correcting noise in TEM images.
 
-- [Lecture Slides (PDF)](Section_0.1.3_Noise_Correction.pdf)
+- [Lecture Slides (PDF)](slides/Section_0.1.3_Noise_Correction.pdf)
 - [Programming Notebook (GitHub)](https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb)
 
 ---
@@ -36,7 +36,7 @@ Techniques for identifying and correcting noise in TEM images.
 
 Methods for correcting sample drift in TEM image series.
 
-- [Lecture Slides (PDF)](Section_0.1.4_Drift_Correction.pdf)
+- [Lecture Slides (PDF)](slides/Section_0.1.4_Drift_Correction.pdf)
 - [Programming Notebook (GitHub)](https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb)
 
 ---
@@ -45,7 +45,7 @@ Methods for correcting sample drift in TEM image series.
 
 Calibration and measurement of distances and lattice spacings in TEM images.
 
-- [Lecture Slides (PDF)](Section_0.1.5_Measurement_of_Distances.pdf)
+- [Lecture Slides (PDF)](slides/Section_0.1.5_Measurement_of_Distances.pdf)
 - [Programming Notebook (GitHub)](https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb)
 
 ---
@@ -54,5 +54,5 @@ Calibration and measurement of distances and lattice spacings in TEM images.
 
 Using Fast Fourier Transform (FFT) analysis to extract structural information from TEM images.
 
-- [Lecture Slides (PDF)](Section_0.1.6_FFT_Analysis.pdf)
+- [Lecture Slides (PDF)](slides/Section_0.1.6_FFT_Analysis.pdf)
 - [Programming Notebook (GitHub)](https://github.com/RENCI-NRIG/CITEAM/blob/main/notebooks/CITEAM1-Day2026.ipynb)

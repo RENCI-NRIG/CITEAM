@@ -7,25 +7,26 @@ project:
     - images/logo-nsf.png
     - images/nsf.png
     - workshops/2026/presentations/eva-openscience-citeams2026.pdf
-    - image-analysis/IMG100/Section_0.1.1_Introduction_to_TEM_STEM.pdf
-    - image-analysis/IMG100/Section_0.1.2_Histogram_and_Contrast.pdf
-    - image-analysis/IMG100/Section_0.1.3_Noise_Correction.pdf
-    - image-analysis/IMG100/Section_0.1.4_Drift_Correction.pdf
-    - image-analysis/IMG100/Section_0.1.5_Measurement_of_Distances.pdf
-    - image-analysis/IMG100/Section_0.1.6_FFT_Analysis.pdf
+    - image-analysis/IMG100/slides/Section_0.1.1_Introduction_to_TEM_STEM.pdf
+    - image-analysis/IMG100/slides/Section_0.1.2_Histogram_and_Contrast.pdf
+    - image-analysis/IMG100/slides/Section_0.1.3_Noise_Correction.pdf
+    - image-analysis/IMG100/slides/Section_0.1.4_Drift_Correction.pdf
+    - image-analysis/IMG100/slides/Section_0.1.5_Measurement_of_Distances.pdf
+    - image-analysis/IMG100/slides/Section_0.1.6_FFT_Analysis.pdf
 
 website:
   title: "CITEAM"
   site-url: "https://renci-nrig.github.io/CITEAM/"
   repo-url: "https://github.com/RENCI-NRIG/CITEAM"
   favicon: images/favicon.png
-  
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - href: workshop-2026.qmd
-        text: Workshop 2026
+      - text: Workshops
+        menu:
+          - href: workshops/2026/index.qmd
+            text: Workshop 2026
   page-footer:
     border: true
     center: " "
@@ -40,8 +41,8 @@ format:
       dark: cyborg
     css: css/styles.css
     include-after-body:
-      - _navbar-logos.html
-      - _footer.html
+      - _includes/_navbar-logos.html
+      - _includes/_footer.html
     toc: true
     toc-location: right
     code-copy: true
