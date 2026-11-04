@@ -19,6 +19,7 @@ dependencies:
   - diffsims>=0.7.0
   - ase
   - imagecodecs
+  - pyxem
   # hyperspy gui breaks unless subcommands in kernel is disabled
   # https://github.com/hyperspy/hyperspy/discussions/3562
   - ipykernel #need for installing conda as a jupyter kernel
