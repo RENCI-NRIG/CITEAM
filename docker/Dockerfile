@@ -35,7 +35,9 @@ ADD ./config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # install jupyterlab using conda
 # nodejs is required for jupyterlab
 # ipympl is required for interactive widgets
-RUN conda install -y -c conda-forge nodejs jupyterlab==4.5.3 ipympl==0.10.0 ipywidgets==8.1.8 hyperspy-gui-ipywidgets
+#RUN conda install -y -c conda-forge nodejs jupyterlab==4.5.3 ipympl==0.10.0 ipywidgets==8.1.8 hyperspy-gui-ipywidgets numba numcodecs zarr pyxem
+
+RUN conda install -y -c conda-forge nodejs jupyterlab ipympl ipywidgets hyperspy-gui-ipywidgets numba==0.68.0 numcodecs==0.15.1 zarr==2.18.7 pyxem
 
 # Add the overrides.json to disable commsOverSubshells
 ADD ./config/overrides.json /opt/conda/share/jupyter/lab/settings/overrides.json
