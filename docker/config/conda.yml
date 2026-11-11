@@ -9,7 +9,7 @@ dependencies:
   - scipy==1.10.1
   - tifffile==2026.2.24 
   - h5py==3.15.1
-  - hyperspy==2.4.0
+  - hyperspy==2.5.0
   - hyperspy-gui-ipywidgets
   - jupyterlab==4.5.3
   - ipympl==0.10.0
@@ -20,6 +20,11 @@ dependencies:
   - ase
   - imagecodecs
   - pyxem
+  # new stuff for .zspy handling in hyperspy 2.5
+  # will update to be less specific when I know more. - erik
+  - numcodecs==0.15.1
+  - numba==0.68.0
+  - zarr==2.18.7
   # hyperspy gui breaks unless subcommands in kernel is disabled
   # https://github.com/hyperspy/hyperspy/discussions/3562
   - ipykernel #need for installing conda as a jupyter kernel
