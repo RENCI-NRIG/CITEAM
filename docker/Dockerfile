@@ -28,6 +28,10 @@ RUN apt -y install  \
      vim \
      wget
 
+# I know this isn't the right way, but until Anaconda gets odrpack, not
+# sure how else to do this.
+# RUN pip install odrpack
+
 ADD ./config/start.sh /start.sh
 ADD ./config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 

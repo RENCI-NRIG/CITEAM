@@ -4,7 +4,8 @@ channels:
   - defaults
 dependencies:
   - python>=3.11,<3.14
-  - numpy==1.23.5
+#  - numpy==1.23.5
+  - numpy<2.5.0
   - pydantic==1.10.7
   - scipy==1.10.1
   - tifffile==2026.2.24 
@@ -15,18 +16,18 @@ dependencies:
   - ipympl==0.10.0
   - ipywidgets==8.1.8 
   - matplotlib>=3.5.0
-  # diffraction related packages
+# diffraction related packages
   - diffsims>=0.7.0
   - ase
   - imagecodecs
   - pyxem
-  # new stuff for .zspy handling in hyperspy 2.5
-  # will update to be less specific when I know more. - erik
+# new stuff for .zspy handling in hyperspy 2.5
+# will update to be less specific when I know more. - erik
   - numcodecs==0.15.1
   - numba==0.68.0
   - zarr==2.18.7
-  # hyperspy gui breaks unless subcommands in kernel is disabled
-  # https://github.com/hyperspy/hyperspy/discussions/3562
+# hyperspy gui breaks unless subcommands in kernel is disabled
+# https://github.com/hyperspy/hyperspy/discussions/3562
   - ipykernel #need for installing conda as a jupyter kernel
   - pip==23.0.1
   - pip:
